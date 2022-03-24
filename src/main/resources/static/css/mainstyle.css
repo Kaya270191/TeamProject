@@ -1,0 +1,72 @@
+@import '/css/reset.css';
+
+#header{
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+}
+
+#footer{
+  position: absolute;
+  width: 100%;
+  height: 70px;
+}
+
+.screen-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0066ff;
+  margin-top: 60px;
+}
+
+.screen{
+  display: flex;
+  background-color: blue;
+  width: 1020px;
+  height: 500px;
+}
+
+.sports-class {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  width: 100%;
+  height: 100%;
+  margin-top: 80px;
+}
+
+.sports-name{
+  display: flex;
+  background-color: rgb(156, 157, 223);
+  justify-content: center;
+  align-items: flex-end;
+  margin: 30px;
+  width: 300px;
+  height: 300px;
+}
+
+
+.footer-container{
+  display: flex;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  background-color: #303030;
+  color: white;
+}
+
+a{
+  margin: 5px;
+  font-size: 0.7rem;
+}
+
+.footer-bar{
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-bar-text{
+  font-size: 1rem;
+}

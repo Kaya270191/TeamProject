@@ -1,5 +1,6 @@
 let id_check=true;
 let pw_check=false;
+let change=true;
 
 function sub_check(){
     const button=document.getElementById("signup-button");
@@ -11,7 +12,6 @@ function sub_check(){
         console.log("버튼 비활성화");
         button.disabled=true;
         $(".signup-button").css("display","none");
-
     }
 }
 
@@ -68,3 +68,20 @@ function idCheck(){
         }
     });
 };
+
+function temp_change(){
+    console.log('tlqkf')
+        if(change){
+            $(".signup").css("display","none")
+            $(".gologin").css("display","inline-block")
+            $(".login").css("display","inline-block")
+            $(".goLogin").css("display","none")
+            change=!change
+        }else{
+            $(".signup").css("display","inline-block")
+            $(".gologin").css("display","none")
+            $(".login").css("display","none")
+            $(".goLogin").css("display","inline-block")
+            change=!change
+        }
+}

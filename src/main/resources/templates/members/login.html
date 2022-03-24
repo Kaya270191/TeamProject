@@ -53,7 +53,7 @@
                 <div class="introduce"><a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, labore unde accusantium distinctio modi nemo sit </a></span>
                 </div>
                 <!-- 가입창 세부 -->
-                <div class="input-container-item">
+                <div class="input-container-item signup">
                     <form action="/signup" method="post">
                         <!-- 아이디 입력 -->
                         <!-- <input class="signup-text-box-id" type="text" name="id" th:if="${memberForm}" th:value="${memberForm.id}">
@@ -92,16 +92,30 @@
                         <p><button id="signup-button" class="signup-button" disabled="true" type="submit" >Let's travel</button>
                             <!-- 가입버튼 -->
                     </form>
+
+                    <!-- 게노 참조 (로그인) -->
+                    <form action="login-do" method="post">
+                        <div class = "input-container-item login">
+                            <input>
+                            <input>
+                        </div>
+                    </form>
+
+
                 </div>
             </div>
         </div>
         <div class = "signup-footer">
             <div class="footer-container">
                 <span class = "eimi">Already signed up?</span>
-                <button class = "gologin">Login</button>
+                <button class = "gologin" onclick="temp_change()">Login</button>
+                <button class = "gosignup" onclick="temp_change()">Sign Up</button>
             </div>
         </div>
     </div>
 </div>
 </body>
 </html>
+
+<!-- 개인 메모
+gosignup 클래스 스타일지정하기 -->

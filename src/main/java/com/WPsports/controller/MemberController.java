@@ -22,6 +22,11 @@ public class MemberController {
     @Autowired
     MemberService memberService;
 
+    @GetMapping("/main")
+    public String mainUP(){
+        return "mains/main";
+    }
+
     @GetMapping("/")
     public String signupForm(){
         return "members/login";
