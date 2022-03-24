@@ -22,28 +22,28 @@ public class MemberController {
     @Autowired
     MemberService memberService;
 
-    @GetMapping("/signup")
+    @GetMapping("/")
     public String signupForm(){
-        return "signForm";
+        return "members/login";
     }
 
     @PostMapping("/signup")
     public String saveMember(@Valid MemberForm memberForm, Errors errors, Model model){
         if(errors.hasErrors()){
 //            회원가입 실패시 입력 데이터 값을 유지
-            model.addAttribute("MemberForm",memberForm);
+            model.addAttribute("memberForm",memberForm);
 //            유효성 통과 못한 필드와 메세지를 핸들링
             Map<String,String> validatorResult = memberService.validateHandling(errors);
             for(String key : validatorResult.keySet()){
                 model.addAttribute(key,validatorResult.get(key));
             }
 //            회원가입 페이지로 리턴
-            return "index";
+            return "members/login";
         }
         model.addAttribute("MemberForm",memberForm);
         Member saveMember=memberService.save(memberForm);
         log.info("Entity id={} name={}",saveMember.getId(),saveMember.getName());
-        return "welcomemember";
+        return "members/welcomemember";
     }
 
     @PostMapping("/signup/checkID")

@@ -1,0 +1,46 @@
+
+<!--게시판 글 한개 쓰기-->
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+</head>
+<h1>게시판</h1>
+
+<form class="container" action="/boards/create" method="post">
+    <div class="mb-3">
+        <label>제목</label>
+        <input type="text" name="title">
+        <!--        name 부분에 dto의 필드변수랑 같은 것을 넣어줘야함 -->
+    </div>
+
+    <div class="mb-3">
+        <label>작성자</label>
+        <input type="text" name="writer">
+    </div>
+
+    <div class="mb-3">
+        <label>내용</label>
+        <textarea name="content"></textarea>
+    </div>
+
+    <!--        <div class="mb-3">-->
+    <!--            <label 조회수</label>-->
+    <!--            <textarea name="view_count"></textarea>-->
+    <!--        </div>-->
+
+    <!--        <div class="mb-3">-->
+    <!--            <label>작성일자</label>-->
+    <!--            <textarea name="reg_date"></textarea>-->
+    <!--        </div>-->
+
+    <button type="submit" class="btn btn-primary">등록</button>
+    <a href="/boards">목록으로 돌아가기</a>
+    </div>
+</form>
+<body>
+
+</body>
+</html>

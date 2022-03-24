@@ -58,8 +58,8 @@
                         <!-- 아이디 입력 -->
                         <!-- <input class="signup-text-box-id" type="text" name="id" th:if="${memberDTO}" th:value="${memberDTO.id}">
                         <input class="signup-text-box-id" type="text" name="id" th:unless="${memberDTO}" placeholder="아이디"> -->
-<!--                        <p><input type="text" class="signup-text-box id" name="id" th:if="${MemberForm}" th:value="${memberForm.id}" oninput="idCheck()"></p>-->
-                        <p><input type="text" class="signup-text-box id" name="id" th:unless="${MemberForm}" placeholder="아이디" oninput="idCheck()"></p>
+                        <p><input type="text" class="signup-text-box id" name="id" th:if="${memberForm}" th:value="${memberForm.id}" oninput="idCheck()"></p>
+                        <p><input type="text" class="signup-text-box id" name="id" th:unless="${memberForm}" placeholder="아이디" oninput="idCheck()"></p>
                         <p class="id_success">가입 가능한 아이디 입니다.</p>
                         <p class="id_failed">이미 가입된 아이디 입니다.</p>
                         <p class="id_length">가입 불가능한 아이디입니다.</p>
@@ -75,20 +75,20 @@
                         <p th:text="${valid_pw}"></p>
 
                         <!-- 이름 -->
-<!--                        <input class="signup-text-box" type="text" name="name" th:if="${MemberForm}" th:value="${memberForm.name}">-->
-                        <p><input class="signup-text-box" type=”text” name="name" th:unless="${MemberForm}" placeholder="이름">
+                        <input class="signup-text-box" type="text" name="name" th:if="${memberForm}" th:value="${memberForm.name}">
+                        <p><input class="signup-text-box" type=”text” name="name" th:unless="${memberForm}" placeholder="이름">
                         <p class = "alert" th:text="${valid_name}"></p>
                         <!-- 생년월일 -->
-<!--                        <input class="signup-text-box" type="text" name="birthday" th:if="${MemberForm}" th:value="${memberForm.birthday}">-->
-                        <p><input class="signup-text-box" type=”text” name="birthday"  th:unless="${MemberForm}" placeholder="생년월일6">
+                        <input class="signup-text-box" type="text" name="birthday" th:if="${memberForm}" th:value="${memberForm.birthday}">
+                        <p><input class="signup-text-box" type=”text” name="birthday"  th:unless="${memberForm}" placeholder="생년월일6">
                         <p class = "alert" th:text="${valid_birthday}"></p>
                         <!-- 이메일 -->
-<!--                        <input class="signup-text-box" type="text" name="email" th:if="${MemberForm}" th:value="${memberForm.email}">-->
-                        <p><input class="signup-text-box" type=”text” name="email" th:unless="${MemberForm}" placeholder="이메일">
+                        <input class="signup-text-box" type="text" name="email" th:if="${memberForm}" th:value="${memberForm.email}">
+                        <p><input class="signup-text-box" type=”text” name="email" th:unless="${memberForm}" placeholder="이메일">
                         <p class = "alert" th:text="${valid_email}"></p>
                         <!-- 주소 -->
-<!--                        <input class="signup-text-box" type="text" name="address" th:if="${MemberForm}" th:value="${memberForm.address}">-->
-                        <p><input class="signup-text-box" type=”text” name="address" th:unless="${MemberForm}"  placeholder="주소">
+                        <input class="signup-text-box" type="text" name="address" th:if="${memberForm}" th:value="${memberForm.address}">
+                        <p><input class="signup-text-box" type=”text” name="address" th:unless="${memberForm}"  placeholder="주소">
                         <p><button id="signup-button" class="signup-button" disabled="true" type="submit" >Let's travel</button>
                             <!-- 가입버튼 -->
                     </form>
