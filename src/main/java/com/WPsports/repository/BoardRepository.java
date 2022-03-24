@@ -2,6 +2,8 @@ package com.WPsports.repository;
 
 import com.WPsports.entity.Board;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -28,5 +30,7 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     int updateView(Long id);
 
     //검색
-    List<Board> findByTitleContaining(String keyword);
+    Page<Board> findByTitleContaining(String keyword, Pageable pageable);
+
+
 }

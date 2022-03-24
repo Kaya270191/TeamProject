@@ -1,5 +1,7 @@
 
-<!--게시판 쓴 글 리스트로 보기-->
+
+<!--검색리스트-->
+
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -9,13 +11,10 @@
 <h1>게시판</h1>
 
 <!--검색창-->
-
 <form action="/boards/search" method="GET" role="search">
     <input type="text" name="keyword" class="form-control" id="search" placeholder="제목으로 검색">
     <button>검색</button>
 </form>
-
-
 
 
 <table>
@@ -30,7 +29,7 @@
         </tr>
     </thread>
     <tbody>
-    <tr th:each="board, status: ${boardList}">
+    <tr th:each="board, status: ${searchList}">
         <td th:text="${board.id}"></td>
         <td><a th:href="@{/boards/{id}(id=${board.id})}"><p th:text="${board.title}"></p></a>
         <td th:text="${board.content}"></td>
@@ -42,11 +41,9 @@
 </table>
 
 
-
-
 <div>
-    <a th:href="@{?page={num}(num=${previous})}" role="botton">이전</a>
-    <a th:href="@{?page={num}(num=${next})}" role="button">다음</a>
+    <a th:href="@{/boards/search?keyword={keyword}&page={previous}(keyword=${keyword}, previous=${previous})}" role="botton">이전</a>
+    <a th:href="@{/boards/search?keyword={keyword}&page={next}(keyword=${keyword}, next=${next})}" role="button">다음</a>
 </div>
 
 
