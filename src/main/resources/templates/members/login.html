@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
-<link rel="stylesheet" type="text/css" href="/css/signUp.css">
+
 <head>
     <meta charset="UTF-8">
     <title>signUp</title>
@@ -56,9 +56,9 @@
                 <div class="input-container-item">
                     <form action="/signup" method="post">
                         <!-- 아이디 입력 -->
-                        <!-- <input class="signup-text-box-id" type="text" name="id" th:if="${memberDTO}" th:value="${memberDTO.id}">
-                        <input class="signup-text-box-id" type="text" name="id" th:unless="${memberDTO}" placeholder="아이디"> -->
-                        <p><input type="text" class="signup-text-box id" name="id" th:if="${memberForm}" th:value="${memberForm.id}" oninput="idCheck()"></p>
+                        <!-- <input class="signup-text-box-id" type="text" name="id" th:if="${memberForm}" th:value="${memberForm.id}">
+                        <input class="signup-text-box-id" type="text" name="id" th:unless="${memberForm}" placeholder="아이디"> -->
+                        <p><input type="text" class="signup-text-box id" name="id" th:if="${memberForm} or ${id}" th:value="${memberForm.id}" oninput="idCheck()"></p>
                         <p><input type="text" class="signup-text-box id" name="id" th:unless="${memberForm}" placeholder="아이디" oninput="idCheck()"></p>
                         <p class="id_success">가입 가능한 아이디 입니다.</p>
                         <p class="id_failed">이미 가입된 아이디 입니다.</p>

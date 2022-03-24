@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 
     @Modifying
     @Query("update Board b set b.view_count = b.view_count + 1 where b.id =:id")
-    int updateView(Long id);
+    int updateView(@Param(value="id") Long id);
 
     //검색
     Page<Board> findByTitleContaining(String keyword, Pageable pageable);
