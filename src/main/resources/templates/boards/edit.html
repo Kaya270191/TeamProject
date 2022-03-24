@@ -1,10 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!--게시판 수정-->
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>게시판</title>
 </head>
+<h1>게시판</h1>
+
 <body>
+<form class="container" action="/boards/update" method="post">
+    <input name="id" type="hidden" th:value="${board.id}" />
+    <div class="mb-3">
+        <label>제목</label>
+        <input type="text" name="title" th:value="${board.title}">
+        <!--        name 부분에 dto의 필드변수랑 같은 것을 넣어줘야함 -->
+    </div>
+
+    <div class="mb-3">
+        <label>작성자</label>
+        <input type="text" name="writer" th:value="${board.writer}">
+    </div>
+
+    <div class="mb-3">
+        <label>내용</label>
+        <textarea name="content" th:text="${board.content}" ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">등록</button>
+
+
+    <!--수정버튼-->
+    <a href="/boards/${board.id}" >수정</a>
+
+    <!--삭제버튼-->
+    <a href="/boards/${board.id}/delete" >삭제</a>
+
+    <!--목록으로 돌아가는 버튼-->
+    <a href="/boards" >게시판목록</a>
+
+</form>
 
 </body>
 </html>

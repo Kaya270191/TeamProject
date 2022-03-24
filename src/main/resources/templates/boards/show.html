@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!--게시판 쓴 글 리스트로 보기-->
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>게시판</title>
 </head>
-<body>
+<h1>게시판</h1>
+
+<table>
+    <thread>
+        <tr>
+            <td>번호</td>
+            <td>제목</td>
+            <td>내용</td>
+            <td>글쓴이</td>
+            <td>조회수</td>
+            <td>등록일</td>
+        </tr>
+    </thread>
+    <tbody>
+    <tr>
+        <td th:text="${board.id}"></td>
+        <td th:text="${board.title}"></td>
+        <td th:text="${board.content}"></td>
+        <td th:text="${board.writer}"></td>
+        <td th:text="${board.view_count}"></td>
+        <td th:text="${board.reg_date}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<!--수정버튼-->
+<a href="#" th:href="@{/boards/{id}/edit(id=${board.id})}" >수정</a>
+
+<!--삭제버튼-->
+<a href="#" th:href="@{/boards/{id}/delete(id=${board.id})}" >삭제</a>
+
+<!--목록으로 돌아가는 버튼-->
+<a href="/boards" >게시판목록</a>
+<!--새글쓰기-->
+<a href="/boards/new" >새글쓰기</a>
+
+
 
 </body>
 </html>
