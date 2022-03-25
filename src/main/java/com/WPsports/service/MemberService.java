@@ -61,8 +61,7 @@ public class MemberService {
         Map<String, String> failed = new HashMap<>();
         Member oldMember = memberRepository.getById(id);
         if (oldMember != null) {
-//            if(passwordEncoder.matches(pw,oldMember.getPw())){
-            if (pw.equals(oldMember.getPw())) {
+            if(passwordEncoder.matches(pw,oldMember.getPw())){
                 model.addAttribute("member", oldMember);
                 return true;
             } else {
