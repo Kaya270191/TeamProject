@@ -323,3 +323,71 @@ input::placeholder{
     color : red;
     display:none;
 }
+
+.login_box{
+    display:none;
+}
+
+.signup{
+    display:none;
+}
+
+.login-button{
+    font-size: larger;
+    font-size: 1.2rem;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 35px;
+    margin: 5px;
+    border: 0;
+    padding: 0;
+}
+
+.login-button{
+    background:#1a59ab;
+    color:#fff;
+    position:relative;
+    height: 35px;
+    font-size:1.2em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+}
+
+.login-button:hover{
+    background:#fff;
+    color:#1a59ab;
+}
+.login-button:before{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1a59ab ;
+    transition:400ms ease all;
+}
+.login-button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1a59ab ;
+    transition:400ms ease all;
+}
+
+
+.login-button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+.login-button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}

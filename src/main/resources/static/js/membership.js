@@ -70,18 +70,17 @@ function idCheck(){
 };
 
 function temp_change(){
-    console.log('tlqkf')
         if(change){
-            $(".signup").css("display","none")
-            $(".gologin").css("display","inline-block")
-            $(".login").css("display","inline-block")
-            $(".goLogin").css("display","none")
+            $(".signup_box").css("display","none")
+            $(".signup").css("display","inline-block")
+            $(".login_box").css("display","inline-block")
+            $(".login").css("display","none")
             change=!change
         }else{
-            $(".signup").css("display","inline-block")
-            $(".gologin").css("display","none")
-            $(".login").css("display","none")
-            $(".goLogin").css("display","inline-block")
+            $(".signup_box").css("display","inline-block")
+            $(".signup").css("display","none")
+            $(".login_box").css("display","none")
+            $(".login").css("display","inline-block")
             change=!change
         }
 }

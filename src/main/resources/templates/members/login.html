@@ -53,7 +53,7 @@
                 <div class="introduce"><a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, labore unde accusantium distinctio modi nemo sit </a></span>
                 </div>
                 <!-- 가입창 세부 -->
-                <div class="input-container-item signup">
+                <div class="input-container-item signup_box">
                     <form action="/signup" method="post">
                         <!-- 아이디 입력 -->
                         <!-- <input class="signup-text-box-id" type="text" name="id" th:if="${memberForm}" th:value="${memberForm.id}">
@@ -89,27 +89,25 @@
                         <!-- 주소 -->
                         <input class="signup-text-box" type="text" name="address" th:if="${memberForm}" th:value="${memberForm.address}">
                         <p><input class="signup-text-box" type=”text” name="address" th:unless="${memberForm}"  placeholder="주소">
-                        <p><button id="signup-button" class="signup-button" disabled="true" type="submit" >Let's travel</button>
+                        <p><button id="signup-button" class="signup-button" disabled="true" type="submit" >Will U Join Us?</button>
                             <!-- 가입버튼 -->
                     </form>
-
-                    <!-- 게노 참조 (로그인) -->
+                </div>
+                <!-- 게노 참조 (로그인) -->
+                <div class = "input-container-item login_box">
                     <form action="login-do" method="post">
-                        <div class = "input-container-item login">
-                            <input>
-                            <input>
-                        </div>
+                        <p><input id="login_id" class="signup-text-box" type="text" placeholder="아이디"></p>
+                        <p><input id="login_pw" class="signup-text-box" type="password" placeholder="비밀번호"></p>
+                        <p><button class="login-button" type="submit">Let's travel</button></p>
                     </form>
-
-
                 </div>
             </div>
         </div>
         <div class = "signup-footer">
             <div class="footer-container">
                 <span class = "eimi">Already signed up?</span>
-                <button class = "gologin" onclick="temp_change()">Login</button>
-                <button class = "gosignup" onclick="temp_change()">Sign Up</button>
+                <button class = "gologin login" onclick="temp_change()">Login</button>
+                <button class = "gologin signup" onclick="temp_change()">Sign Up</button>
             </div>
         </div>
     </div>
