@@ -32,6 +32,7 @@ public class MemberController {
         return "members/signup";
     }
 
+//    회원가입
     @PostMapping("/signup")
     public String saveMember(@Valid MemberForm memberForm, Errors errors, Model model){
         if(errors.hasErrors()){
@@ -51,6 +52,7 @@ public class MemberController {
         return "members/welcomemember";
     }
 
+//    가입 전 아이디(중복,길이) 확인
     @PostMapping("/signup/checkID")
     @ResponseBody
     public int checkId(String id){
@@ -67,16 +69,18 @@ public class MemberController {
         }
     }
 
+
     @GetMapping("/login")
     public String loginForm(){
         return "members/login";
     }
 
+//        로그인
     @PostMapping("/login-do")
     public String loginDO(String id,String pw,Model model){
         log.info("id={},pw={}",id,pw);
         if(memberService.loginDO(id,pw,model)){
-            return "main/main";
+            return "mains/main";
         }else {
             return "members/login";
         }

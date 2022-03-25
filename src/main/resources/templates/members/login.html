@@ -55,8 +55,9 @@
                 <!-- 게노 참조 (로그인) -->
                 <div class = "input-container-item">
                     <form action="login-do" method="post">
-                        <p><input id="login_id" class="signup-text-box" type="text" placeholder="아이디" oninput="idCheck()"></p>
-                        <p><input id="login_pw" class="signup-text-box" type="password" placeholder="비밀번호" oninput="pwCheck()"></p>
+                        <p><input id="id" class="signup-text-box" type="text" name="id" placeholder="아이디" oninput="idCheck()"></p>
+                        <p><input id="pw" class="signup-text-box" type="password" name="pw" placeholder="비밀번호" oninput="pwCheck()"></p>
+                        <p th:if="${loginFailed}" th:text="${loginFailed}"></p>
                         <p><button class="signup-button" type="submit">Let's travel</button></p>
                     </form>
                 </div>

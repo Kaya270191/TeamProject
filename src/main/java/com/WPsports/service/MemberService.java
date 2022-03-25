@@ -61,7 +61,8 @@ public class MemberService {
         Map<String,String> failed=new HashMap<>();
         Member oldMember=memberRepository.getById(id);
         if(oldMember!=null){
-            if(passwordEncoder.matches(pw,oldMember.getPw())){
+//            if(passwordEncoder.matches(pw,oldMember.getPw())){
+            if(pw.equals(oldMember.getPw())){
                 return true;
             }else{
                 failed.put("loginFailed","비밀번호가 맞지 않습니다.");
