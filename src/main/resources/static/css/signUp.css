@@ -324,14 +324,6 @@ input::placeholder{
     display:none;
 }
 
-.login_box{
-    display:none;
-}
-
-.signup{
-    display:none;
-}
-
 .login-button{
     font-size: larger;
     font-size: 1.2rem;

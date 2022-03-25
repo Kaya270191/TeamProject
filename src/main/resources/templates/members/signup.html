@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>signUp</title>
+    <!-- 기본CSS -->
+    <link rel="stylesheet" type="text/css" href="css/signUp.css">
+    <!-- 스크립트 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/js/membership.js" defer></script>
+</head>
+
+<body>
+<!-- 배경 영상 -->
+<div class="bg">
+    <video class = "video-bg" muted autoplay loop>
+        <source src="video/Bike - 72566.mp4" type="video/mp4">
+    </video>
+</div>
+<div class = "meta">
+    <!-- 가입창 전체 -->
+    <div class="sogae-container">
+        <div class = "album">
+            <div class = "pic1">
+            </div>
+            <div class = "pic2">
+            </div>
+        </div>
+        <div class = "album-2">
+            <div class = "pic3">
+                <video class = "phone-video" muted autoplay loop>
+                    <source src="video/phone.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class = "pic4">
+            </div>
+        </div>
+    </div>
+
+    <!-- 가입창 전체 -->
+    <div class = "signup-meta">
+        <div class="signup-container">
+            <!-- 가입창 상단부 -->
+            <div class="semi-container">
+                <!-- 로고(제목) -->
+                <div class="logo">
+                    <img class = "logo-design" src="/image/pngwing.com.png">
+                    <a>따스한 프로젝트</a>
+                </div>
+                <hr>
+                <!-- 사이트 간단 소개 -->
+                <div class="introduce"><a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, labore unde accusantium distinctio modi nemo sit </a></span>
+                </div>
+                <!-- 가입창 세부 -->
+                <div class="input-container-item signup_box">
+                    <form action="/signup" method="post">
+                        <!-- 아이디 입력 -->
+                        <!-- <input class="signup-text-box-id" type="text" name="id" th:if="${memberForm}" th:value="${memberForm.id}">
+                        <input class="signup-text-box-id" type="text" name="id" th:unless="${memberForm}" placeholder="아이디"> -->
+                        <p><input type="text" class="signup-text-box id" name="id" th:if="${memberForm} or ${id}" th:value="${memberForm.id}" oninput="idCheck()"></p>
+                        <p><input type="text" class="signup-text-box id" name="id" th:unless="${memberForm}" placeholder="아이디" oninput="idCheck()"></p>
+                        <p class="id_success">가입 가능한 아이디 입니다.</p>
+                        <p class="id_failed">이미 가입된 아이디 입니다.</p>
+                        <p class="id_length">가입 불가능한 아이디입니다.</p>
+                        <p th:text="${valid_id}"></p>
+
+                        <!-- 비밀번호 -->
+                        <!-- <p><input class="signup-text-box" type="password" name="pw" placeholder="비밀번호">
+                        <p class = "alert" th:text="${valid_pw}"></p> -->
+                        <p><input class="signup-text-box pw1" type="password" name="pw" placeholder="비밀번호" oninput="pwCheck()">
+                        <p><input class="signup-text-box pw2" type="password" placeholder="비밀번호 확인" oninput="pwCheck()">
+                        <p class="password_check_ok">비밀 번호가 일치합니다.</p>
+                        <p class="password_check_no">비밀 번호가 일치하지 않습니다.</p>
+                        <p th:text="${valid_pw}"></p>
+
+                        <!-- 이름 -->
+                        <input class="signup-text-box" type="text" name="name" th:if="${memberForm}" th:value="${memberForm.name}">
+                        <p><input class="signup-text-box" type=”text” name="name" th:unless="${memberForm}" placeholder="이름">
+                        <p class = "alert" th:text="${valid_name}"></p>
+                        <!-- 생년월일 -->
+                        <input class="signup-text-box" type="text" name="birthday" th:if="${memberForm}" th:value="${memberForm.birthday}">
+                        <p><input class="signup-text-box" type=”text” name="birthday"  th:unless="${memberForm}" placeholder="생년월일6">
+                        <p class = "alert" th:text="${valid_birthday}"></p>
+                        <!-- 이메일 -->
+                        <input class="signup-text-box" type="text" name="email" th:if="${memberForm}" th:value="${memberForm.email}">
+                        <p><input class="signup-text-box" type=”text” name="email" th:unless="${memberForm}" placeholder="이메일">
+                        <p class = "alert" th:text="${valid_email}"></p>
+                        <!-- 주소 -->
+                        <input class="signup-text-box" type="text" name="address" th:if="${memberForm}" th:value="${memberForm.address}">
+                        <p><input class="signup-text-box" type=”text” name="address" th:unless="${memberForm}"  placeholder="주소">
+                        <!-- 가입버튼 -->
+                        <p><button id="signup-button" class="signup-button" type="submit" >Will U Join Us?</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class = "signup-footer">
+            <div class="footer-container">
+                <span class = "eimi">Already signed up?</span>
+                <button class = "gologin login" onclick="location.href='login'">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<!-- 개인 메모
+gosignup 클래스 스타일지정하기 -->

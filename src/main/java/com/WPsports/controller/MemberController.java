@@ -29,7 +29,7 @@ public class MemberController {
 
     @GetMapping("/")
     public String signupForm(){
-        return "members/login";
+        return "members/signup";
     }
 
     @PostMapping("/signup")
@@ -43,7 +43,7 @@ public class MemberController {
                 model.addAttribute(key,validatorResult.get(key));
             }
 //            회원가입 페이지로 리턴
-            return "members/login";
+            return "members/signup";
         }
         model.addAttribute("MemberForm",memberForm);
         Member saveMember=memberService.save(memberForm);
@@ -67,13 +67,18 @@ public class MemberController {
         }
     }
 
+    @GetMapping("/login")
+    public String loginForm(){
+        return "members/login";
+    }
+
     @PostMapping("/login-do")
     public String loginDO(String id,String pw,Model model){
         log.info("id={},pw={}",id,pw);
         if(memberService.loginDO(id,pw,model)){
-            return "loginSuccess";
+            return "main/main";
         }else {
-            return "loginForm";
+            return "members/login";
         }
 
     }

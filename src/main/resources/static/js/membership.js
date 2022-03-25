@@ -68,19 +68,3 @@ function idCheck(){
         }
     });
 };
-
-function temp_change(){
-        if(change){
-            $(".signup_box").css("display","none")
-            $(".signup").css("display","inline-block")
-            $(".login_box").css("display","inline-block")
-            $(".login").css("display","none")
-            change=!change
-        }else{
-            $(".signup_box").css("display","inline-block")
-            $(".signup").css("display","none")
-            $(".login_box").css("display","none")
-            $(".login").css("display","inline-block")
-            change=!change
-        }
-}
