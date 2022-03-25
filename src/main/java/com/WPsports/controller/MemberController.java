@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.Map;
 
@@ -25,6 +27,11 @@ public class MemberController {
     @GetMapping("/main")
     public String mainUP(){
         return "mains/main";
+    }
+
+    @GetMapping("/main2")
+    public String mainUP2(){
+        return "mains/main2";
     }
 
     @GetMapping("/")
@@ -77,14 +84,23 @@ public class MemberController {
 
 //        로그인
     @PostMapping("/login-do")
-    public String loginDO(String id,String pw,Model model){
+    public String loginDO(String id, String pw, Model model, HttpServletRequest req){
         log.info("id={},pw={}",id,pw);
+        HttpSession session = req.getSession();
         if(memberService.loginDO(id,pw,model)){
+            session.setAttribute("member",model.getAttribute("member"));
             return "mains/main";
         }else {
             return "members/login";
         }
 
+    }
+
+//    로그아웃
+    @GetMapping("/logout")
+    public String logoutDO(HttpSession session){
+        session.invalidate();
+        return "redirect:/";
     }
 
 }

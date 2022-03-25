@@ -57,21 +57,22 @@ public class MemberService {
         return true;
     }
 
-    public Boolean loginDO(String id,String pw,Model model){
-        Map<String,String> failed=new HashMap<>();
-        Member oldMember=memberRepository.getById(id);
-        if(oldMember!=null){
+    public Boolean loginDO(String id,String pw,Model model) {
+        Map<String, String> failed = new HashMap<>();
+        Member oldMember = memberRepository.getById(id);
+        if (oldMember != null) {
 //            if(passwordEncoder.matches(pw,oldMember.getPw())){
-            if(pw.equals(oldMember.getPw())){
+            if (pw.equals(oldMember.getPw())) {
+                model.addAttribute("member", oldMember);
                 return true;
-            }else{
-                failed.put("loginFailed","비밀번호가 맞지 않습니다.");
-                model.addAttribute("loginFailed",failed.get("loginFailed"));
+            } else {
+                failed.put("loginFailed", "비밀번호가 맞지 않습니다.");
+                model.addAttribute("loginFailed", failed.get("loginFailed"));
                 return false;
             }
-        }else{
-            failed.put("loginFailed","아이디가 존재하지 않습니다.");
-            model.addAttribute("loginFailed",failed.get("loginFailed"));
+        } else {
+            failed.put("loginFailed", "아이디가 존재하지 않습니다.");
+            model.addAttribute("loginFailed", failed.get("loginFailed"));
             return false;
         }
     }
