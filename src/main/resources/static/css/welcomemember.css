@@ -1,0 +1,114 @@
+@import '/css/reset.css';
+
+@font-face {
+    font-family: 'GmarketSansTTFLight'; src: url('/ttf/GmarketSansTTFLight.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'GmarketSansTTFBold'; src: url('/ttf/GmarketSansTTFBold.ttf') format('truetype');
+}
+
+
+body {
+    font-family: GmarketSansTTFLight;
+}
+
+.meta{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgb(12, 156, 167),rgb(219, 201, 174));
+    z-index: -999;
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
+.contents-container{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    min-width: 500px;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.contents-container>p{
+    margin: 15px;
+    font-size: 1.2rem;
+}
+
+
+.login-button{
+    display: inline-block;
+    font-size: larger;
+    font-size: 1.2rem;
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    min-width: 250px;
+    height: 35px;
+    margin: 5px;
+    border: 0;
+    padding: 0;
+}
+
+.login-button{
+    display: inline-block;
+    background:#1a59ab;
+    color:#fff;
+    position:relative;
+    height: 35px;
+    font-size:1.2em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    margin-top: 200px;
+}
+
+.login-button:hover{
+    background:#fff;
+    color:#1a59ab;
+}
+.login-button:before{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1a59ab ;
+    transition:400ms ease all;
+}
+.login-button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1a59ab ;
+    transition:400ms ease all;
+}
+
+
+.login-button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+.login-button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}

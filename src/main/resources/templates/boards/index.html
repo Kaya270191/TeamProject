@@ -4,58 +4,66 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>게시판</title>
+    <title>Ｂｏａｒｄｓ</title>
+    <link rel="stylesheet" href="css/boards/index.css">
 </head>
-<h1>게시판</h1>
 
-<!--검색창-->
-
-<form action="/boards/search" method="GET" role="search">
-    <input type="text" name="keyword" class="form-control" id="search" placeholder="제목으로 검색">
-    <button>검색</button>
-</form>
-
-
-
-
-<table>
-    <thread>
-        <tr>
-            <td>번호</td>
-            <td>제목</td>
-            <td>내용</td>
-            <td>글쓴이</td>
-            <td>조회수</td>
-            <td>등록일</td>
-        </tr>
-    </thread>
-    <tbody>
-    <tr th:each="board, status: ${boardList}">
-        <td th:text="${board.id}"></td>
-        <td><a th:href="@{/boards/{id}(id=${board.id})}"><p th:text="${board.title}"></p></a>
-        <td th:text="${board.content}"></td>
-        <td th:text="${board.writer}"></td>
-        <td th:text="${board.view_count}"></td>
-        <td th:text="${board.reg_date}" ></td>
-    </tr>
-    </tbody>
-</table>
-
-
-
-
-<div>
-    <a th:href="@{?page={num}(num=${previous})}" role="botton">이전</a>
-    <a th:href="@{?page={num}(num=${next})}" role="button">다음</a>
+<body>
+<!-- 게시판 제목 -->
+<div class="board-title">
+    <!-- 로고 -->
+    <div class="top-nav-logo"></div>
+    <!-- 로고Text -->
+    <div>WP게시판</div>
+</div>
+<!-- 배너 -->
+<div class="banner"></div>
+<!-- 페이지 내 타이틀 -->
+<div class="title">
+    <h1>게시판</h1>
 </div>
 
+<!-- 테이블 -->
+<div class="table-wrapper">
+    <table>
+        <thread>
+            <tr class="division-container">
+                <td class="division">No.</td>
+                <td class="division-title">제목</td>
+                <td class="division">내용</td>
+                <td class="division">글쓴이</td>
+                <td class="division">조회수</td>
+                <td class="division">등록일</td>
+            </tr>
+        </thread>
+        <tbody>
+        <tr th:each="board, status: ${boardList}">
+            <td th:text="${board.id}"></td>
+            <td class="table-bg"><a class="table-bg-color" th:href="@{/boards/{id}(id=${board.id})}">
+                <p class='table-bg' th:text="${board.title}"></p>
+            </a>
+            <td th:text="${board.content}"></td>
+            <td th:text="${board.writer}"></td>
+            <td th:text="${board.view_count}"></td>
+            <td th:text="${board.reg_date}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
-<!--목록으로 돌아가는 버튼-->
-<a href="/boards" >게시판목록</a>
+<!-- 이전 -->
+<div class="forward-back">
+    <a class="move-button" th:href="@{?page={num}(num=${previous})}" role="botton">◀</a>
+    <!-- 다음 -->
+    <a class="move-button" th:href="@{?page={num}(num=${next})}" role="button">▶</a>
+</div>
 
-<!--새글쓰기-->
-<a href="/boards/new" >새글쓰기</a>
-
-
+<!-- 목록 -->
+<div class="correction-wrap">
+    <button class="correction" type="button" onclick = "location.href='/boards'">게시판목록</button>
+        <!-- 새글 -->
+    <button class="correction" type="button" onclick = "location.href='/boards/new'">새글쓰기</button>
+</div>
 </body>
+
 </html>

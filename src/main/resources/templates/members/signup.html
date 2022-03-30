@@ -60,9 +60,9 @@
                         <input class="signup-text-box-id" type="text" name="id" th:unless="${memberForm}" placeholder="아이디"> -->
                         <p><input type="text" class="signup-text-box id" name="id" th:if="${memberForm} or ${id}" th:value="${memberForm.id}" oninput="idCheck()"></p>
                         <p><input type="text" class="signup-text-box id" name="id" th:unless="${memberForm}" placeholder="아이디" oninput="idCheck()"></p>
-                        <p class="id_success">가입 가능한 아이디 입니다.</p>
-                        <p class="id_failed">이미 가입된 아이디 입니다.</p>
-                        <p class="id_length">가입 불가능한 아이디입니다.</p>
+                        <p class="id_success alert">가입 가능한 아이디 입니다.</p>
+                        <p class="id_failed alert">이미 가입된 아이디 입니다.</p>
+                        <p class="id_length alert">가입 불가능한 아이디입니다.</p>
                         <p th:text="${valid_id}"></p>
 
                         <!-- 비밀번호 -->
@@ -70,8 +70,8 @@
                         <p class = "alert" th:text="${valid_pw}"></p> -->
                         <p><input class="signup-text-box pw1" type="password" name="pw" placeholder="비밀번호" oninput="pwCheck()">
                         <p><input class="signup-text-box pw2" type="password" placeholder="비밀번호 확인" oninput="pwCheck()">
-                        <p class="password_check_ok">비밀 번호가 일치합니다.</p>
-                        <p class="password_check_no">비밀 번호가 일치하지 않습니다.</p>
+                        <p class="password_check_ok alert">비밀 번호가 일치합니다.</p>
+                        <p class="password_check_no alert">비밀 번호가 일치하지 않습니다.</p>
                         <p th:text="${valid_pw}"></p>
 
                         <!-- 이름 -->
@@ -80,7 +80,7 @@
                         <p class = "alert" th:text="${valid_name}"></p>
                         <!-- 생년월일 -->
                         <input class="signup-text-box" type="text" name="birthday" th:if="${memberForm}" th:value="${memberForm.birthday}">
-                        <p><input class="signup-text-box" type=”text” name="birthday"  th:unless="${memberForm}" placeholder="생년월일6">
+                        <p><input class="signup-text-box" type=”text” name="birthday"  th:unless="${memberForm}" placeholder="YYMMDD">
                         <p class = "alert" th:text="${valid_birthday}"></p>
                         <!-- 이메일 -->
                         <input class="signup-text-box" type="text" name="email" th:if="${memberForm}" th:value="${memberForm.email}">

@@ -160,7 +160,7 @@ input::placeholder{
     font-size: 0.7rem;
 }
 
-.idck{
+/* .idck{
     position: absolute;
     background-color: rgb(240, 240, 240);
     cursor:pointer;
@@ -178,7 +178,7 @@ input::placeholder{
 .idck:hover{
     color: #ffffff;
     background-color: #1a59ab;
-}
+} */
 
 
 .signup-text-box{

@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>환영합니다.</title>
+    <title>Ｗｅｌｃｏｍｅ</title>
+    <link rel="stylesheet" href="css/welcomemember.css">
 </head>
+
 <body>
-<p th:text="${memberForm.name}"></p>
-<p>회원님 환영합니다.</p>
-<p>로그인후 원하시는 운동을 찾아보세요!</p>
-<button onclick="location.href='login'">로그인하러가기</button>
+<div class = "meta">
+    <!-- 배경 영상 -->
+    <div class="bg">
+        <video class = "video-bg" muted autoplay loop>
+            <source src="video/Bike - 72566.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class = "contents-container">
+        <p th:text="${memberForm.name}"></p>
+        <p>회원님 환영합니다.</p>
+        <p>로그인후 원하시는 운동을 찾아보세요!</p>
+        <button class="login-button" onclick="location.href='login'">로그인하러가기
+        </button>
+    </div>
+</div>
+
 </body>
+
 </html>
