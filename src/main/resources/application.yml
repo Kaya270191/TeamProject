@@ -12,7 +12,6 @@ spring:
         classpath: data.sql
     initialization-mode: always
 
-
   jpa:
     hibernate:
       ddl-auto: create

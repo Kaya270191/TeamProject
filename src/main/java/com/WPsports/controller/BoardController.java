@@ -1,6 +1,8 @@
 package com.WPsports.controller;
 
 
+import com.WPsports.boardComment.CommentDto;
+import com.WPsports.boardComment.CommentService;
 import com.WPsports.dto.BoardForm;
 import com.WPsports.entity.Board;
 import com.WPsports.repository.BoardRepository;
@@ -11,11 +13,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -29,6 +34,8 @@ public class BoardController {
     private BoardRepository boardRepository;
     @Autowired
     private BoardService boardService;
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping("/boards/new")//게시글 작성
     public String newBoardForm(){
@@ -56,22 +63,17 @@ public class BoardController {
 //    Board boardEntity = boardRepository.findById(id).orElse(null);
         Board boardEntity = boardService.show(id);
         boardService.updateView(id);
+
+        List<CommentDto> commentDtos = commentService.comments(id);
 //       boardService.updateView(id);//추가
+
         //2: 가져온 데이터를 모델에 등록
         model.addAttribute("board", boardEntity);
+        model.addAttribute("commentDtos", commentDtos);
         //3: 보여줄 페이지 설정
         return "boards/show";
     }
 
-//    @GetMapping("/boards")  //게시글 리스트 보여줌
-//    public String index(Model model){
-//        //1: 모든 Board 가져옴
-//        List<Board> BoardEntityList = boardRepository.findAll();
-//        //2: 가져온 Board 묶음을 뷰로 전달
-//        model.addAttribute("boardList", BoardEntityList);
-//        //3: 뷰 페이지를 설정
-//        return "boards/index";
-//    }
 
 
     @GetMapping("/boards")  //게시글 리스트 보여줌

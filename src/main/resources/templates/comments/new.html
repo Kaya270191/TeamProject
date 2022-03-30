@@ -1,0 +1,30 @@
+<!--새 댓글 작성-->
+
+<div class="card m-2" id="comments-new"  >
+    <div class="card-body">
+        <!--        댓글 작성 폼 form 태그의 액션 어디로 ?-->
+        <p>새 댓글 작성</p>
+        <form action="/api/boards/{boardId}/comments" method="post">
+            <!--            닉네임 입력-->
+            <div class="mb-3">
+                <label class="form-label">닉네임</label>
+                <input class="form-control from-control0sm" id="new-comment-nickname">
+            </div>
+            <!--            댓글 본문 입력-->
+            <div class="mb-3">
+                <label class="form-label">댓글 내용</label>
+                <textarea class="form-control from-control0sm" id="new-comment-body"></textarea>
+            </div>
+
+            <!--            히든 인풋-->
+            <input type="hidden" id="new-comment-board-id" th:value="${board.id}">
+
+            <!--            전송 버튼-->
+            <button type="button" class="btn btn-outline-primary btn-sm" id="comment-create-btn">댓글 작성</button>
+        </form>
+
+    </div>
+</div>
+
+
+<script src="/js/new.js" ></script>
