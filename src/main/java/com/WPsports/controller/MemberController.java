@@ -23,21 +23,29 @@ public class MemberController {
 
     @Autowired
     MemberService memberService;
+    
+//    초기화면
+    @GetMapping(value = "/")
+    public String signupForm(){
+        return "members/signup";
+    }
+
+    @GetMapping(value = {"/boards/**","/mains/**"})
+    public String memberCheck(HttpServletRequest req){
+        HttpSession session = req.getSession();
+        if(session.getAttribute("member")==null){
+            return "members/noMember";
+        }
+        else {
+            return "redirect:";
+        }
+    }
 
     @GetMapping("/main")
     public String mainUP(){
         return "mains/main";
     }
 
-    @GetMapping("/main2")
-    public String mainUP2(){
-        return "mains/main2";
-    }
-
-    @GetMapping("/")
-    public String signupForm(){
-        return "members/signup";
-    }
 
 //    회원가입
     @PostMapping("/signup")
@@ -89,7 +97,7 @@ public class MemberController {
         HttpSession session = req.getSession();
         if(memberService.loginDO(id,pw,model)){
             session.setAttribute("member",model.getAttribute("member"));
-            return "mains/main";
+            return "redirect:/main";
         }else {
             return "members/login";
         }
@@ -99,6 +107,7 @@ public class MemberController {
 //    로그아웃
     @GetMapping("/logout")
     public String logoutDO(HttpSession session){
+        System.out.println("로그아웃!");
         session.invalidate();
         return "redirect:/";
     }
@@ -118,7 +127,6 @@ public class MemberController {
         session.setAttribute("address",nowMember.getAddress());
         log.info("id={}",session.getAttribute("id"));
         return "members/profile";
-
     }
 
 }

@@ -10,6 +10,7 @@ public class FragmentsController {
     public String header(){
         return "fragments/header";
     }
+
     @GetMapping("/footer")
     public String footer(){
         return "fragments/footer";
