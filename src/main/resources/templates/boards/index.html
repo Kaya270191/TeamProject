@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <title>Ｂｏａｒｄｓ</title>
     <link rel="stylesheet" href="css/boards/index.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="fragments.js"></script>
 </head>
 
 <body>
@@ -25,30 +27,24 @@
 
 <!-- 테이블 -->
 <div class="table-wrapper">
-    <table>
-        <thread>
-            <tr class="division-container">
-                <td class="division">No.</td>
-                <td class="division-title">제목</td>
-                <td class="division">내용</td>
-                <td class="division">글쓴이</td>
-                <td class="division">조회수</td>
-                <td class="division">등록일</td>
-            </tr>
-        </thread>
-        <tbody>
-        <tr th:each="board, status: ${boardList}">
-            <td th:text="${board.id}"></td>
-            <td class="table-bg"><a class="table-bg-color" th:href="@{/boards/{id}(id=${board.id})}">
-                <p class='table-bg' th:text="${board.title}"></p>
-            </a>
-            <td th:text="${board.content}"></td>
-            <td th:text="${board.writer}"></td>
-            <td th:text="${board.view_count}"></td>
-            <td th:text="${board.reg_date}"></td>
-        </tr>
-        </tbody>
-    </table>
+        <div class="test-wrap">
+            <div class="test-num">No.</div>
+            <div class="title-wrap">제목</div>
+            <div class="writer">글쓴이</div>
+            <div class="view-count">조회수</div>
+            <div class="date">등록일</div>
+        </div>
+    <div class = "test-wrap" th:each="board, status: ${boardList}">
+        <div class = "test-num" th:text="${board.id}"></div>
+
+        <div class="title-wrap" th:onclick="|location.href='@{/boards/{id}(id=${board.id})}'|">
+            <p class="table-bg" th:text="${board.title}"></p>
+        </div>
+
+        <div class = "writer" th:text="${board.writer}"></div>
+        <div class = "view-count"th:text="${board.view_count}"></div>
+        <div class = "date" th:text="${board.reg_date}"></div>
+    </div>
 </div>
 
 <!-- 이전 -->
@@ -64,6 +60,8 @@
         <!-- 새글 -->
     <button class="correction" type="button" onclick = "location.href='/boards/new'">새글쓰기</button>
 </div>
+
+<div id = "footer"></div>
 </body>
 
 </html>
