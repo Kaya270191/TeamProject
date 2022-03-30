@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text="${session.id}"></p>
+<p th:text="${session.name}"></p>
+<p th:text="${session.phone}"></p>
+<p th:text="${session.email}"></p>
+<p th:text="${session.birthday}"></p>
+<p th:text="${session.address}"></p>
+<button onclick="location.href='profile/edit'">수정</button>
+<!--<p th:text="${member.name}"></p>-->
+</body>
+</html>

@@ -103,5 +103,23 @@ public class MemberController {
         return "redirect:/";
     }
 
+//    프로필
+    @GetMapping("/profile")
+    public String goProfile(HttpServletRequest req,Model model){
+        HttpSession session= req.getSession();
+        log.info("Member={}",session.getAttribute("member"));
+
+        Member nowMember =(Member) session.getAttribute("member");
+        session.setAttribute("id",nowMember.getId());
+        session.setAttribute("name",nowMember.getName());
+        session.setAttribute("phone",nowMember.getPhone());
+        session.setAttribute("email",nowMember.getEmail());
+        session.setAttribute("birthday",nowMember.getBirthday());
+        session.setAttribute("address",nowMember.getAddress());
+        log.info("id={}",session.getAttribute("id"));
+        return "members/profile";
+
+    }
+
 }
 
