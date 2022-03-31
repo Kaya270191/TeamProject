@@ -51,41 +51,8 @@ body{
 
 
 
-<<<<<<< Updated upstream
-
-
-.table-wrapper{
-    left: 50%;
-    width: 80%;
-    min-width: 1000px;
-    height: 50
-    display: flex;
-    justify-content: center;
-    flex-direction:column;
-    position: relative;
-    transform: translateX(-50%);
-}
-
-
-
-.test-num{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 10%;
-}
-.test-wrap{
-    display:flex;
-    justify-content: center;
-    margin-top: 1px;
-    height: 40px;
-}
-
-
-.title-wrap{
-=======
 .meta{
->>>>>>> Stashed changes
+
     display:flex;
     width:100vw;
     justify-content:center;

@@ -25,26 +25,6 @@
 </div>
 
 <!-- 테이블 -->
-<<<<<<< Updated upstream
-<div class="table-wrapper">
-        <div class="test-wrap">
-            <div class="test-num ele">No.</div>
-            <div class="title-wrap ele">제목</div>
-            <div class="writer ele">글쓴이</div>
-            <div class="view-count ele">조회수</div>
-            <div class="date ele">등록일</div>
-        </div>
-    <div class = "test-wrap ele" th:each="board, status: ${boardList}">
-        <div class = "test-num ele" th:text="${board.id}"></div>
-
-        <div class="title-wrap ele" th:onclick="|location.href='@{/boards/{id}(id=${board.id})}'|">
-            <p class="table-bg" th:text="${board.title}"></p>
-        </div>
-
-        <div class = "writer ele" th:text="${board.writer}"></div>
-        <div class = "view-count ele"th:text="${board.view_count}"></div>
-        <div class = "date ele" th:text="${board.reg_date}"></div>
-=======
 <div class="meta">
     <div class = "table-wrapper">
         <table class="table table-striped">
@@ -69,7 +49,6 @@
             </tr>
             </tbody>
         </table>
->>>>>>> Stashed changes
     </div>
 </div>
 
