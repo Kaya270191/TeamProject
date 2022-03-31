@@ -76,5 +76,10 @@ public class MemberService {
             return false;
         }
     }
+
+    public Member getById(String id){
+        return memberRepository.getById(id);
+    }
+
 }
 

@@ -119,8 +119,24 @@ public class MemberController {
         session.setAttribute("birthday",nowMember.getBirthday());
         session.setAttribute("address",nowMember.getAddress());
         log.info("id={}",session.getAttribute("id"));
-        return "members/profile";
+        return "members/profile/profile";
     }
 
+    @GetMapping("/profile/edit")
+    public String goEdit(){
+        return "members/profile/edit";
+    }
+
+    @PostMapping("/profile/checkPw")
+    public int checkPw(String id,String pw,Model model){
+        memberService.loginDO(id,pw,model);
+        return 1;
+    }
+
+    @PostMapping("/profile/edit/{id}")
+    public String edit(Model model){
+        log.info("id={}",model.getAttribute("id"));
+        return "/profile";
+    }
 }
 
