@@ -9,19 +9,9 @@
 
 /* 페이지 폰트 */
 body{
-    line-height:1.5em;
     font-family: GmarketSansTTFLight;
 }
 
-#footer{
-    position: absolute;
-    bottom:0;
-    width: 100%;
-    height: 70px;
-}
-
-.banner{
-}
 
 .board-title{
     display: flex;
@@ -55,12 +45,13 @@ body{
     justify-content: center;
     font-family: GmarketSansTTFBold;
     font-size: 2rem;
-    margin: 50px;
-    margin-top: 120px;
+    margin: 25px;
+    margin-top: 95px;
 }
 
 
 
+<<<<<<< Updated upstream
 
 
 .table-wrapper{
@@ -92,45 +83,31 @@ body{
 
 
 .title-wrap{
+=======
+.meta{
+>>>>>>> Stashed changes
     display:flex;
-    width:35%;
-    background-color: #0066ff;
-    justify-content: center;
+    width:100vw;
+    justify-content:center;
     align-items: center;
 }
 
-.title-wrap:hover{
-    cursor: pointer;
+.table-wrapper{
+    width: 70%;
 }
 
-.table-bg{
-    color:#fff;
-    text-decoration: none;
-    text-decoration-line : none;
+table, td, th {
+  border : 1px solid black;
+  border-collapse : collapse;
 }
 
-.contents{
-    display:flex;
-    justify-content: center;
-    width:15%;
+th, td {
+  text-align: left;
+  vertical-align : middle;
 }
 
-.writer{
-    display:flex;
-    justify-content: center;
-    width:15%
-}
-
-.view-count{
-    display:flex;
-    justify-content: center;
-    width:15%
-}
-
-.date{
-    display:flex;
-    justify-content: center;
-    width:15%
+#contents p{
+    margin-bottom:0px;
 }
 
 
@@ -178,3 +155,30 @@ body{
 	background-color: #fff;
 	color: #0066ff;
 }
+
+
+.footer-container{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    bottom: 0;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background-color: #303030;
+    color: white;
+  }
+
+  .footer-container a{
+    margin: 5px;
+    font-size: 0.7rem;
+  }
+
+  .footer-bar{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-bar-text{
+    font-size: 1rem;
+  }

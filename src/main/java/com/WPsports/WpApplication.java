@@ -3,6 +3,7 @@ package com.WPsports;
 import com.WPsports.controller.MemberController;
 import com.WPsports.dto.MemberForm;
 import com.WPsports.entity.Member;
+//공도형 작업용 주석처리(로그인 권한)
 import com.WPsports.security.loginFilter;
 import com.WPsports.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,8 @@ public class WpApplication {
 	}
 
 	//	서버에 필터적용
+
+	//공도형 작업용 주석처리(로그인 권한)
 	@Bean
 	public FilterRegistrationBean setFilterRegistration(){
 
