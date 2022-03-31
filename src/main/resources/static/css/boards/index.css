@@ -75,8 +75,11 @@ body{
     transform: translateX(-50%);
 }
 
+
+
 .test-num{
     display: flex;
+    align-items: center;
     justify-content: center;
     width: 10%;
 }
@@ -129,6 +132,7 @@ body{
     justify-content: center;
     width:15%
 }
+
 
 .forward-back{
     height: 70px;
