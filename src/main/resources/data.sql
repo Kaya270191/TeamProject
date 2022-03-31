@@ -60,11 +60,7 @@ insert into board(id, content, reg_date, title, view_count, writer) values(10, '
 --insert into board(id, content, reg_date, title, view_count, writer) values(60, '빨리할래','2020-05-06', '이거좀', 2, '주니');
 --insert into board(id, content, reg_date, title, view_count, writer) values(61, '싫은데','2021-04-06', '봐줘요', 1, '용');
 
---<<<<<<< HEAD
---insert into member(member_key,id,pw,name,birthday,phone,email,address) values(1,"test","1234","테스트","940709","01029257018","test@test.com","");
 
---=======
--->>>>>>> 5ef1b20beee3b48bb7964c678d6dc17eb5abc831
 insert into comment(id, body, nickname, board_id) values (1, "댓글1", "kaya", 1);
 insert into comment(id, body, nickname, board_id) values (2, "댓글2", "곰탱이", 1);
 
