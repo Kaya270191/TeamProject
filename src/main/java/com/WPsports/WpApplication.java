@@ -14,28 +14,29 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class WpApplication {
-//	@Autowired
-//	MemberService memberService;
+
+	@Autowired
+	MemberService memberService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(WpApplication.class, args);
 	}
 
 //	서버 실행시 test,1234 로 로그인 가능
-//	@Bean
-//	public CommandLineRunner testMember() throws Exception{
-//		return (String[] args)->{
-//
-//			MemberForm testMember=new MemberForm(
-//					"test",
-//					"1234",
-//					"현호",
-//					"01012341234",
-//					"112233",
-//					"22@test.com",
-//					"대구");
-//
-//			memberService.save(testMember);
-//		};
-//	}
+	@Bean
+	public CommandLineRunner testMember() throws Exception{
+		return (String[] args)->{
+
+			MemberForm testMember=new MemberForm(
+					"test",
+					"1234",
+					"현호",
+					"01012341234",
+					"112233",
+					"22@test.com",
+					"대구");
+
+			memberService.save(testMember);
+		};
+	}
 }
