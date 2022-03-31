@@ -33,7 +33,8 @@ public class MemberService {
                 memberform.getPhone(),
                 memberform.getBirthday(),
                 memberform.getEmail(),
-                memberform.getAddress()
+                memberform.getAddress(),
+                memberform.getAuth()
         );
         return memberRepository.save(newMember.toEntity());
     }

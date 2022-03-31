@@ -40,6 +40,8 @@ public class MemberForm {
 
     private String address;
 
+    private String auth;
+
 
 
     public Member toEntity(){
@@ -51,6 +53,7 @@ public class MemberForm {
                 .birthday(this.getBirthday())
                 .email(this.getEmail())
                 .address(this.getAddress())
+                .auth(this.getAuth())
                 .build();
     }
 }

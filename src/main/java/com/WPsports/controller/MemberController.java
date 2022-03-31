@@ -23,22 +23,16 @@ public class MemberController {
 
     @Autowired
     MemberService memberService;
-    
-//    초기화면
+
+    //    초기화면
     @GetMapping(value = "/")
     public String signupForm(){
         return "members/signup";
     }
 
-    @GetMapping(value = {"/boards/**","/mains/**"})
-    public String memberCheck(HttpServletRequest req){
-        HttpSession session = req.getSession();
-        if(session.getAttribute("member")==null){
-            return "members/noMember";
-        }
-        else {
-            return "redirect:";
-        }
+    @GetMapping(value="/nomember")
+    public String noMember(){
+        return "members/noMember";
     }
 
     @GetMapping("/main")
@@ -47,7 +41,7 @@ public class MemberController {
     }
 
 
-//    회원가입
+    //    회원가입
     @PostMapping("/signup")
     public String saveMember(@Valid MemberForm memberForm, Errors errors, Model model){
         if(errors.hasErrors()){
@@ -67,7 +61,7 @@ public class MemberController {
         return "members/welcomemember";
     }
 
-//    가입 전 아이디(중복,길이) 확인
+    //    가입 전 아이디(중복,길이) 확인
     @PostMapping("/signup/checkID")
     @ResponseBody
     public int checkId(String id){
@@ -84,13 +78,12 @@ public class MemberController {
         }
     }
 
-
     @GetMapping("/login")
     public String loginForm(){
         return "members/login";
     }
 
-//        로그인
+    //        로그인
     @PostMapping("/login-do")
     public String loginDO(String id, String pw, Model model, HttpServletRequest req){
         log.info("id={},pw={}",id,pw);
@@ -104,7 +97,7 @@ public class MemberController {
 
     }
 
-//    로그아웃
+    //    로그아웃
     @GetMapping("/logout")
     public String logoutDO(HttpSession session){
         System.out.println("로그아웃!");
@@ -112,7 +105,7 @@ public class MemberController {
         return "redirect:/";
     }
 
-//    프로필
+    //    프로필
     @GetMapping("/profile")
     public String goProfile(HttpServletRequest req,Model model){
         HttpSession session= req.getSession();
