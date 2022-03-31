@@ -1,0 +1,56 @@
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>업체 디테일뷰</title>
+</head>
+<h1>업체 디테일 뷰</h1>
+
+<table>
+    <thread>
+        <tr>
+            <td>사진</td>
+            <td>번호</td>
+            <td>업체명</td>
+            <td>주소</td>
+            <td>전화번호</td>
+            <td>운영시간</td>
+            <td>별점</td>
+            <td>카테고리</td>
+        </tr>
+    </thread>
+    <tbody>
+    <tr>
+        <td th:text="${facility.photo}"></td>
+        <td th:text="${facility.id}"></td>
+        <td th:text="${facility.name}"></td>
+        <td th:text="${facility.address}"></td>
+        <td th:text="${facility.tel}"></td>
+        <td th:text="${facility.operatingTime}"></td>
+        <td th:text="${facility.starRate}"></td>
+        <td th:text="${facility.category}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<!--&lt;!&ndash;수정버튼&ndash;&gt;-->
+<!--<a href="#" th:href="@{/boards/{id}/edit(id=${board.id})}" >수정</a>-->
+
+<!--&lt;!&ndash;삭제버튼&ndash;&gt;-->
+<!--<a href="#" th:href="@{/boards/{id}/delete(id=${board.id})}" >삭제</a>-->
+
+<!--목록으로 돌아가는 버튼-->
+<a href="/main" >업체 카테고리로 돌아가는 버튼을 만들어야함 </a>
+<!--새글쓰기-->
+<!--<a href="/boards/new" >새글쓰기</a>-->
+
+<!--<div>-->
+<!--    <th:block th:include="comments/comments"></th:block>-->
+<!--</div>-->
+
+
+</body>
+</html>

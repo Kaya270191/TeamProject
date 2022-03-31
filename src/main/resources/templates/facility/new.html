@@ -1,0 +1,50 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>업체 등록</title>
+</head>
+<h1>업체 등록</h1>
+
+<form class="container" action="/facility/create" method="post">
+    <div class="mb-3">
+        <label>업체명</label>
+        <input type="text" name="name">
+        <!--        name 부분에 dto의 필드변수랑 같은 것을 넣어줘야함 -->
+    </div>
+
+    <div class="mb-3">
+        <label>전화번호</label>
+        <input type="text" name="tel">
+    </div>
+
+    <div class="mb-3">
+        <label>주소</label>
+        <input type="text" name="address">
+    </div>
+
+    <div class="mb-3">
+        <label>운영시간</label>
+        <input type="text" name="operatingTime">
+    </div>
+
+    <div class="mb-3">
+        <label>사진</label>
+        <input type="text" name="photo">
+    </div>
+
+    <div class="mb-3">
+        <label>카테고리</label>
+        <input type="text" name="category">
+    </div>
+
+      <button type="submit" class="btn btn-primary">등록</button>
+
+
+    <a href="/main">메인으로 돌아가기</a>
+    </div>
+</form>
+<body>
+
+</body>
+</html>
