@@ -1,0 +1,12 @@
+.password_check_ok{
+    color : green;
+    display:none;
+}
+
+.password_check_no{
+    color : red;
+    display:none;
+}
+#pwChange{
+    display:none;
+}

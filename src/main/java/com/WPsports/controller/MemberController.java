@@ -122,21 +122,30 @@ public class MemberController {
         return "members/profile/profile";
     }
 
+    @PostMapping("/profile/checkPw")
+    @ResponseBody
+    public int checkPw(String id,String pw,Model model){
+        log.info("id={}, pw={}",id,pw);
+        if(memberService.loginDO(id,pw,model)){
+            return 1;
+        };
+        return 0;
+    }
+
+
+    //profile 편집
     @GetMapping("/profile/edit")
-    public String goEdit(){
+    public String edit(HttpServletRequest request){
+        HttpServletRequest httpServletRequest=(HttpServletRequest)request;
+        HttpSession session=httpServletRequest.getSession(false);
+        log.info("session.id={}",session.getAttribute("id"));
         return "members/profile/edit";
     }
 
-    @PostMapping("/profile/checkPw")
-    public int checkPw(String id,String pw,Model model){
-        memberService.loginDO(id,pw,model);
-        return 1;
-    }
-
     @PostMapping("/profile/edit/{id}")
-    public String edit(Model model){
-        log.info("id={}",model.getAttribute("id"));
-        return "/profile";
+    public String memberEdit(@PathVariable String id,@Valid MemberForm memberForm, Errors errors, Model model){
+        log.info("post profile edit !!");
+        return "redirect:/profile";
     }
 }
 
