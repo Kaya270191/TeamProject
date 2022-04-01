@@ -7,26 +7,117 @@
     <title>업체 디테일뷰</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+
+    <link rel="stylesheet" href="/css/facility/show.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!--네이버 지도-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ubpb5l4ylr"></script>
+
+    <script type="text/javascript"
+            src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=ubpb5l4ylr&submodules=geocoder"></script>
+
+
 </head>
 <body>
 <h1>업체 디테일 뷰</h1>
 
 
 <div class="card" style="width: 30rem;">
-    <img th:src="${facility.photo}" class="card-img-top" alt="...">
+<!--    지도-->
+    <div id="map" style="width:100%;height:400px;"></div>
+
+<!--    <script id="code">-->
+<!--        //function get_pointer (해당주소,대상지도 id,title) {-->
+<!--        function get_pointer (adress,getid,title) {-->
+<!--            naver.maps.Service.geocode({-->
+<!--                address: adress-->
+<!--            }, function(status, response) {-->
+<!--                if (status !== naver.maps.Service.Status.OK) {-->
+<!--                    //return alert('Something wrong!');-->
+<!--                    console.log('주소에러');-->
+<!--                }-->
+
+<!--                var result = response.result, // 검색 결과의 컨테이너-->
+<!--                    items = result.items; // 검색 결과의 배열-->
+
+<!--                // do Something-->
+<!--                var x = eval(items[0].point.x);-->
+<!--                var y = eval(items[0].point.y);-->
+
+<!--                var HOME_PATH = window.HOME_PATH || '.';-->
+
+<!--                var cityhall = new naver.maps.LatLng(y, x),-->
+<!--                    map = new naver.maps.Map('map', {-->
+<!--                        center: cityhall.destinationPoint(0, 500),-->
+<!--                        zoom: 10-->
+<!--                    }),-->
+<!--                    marker = new naver.maps.Marker({-->
+<!--                        map: map,-->
+<!--                        position: cityhall-->
+<!--                    });-->
+
+<!--                var contentString = [-->
+<!--                    '<div class="iw_inner">',-->
+<!--                    '   <h3>'+title+'</h3>',-->
+<!--                    '   <p>'+adress+'</p>',-->
+<!--                    '</div>'-->
+<!--                ].join('');-->
+
+<!--                var infowindow = new naver.maps.InfoWindow({-->
+<!--                    content: contentString-->
+<!--                });-->
+
+<!--                naver.maps.Event.addListener(marker, "click", function(e) {-->
+<!--                    if (infowindow.getMap()) {-->
+<!--                        infowindow.close();-->
+<!--                    } else {-->
+<!--                        infowindow.open(map, marker);-->
+<!--                    }-->
+<!--                });-->
+
+<!--                infowindow.open(map, marker);-->
+<!--            });-->
+<!--        }-->
+
+<!--        /* 마커중복 사용안됨 */-->
+<!--        get_pointer('대구 안심로 49길 42','map','대전본점');-->
+<!--    </script>-->
+
+
+
+
+
+
     <div class="card-body">
         <h5 class="card-title" th:text="${facility.name}"></h5>
         <div>
             <i class="bi bi-tag" th:text="${facility.category}">카테고리</i><br>
-            <i class="bi bi-map" th:text="${facility.address}">주소</i><br>
+            <i class="bi bi-map" id="address" th:value="${facility.address}" th:text="${facility.address}">주소</i><br>
             <i class="bi bi-telephone" style="font-size: 1rem;"  th:text="${facility.tel}">전화번호</i><br>
             <i class="bi bi-clock" th:text="${facility.operatingTime}">운영시간</i><br>
             <i class="bi bi-star" th:text="${facility.starRate}">별점</i>
         </div>
 
+
+    <div>
+        <button id="btn_toggle">사진보기</button>
+        <div id="Toggle" style="display:none">
+            <img th:src="${facility.photo}" class="card-img-top" alt="...">
+        </div>
+    </div>
+
+
         <a href="#" class="btn btn-primary">찜하기버튼</a>
 
     </div>
+
+
+
+
 </div>
 
 
@@ -45,6 +136,42 @@
 <!--<div>-->
 <!--    <th:block th:include="comments/comments"></th:block>-->
 <!--</div>-->
+
+<script>
+    var mapOptions = {
+        center: new naver.maps.LatLng(37.3595704, 127.105399),
+        zoom: 15
+    };
+
+    var map = new naver.maps.Map('map', {
+        center: new naver.maps.LatLng(37.3595704, 127.105399),
+        zoom: 15
+    });
+
+    var marker = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.3595704, 127.105399),
+        map: map
+    });
+
+    var address = document.querySelector("#address").innerText;
+
+
+
+    naver.maps.Service.geocode({ address: address}, function(status, response) {
+        if (status === naver.maps.Service.Status.ERROR) {
+            return alert('Something wrong!');
+        }
+        var new_position = new naver.maps.LatLng(response.v2.addresses[0].y, response.v2.addresses[0].x)
+        console.log(response.v2.addresses);
+        map.setCenter(new_position);
+
+        var marker = new naver.maps.Marker({ position: new naver.maps.LatLng(response.v2.addresses[0].y, response.v2.addresses[0].x),
+            map: map }); });
+
+</script>
+
+
+<script src="/js/facility/show.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 

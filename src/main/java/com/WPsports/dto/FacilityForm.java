@@ -1,17 +1,14 @@
 package com.WPsports.dto;
 
 import com.WPsports.entity.Facility;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
+import lombok.*;
 
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @ToString
+@Getter
 public class FacilityForm {
 
     private Long id;
@@ -26,6 +23,13 @@ public class FacilityForm {
 
 
     public Facility toEntity() {
-        return new Facility(id, name, tel, address, operatingTime, photo, category, starRate);
+        return Facility.builder()
+                .id(this.getId())
+                .name(this.getName())
+                .tel(this.getTel())
+                .address(this.getAddress())
+                .operatingTime(this.getOperatingTime())
+                .category(this.getCategory())
+                .starRate(this.getStarRate()).build();
     }
 }

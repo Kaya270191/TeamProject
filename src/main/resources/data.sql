@@ -64,4 +64,4 @@ insert into board(id, content, reg_date, title, view_count, writer) values(10, '
 insert into comment(id, body, nickname, board_id) values (1, "댓글1", "kaya", 1);
 insert into comment(id, body, nickname, board_id) values (2, "댓글2", "곰탱이", 1);
 
-insert into facility(id, address, category, name, operating_time, photo, star_rate, tel) values(1, "대구", "농구", "농구장", "9:00-21:00", "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211025_290%2F1635161162715NBAri_JPEG%2FQyc0VOSad4glN35ACxcu7pCi.jpg", "3.5", "053-333-3333");
+insert into facility(id, address, category, name, operating_time, photo, star_rate, tel) values(1, "대구광역시 동구 화랑로 525", "농구", "농구장", "9:00-21:00", "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211025_290%2F1635161162715NBAri_JPEG%2FQyc0VOSad4glN35ACxcu7pCi.jpg", "3.5", "053-333-3333");

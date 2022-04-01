@@ -29,6 +29,7 @@ public class MainController {
 
     @PostMapping("/facility/create")
     public String createFacility(FacilityForm form){
+        log.info(form.toString());
         Facility facility = form.toEntity(); // Entity로 변환
         log.info("입력받은 업체 정보: "+facility.toString());
         Facility saved = facilityRepository.save(facility); //DB에 저장
@@ -40,6 +41,7 @@ public class MainController {
     @GetMapping("/facility/{id}")
     public String show(@PathVariable Long id, Model model){
         Facility facilityEntity = (Facility) facilityRepository.findAllById(id);
+
         model.addAttribute("facility", facilityEntity);
         return "/facility/show";
     }
