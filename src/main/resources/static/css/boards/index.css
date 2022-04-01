@@ -61,6 +61,7 @@ body{
 
 .table-wrapper{
     width: 70%;
+    min-width: 660px;
 }
 
 table, td, th {
@@ -103,15 +104,46 @@ th, td {
     color: #0066ff
 }
 
+.board-bottom-container{
+    display:flex;
+    justify-content:center;
+    width:100%;
+}
+
 .correction-wrap{
     display: flex;
-    width: 85%;
-    justify-content: right;
-    font-size: 1.2rem;
+    width: 70%;
+    min-width: 660px;
+    height: 40px;
+    justify-content: space-between;
+}
+
+.board-search{
+    width: 90%;
+    height: 100%;
+    display: flex;
+}
+
+.board-search-container{
+    display:flex;
+    width: 80%;
+}
+
+.search-bar{
+    width:90%;
+    height: 40px;
+    border-radius: 20px 0px 0px 20px;
+    padding-left: 20px;
+}
+
+#search-button{
+    width:45px;
+    border-radius: 0px 20px 20px 0px;
 }
 
 .correction {
-    margin: 2px;
+    width: 70px;
+    font-size:0.7rem;
 	background-color: #0066ff;
 	border: 2px solid #0066ff;
 	color: #fff;
@@ -123,11 +155,16 @@ th, td {
 	color: #0066ff;
 }
 
+#mokrok{
+    margin-right: 3px;
+}
+
 
 .footer-container{
     display: flex;
     width: 100%;
-    height: 100px;
+    min-width: 660px;
+    height: 8vh;
     bottom: 0;
     position: absolute;
     justify-content: center;
@@ -147,5 +184,5 @@ th, td {
   }
 
   .footer-bar-text{
-    font-size: 1rem;
+    font-size: 0.7em;
   }

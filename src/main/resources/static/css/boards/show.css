@@ -1,0 +1,27 @@
+@import '/css/reset.css';
+
+@font-face {
+    font-family: 'GmarketSansTTFLight'; src: url('/ttf/GmarketSansTTFLight.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'GmarketSansTTFBold'; src: url('/ttf/GmarketSansTTFBold.ttf') format('truetype');
+}
+
+.show-content-container{
+    display:flex;
+    justify-content:center;
+}
+
+.show-content{
+    background-color:#F2F2F2;
+    width: 70%;
+    height: 60vh;
+    min-width: 660px;
+    padding: 5px;
+}
+
+
+
+#comments-new{
+    width: 70%;
+}

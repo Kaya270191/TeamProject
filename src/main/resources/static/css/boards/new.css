@@ -1,0 +1,22 @@
+@import '/css/reset.css';
+
+@font-face {
+    font-family: 'GmarketSansTTFLight'; src: url('/ttf/GmarketSansTTFLight.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'GmarketSansTTFBold'; src: url('/ttf/GmarketSansTTFBold.ttf') format('truetype');
+}
+
+.write-box{
+    display: flex;
+    justify-content: center;
+}
+
+.write{
+    display: flex;
+    justify-content: center;
+}
+
+.t-area{
+    height:300px
+}
