@@ -1,5 +1,7 @@
 package com.WPsports.service;
 
+import com.WPsports.boardComment.Comment;
+import com.WPsports.boardComment.CommentDto;
 import com.WPsports.entity.Member;
 import com.WPsports.dto.MemberForm;
 import com.WPsports.repository.MemberRepository;
@@ -11,7 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
+import javax.transaction.Transactional;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -81,5 +85,17 @@ public class MemberService {
         return memberRepository.getById(id);
     }
 
+    public List<Member> allMember(){
+        return memberRepository.selectAllSQL();
+    }
+
+    @Transactional
+    public Member memberEdit(String id,MemberForm memberForm){
+        Member oldMember=memberRepository.getById(id);
+        oldMember.update(memberForm);
+        memberRepository.save(oldMember);
+        Member updateMember=memberRepository.getById(id);
+        return updateMember;
+    };
 }
 

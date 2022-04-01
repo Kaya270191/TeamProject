@@ -7,6 +7,7 @@ import java.security.Principal;
 import java.util.Collection;
 
 public interface Authentication extends Principal, Serializable {
+
     // Authentication 저장소에 의해 인증된 사용자의 권한 목록
     Collection<? extends GrantedAuthority> getAuthorities();
     Object getCredentials();//비밀번호

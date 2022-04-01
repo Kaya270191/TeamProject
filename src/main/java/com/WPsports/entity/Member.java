@@ -1,6 +1,8 @@
 package com.WPsports.entity;
 
 
+import com.WPsports.boardComment.CommentDto;
+import com.WPsports.dto.MemberForm;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -26,5 +28,21 @@ public class Member {
     private String email;
     private String address;
     private String auth;
+
+
+    public void update(MemberForm memberForm){
+        this.pw=memberForm.getPw();
+        this.name=memberForm.getName();
+        this.birthday=memberForm.getBirthday();
+        this.phone=memberForm.getPhone();
+        this.email=memberForm.getEmail();
+        this.address=memberForm.getAddress();
+    }
+
+    @Override
+    public String toString(){
+        return "id : "+this.getId()+", "
+                +"name : "+this.getName();
+    }
 
 }

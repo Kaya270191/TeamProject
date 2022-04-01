@@ -1,11 +1,14 @@
 package com.WPsports.controller;
 
 
+import com.WPsports.boardComment.CommentDto;
 import com.WPsports.entity.Member;
 import com.WPsports.dto.MemberForm;
 import com.WPsports.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Map;
 
 
@@ -107,7 +111,7 @@ public class MemberController {
 
     //    프로필
     @GetMapping("/profile")
-    public String goProfile(HttpServletRequest req,Model model){
+    public String goProfile(HttpServletRequest req){
         HttpSession session= req.getSession();
         log.info("Member={}",session.getAttribute("member"));
 
@@ -132,7 +136,6 @@ public class MemberController {
         return 0;
     }
 
-
     //profile 편집
     @GetMapping("/profile/edit")
     public String edit(HttpServletRequest request){
@@ -142,10 +145,21 @@ public class MemberController {
         return "members/profile/edit";
     }
 
-    @PostMapping("/profile/edit/{id}")
-    public String memberEdit(@PathVariable String id,@Valid MemberForm memberForm, Errors errors, Model model){
-        log.info("post profile edit !!");
-        return "redirect:/profile";
+    @GetMapping("/test")
+    public String hello(Model model){
+        List<Member> allMember= memberService.allMember();
+        model.addAttribute("memberList",allMember);
+        return "/members/allmember";
+    }
+
+    @PatchMapping("/profile/edit/{id}")
+    @ResponseBody
+    public int memberEdit(@PathVariable String id,@RequestBody MemberForm memberForm){
+        log.info("id={}",id);
+        log.info("ControllerMember={}",memberForm.toString());
+        Member updateMember=memberService.memberEdit(id,memberForm);
+        log.info("updateMember={}",updateMember.toString());
+        return 1;
     }
 }
 
