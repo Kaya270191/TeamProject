@@ -4,7 +4,7 @@ import com.WPsports.controller.MemberController;
 import com.WPsports.dto.MemberForm;
 import com.WPsports.entity.Member;
 //공도형 작업용 주석처리(로그인 권한)
-import com.WPsports.security.loginFilter;
+//import com.WPsports.security.loginFilter;
 import com.WPsports.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -60,11 +60,11 @@ public class WpApplication {
 	//	서버에 필터적용
 
 	//공도형 작업용 주석처리(로그인 권한)
-	@Bean
-	public FilterRegistrationBean setFilterRegistration(){
-
-		FilterRegistrationBean filterRegistrationBean=new FilterRegistrationBean(new loginFilter());
-		filterRegistrationBean.addUrlPatterns("/main/*","/boards/*","/profile/*"); // string 여러개(접근제한 url)를 가변인자로 받는 메소드
-		return filterRegistrationBean;
-	}
+//	@Bean
+//	public FilterRegistrationBean setFilterRegistration(){
+//
+//		FilterRegistrationBean filterRegistrationBean=new FilterRegistrationBean(new loginFilter());
+//		filterRegistrationBean.addUrlPatterns("/main/*","/boards/*","/profile/*"); // string 여러개(접근제한 url)를 가변인자로 받는 메소드
+//		return filterRegistrationBean;
+//	}
 }
