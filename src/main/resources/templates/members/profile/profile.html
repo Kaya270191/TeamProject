@@ -23,7 +23,8 @@
         data-bs-target="#password_check"
         data-bs-toggle="modal"
 >수정</button>
-<!-- 모달(Modal) -->
+
+<!-- 수정 모달(Modal) -->
 
 <div class="modal fade" id="password_check" tabindex="-1" role="dialog">
     <div class="modal-dialog">
@@ -49,5 +50,39 @@
         </div>
     </div>
 </div>
+
+<button type="button"
+        class="btn btn-sm btn-outline-primary"
+        data-bs-target="#sign_out_check"
+        data-bs-toggle="modal"
+>탈퇴</button>
+
+<!--&lt;!&ndash; 탈퇴 모달(Modal) &ndash;&gt;-->
+
+<!--<div class="modal fade" id="sign_out_check" tabindex="-1" role="dialog">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title">비밀번호 확인</h5>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <form>-->
+<!--                    <div class="mb-3">-->
+<!--                        <label class="form-label">비밀번호</label>-->
+<!--                        <input class="form-control form-control-sm" type="password" class="pw">-->
+<!--                    </div>-->
+<!--&lt;!&ndash;                    &lt;!&ndash; 히든 인풋 &ndash;&gt;&ndash;&gt;-->
+<!--                    <input type="hidden" class="id" th:value="${session.id}">-->
+<!--                    &lt;!&ndash; 전송 버튼 &ndash;&gt;-->
+<!--                    <button type="button"-->
+<!--                            onclick="sign_out()">회원 탈퇴</button>-->
+<!--                </form>-->
+<!--                <p th:text="${loginFailed}"></p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
 </body>
 </html>
