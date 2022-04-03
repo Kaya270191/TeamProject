@@ -79,8 +79,8 @@
                         <p><input class="signup-text-box" type=”text” name="name" th:unless="${memberForm}" placeholder="이름">
                         <p class = "alert" th:text="${valid_name}"></p>
                         <!-- 생년월일 -->
-                        <input class="signup-text-box" type="text" name="birthday" th:if="${memberForm}" th:value="${memberForm.birthday}">
-                        <p><input class="signup-text-box" type=”text” name="birthday"  th:unless="${memberForm}" placeholder="YYMMDD">
+                        <input class="signup-text-box" type="date" name="birthday" th:if="${memberForm}" th:value="${memberForm.birthday}">
+                        <p><input class="signup-text-box" type="date" name="birthday"  th:unless="${memberForm}">
                         <p class = "alert" th:text="${valid_birthday}"></p>
                         <!-- 이메일 -->
                         <input class="signup-text-box" type="text" name="email" th:if="${memberForm}" th:value="${memberForm.email}">

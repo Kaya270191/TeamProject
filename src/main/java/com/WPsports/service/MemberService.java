@@ -88,10 +88,16 @@ public class MemberService {
     public List<Member> allMember(){
         return memberRepository.selectAllSQL();
     }
-
+    
+    //사용자 정보 변경
     @Transactional
     public Member memberEdit(String id,MemberForm memberForm){
         Member oldMember=memberRepository.getById(id);
+        if(memberForm.getPw()!=""&&memberForm.getPw()!=null){
+            memberForm.setPw(passwordEncoder.encode(memberForm.getPw()));
+        }else {
+            memberForm.setPw(oldMember.getPw());
+        }
         oldMember.update(memberForm);
         memberRepository.save(oldMember);
         Member updateMember=memberRepository.getById(id);

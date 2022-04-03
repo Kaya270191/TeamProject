@@ -154,11 +154,14 @@ public class MemberController {
 
     @PatchMapping("/profile/edit/{id}")
     @ResponseBody
-    public int memberEdit(@PathVariable String id,@RequestBody MemberForm memberForm){
+    public int memberEdit(@PathVariable String id,@RequestBody MemberForm memberForm,HttpServletRequest request){
+        HttpSession session= request.getSession();
         log.info("id={}",id);
         log.info("ControllerMember={}",memberForm.toString());
         Member updateMember=memberService.memberEdit(id,memberForm);
         log.info("updateMember={}",updateMember.toString());
+        session.setAttribute("member",updateMember);
+        log.info("id={}",session.getAttribute("member").toString());
         return 1;
     }
 }
