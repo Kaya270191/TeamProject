@@ -1,0 +1,67 @@
+.button-box{
+    display:flex;
+    justify-content:center;
+    margin-top:100px;
+}
+
+.nomember-button{
+    display: inline-block;
+    font-size: 1rem;
+    background-color: rgb(255, 255, 255);
+    width: 40%;
+    min-width: 200px;
+    height: 35px;
+    margin: 5px;
+    border: 0;
+    padding: 0;
+}
+
+.nomember-button{
+    display: inline-block;
+    background:#1a59ab;
+    color:#fff;
+    position:relative;
+    height: 50px;
+    font-size:1.2em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+}
+
+.nomember-button:hover{
+    background:#fff;
+    color:#1a59ab;
+}
+.nomember-button:before{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1a59ab ;
+    transition:400ms ease all;
+}
+.nomember-button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1a59ab ;
+    transition:400ms ease all;
+}
+
+
+.nomember-button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+.nomember-button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}
