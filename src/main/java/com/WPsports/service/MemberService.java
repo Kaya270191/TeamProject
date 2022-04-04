@@ -103,5 +103,22 @@ public class MemberService {
         Member updateMember=memberRepository.getById(id);
         return updateMember;
     };
+
+    public Boolean memberCheck(String id,String pw){
+        Member oldMember=getById(id);
+        if(passwordEncoder.matches(pw,oldMember.getPw())){
+            return true;
+        }
+        return false;
+    };
+
+//회원탈퇴
+@Transactional
+public Boolean memberOut(String id){
+    Member oldMember= memberRepository.getById(id);
+    memberRepository.delete(oldMember);
+    log.info("회원 삭제 완료");
+    return true;
+}
 }
 

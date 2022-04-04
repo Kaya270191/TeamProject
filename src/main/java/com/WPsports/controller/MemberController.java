@@ -164,5 +164,28 @@ public class MemberController {
         log.info("id={}",session.getAttribute("member").toString());
         return 1;
     }
+
+    @PostMapping("/profile/outCheck/{id}")
+    @ResponseBody
+    public int memberCheck(@PathVariable String id,String pw){
+        if(memberService.memberCheck(id,pw)){
+            return 1;
+        }
+        return 0;
+    }
+
+    @PostMapping("/profile/signOut/{id}")
+    @ResponseBody
+    public int signOut(@PathVariable String id,HttpServletRequest request){
+        HttpSession session=request.getSession();
+        session.invalidate();
+        memberService.memberOut(id);
+        return 1;
+    }
+
+    @GetMapping("/thankUbye")
+    public String byebye(){
+        return "/members/thankUbye";
+    }
 }
 
