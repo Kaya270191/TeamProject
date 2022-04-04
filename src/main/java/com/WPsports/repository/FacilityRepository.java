@@ -12,4 +12,6 @@ public interface FacilityRepository extends JpaRepository<Facility, Long> {
     @Override
     ArrayList<Facility> findAll();
 
+    ArrayList<Facility> findByCategory(String value);
+
 }
