@@ -12,21 +12,16 @@ body{
     font-family: GmarketSansTTFLight;
 }
 
-html, body {
-  height: 100%;
-}
 
 #wrap{
     position: relative;
-    min-height: 100%;
-    padding-bottom: 65px;
+    width: 100%;
+    min-height: 100vh;
 }
 
 section{
-    position: relative;
-    width:100%;
+    padding-bottom: 65px;
 }
-
 
 
 .board-title{

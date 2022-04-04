@@ -20,7 +20,7 @@
             <!-- 로고 -->
             <div class="top-nav-logo" th:onclick="|location.href='@{/main}'|" style="cursor:pointer"></div>
             <!-- 로고Text -->
-            <div>WP게시판</div>
+            <div th:onclick="|location.href='@{/boards}'|" style="cursor:pointer">WP게시판</div>
         </div>
         <!-- 배너 -->
         <div class="banner"></div>
@@ -89,6 +89,7 @@
             <a class="move-button" th:href="@{?page={num}(num=${next})}" role="button">▶</a>
         </div>
     </section>
+
     <!-- footer -->
     <footer>
         <div class="footer-container">
