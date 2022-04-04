@@ -38,6 +38,4 @@ public class Facility {
     @Column
     private String category;
 
-
-
 }

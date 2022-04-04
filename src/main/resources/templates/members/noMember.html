@@ -3,10 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="css/welcomemember.css">
+    <link rel="stylesheet" href="css/noMember.css">
+
 </head>
 <body>
-회원이 아니시면 접근이 불가능 하세요.
-<button onclick="location.href='/'">회원가입 하러 가기</button>
-<button onclick="location.href='/login'">로그인 하러 가기</button>
+<div class = "meta">
+    <!-- 배경 영상 -->
+    <div class="bg">
+        <video class = "video-bg" muted autoplay loop>
+            <source src="video/Bike - 72566.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class = "contents-container">
+        <p>회원이 아니시면 접근이 불가능 하세요.</p>
+        <p>로그인후 원하시는 운동을 찾아보세요!</p>
+        <div class ="button-box">
+            <button class="nomember-button" onclick="location.href='/'">회원가입</button>
+            <button class="nomember-button" onclick="location.href='/login'">로그인</button>
+        </div>
+    </div>
+</div>
+
+
+
+
 </body>
 </html>

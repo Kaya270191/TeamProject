@@ -1,33 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<<html xmlns:th="http://www.thymeleaf.org">>
 
 <head>
     <meta charset="UTF-8">
     <title>Ｔｉｔｌｅ</title>
-    <link rel="stylesheet" href="css/mainstyle.css">
-</head>
+    <link rel="stylesheet" href="css/main.css">
 
+</head>
 <body>
-<!-- header -->
-<div class= "nav-container">
-    <div class = "top-nav">
-        <!-- 로고디자인 -->
-        <div class= "top-nav-logo"></div>
-        <div class="search">
-            <input type="text" placeholder="검색어입력">
-            <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+<div id="wrap">
+    <!-- header -->
+    <header>
+        <div class= "nav-container">
+            <div class = "top-nav">
+                <!-- 로고디자인 -->
+                <div class= "top-nav-logo" th:onclick="|location.href='@{/main}'|" style="cursor:pointer"></div>
+                <!-- 검색바 -->
+                <div class="search">
+                    <input type="text" placeholder="검색어입력">
+                    <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+                </div>
+            </div>
+            <!-- 상단 네비바 기능 버튼 -->
+            <div class= "profile-button">
+                <button type="button" onclick="location.href='boards'">게시판</button>
+            </div>
+            <div class= "profile-button">
+                <button type="button" onclick="location.href='profile'">프로필</button>
+            </div>
+            <div class= "profile-button">
+                <button type="button" onclick="location.href='logout'">로그아웃</button>
+            </div>
         </div>
-    </div>
-    <div class= "profile-button">
-        <button type="button" onclick="location.href='boards'">게시판</button>
-    </div>
-    <div class= "profile-button">
-        <button type="button" onclick="location.href='profile'">프로필</button>
-    </div>
-    <div class= "profile-button">
-        <button type="button" onclick="location.href='logout'">로그아웃</button>
-    </div>
-</div>
+        <!-- 배너 -->
+        <div class="screen-container">
+            <div class="screen"></div>
+        </div>
+    </header>
+
+
 
 <div class="screen-container">
     <div class="screen">1234</div>
@@ -51,11 +62,76 @@
     <div class="sports-name" href="#">스케이트</div>
 </div>
 
-<!-- footer -->
-<iframe id="footer" src="footer"></iframe>
 
-<!--현재 app.js파일 없음 뭐있었던 건지 찾거나 지워야 할듯?-->
-<script src="/js/app.js"></script>
+    <section>
+        <form>
+            <figure>
+                <img src = "#" alt-="logo">
+                <figcaption>볼링</figcaption>
+            </figure>
+            <figure>
+                <img src = "#" alt-="logo">
+                <figcaption>탁구</figcaption>
+            </figure>
+            <figure>
+                <img src = "#" alt-="logo">
+                <figcaption>테니스</figcaption>
+            </figure>
+
+            <figure>
+                <img src = "#" alt-="logo">
+                <figcaption>스케이트</figcaption>
+            </figure>
+            <figure>
+                <img src = "#" alt-="logo">
+                <figcaption>농구</figcaption>
+            </figure>
+            <figure>
+                <img src = "#" alt-="logo">
+                <figcaption>풋살</figcaption>
+            </figure>
+
+            <figure>
+                <img src = "#" alt-="logo">
+                <figcaption>배드민턴</figcaption>
+            </figure>
+            <figure>
+                <img src = "#" alt-="logo">
+                <figcaption>클라이밍</figcaption>
+            </figure>
+            <figure>
+                <img src = "#" alt-="logo">
+                <figcaption>수영</figcaption>
+            </figure>
+        </form>
+    </section>
+
+
+    <footer>
+        <!-- footer-->
+        <div class= "footer-container">
+            <div class = "footer-bar">
+                <span class= "footer-bar-text">
+                    <a>
+                        고객지원실 운영안내
+                        연중무휴 09:00-18:00 (점심시간 12:00-13:00)
+                        주말/공휴일 포함, 한국시간 기준
+                        ※ 환불/변경은 평일 09:00-17:00 접수 가능
+                    </a>
+                </span>
+
+                <span class= "footer-bar-text">
+                    <a>상호명 (주)따스한 프로젝트 | 대표 정가영 | 개인정보보호책임자 박현호</a>
+                </span>
+                <span class= "footer-bar-text">
+                    <a>주소 대구광역시 동구 화랑로 525 (영진직업전문학교) | 이메일 hio201140@gamil.com | 마케팅/제휴 문의 hio201140@gamil.com</a>
+                </span>
+                <span class= "footer-bar-text">
+                    <a>Copyright(2022).ⓒ.merlin All rights reserved.</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+</div>
 </body>
-
 </html>
