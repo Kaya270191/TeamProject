@@ -58,10 +58,10 @@
 <div class = "show-button-container">
     <div class = "button-box">
         <!--수정버튼-->
-        <button class="correction" th:if="${#strings.equals(session.member.getId(),board.writer)}"
+        <button class="correction" th:if="${#strings.equals(session.member.getId(),board.writer)} or ${#strings.equals(session.member.getAuth(),'ADMIN')}"
                 th:onclick="|location.href='@{/boards/{id}/edit(id=${board.id})}'|" >수정</button>
         <!--삭제버튼-->
-        <button class="correction" th:if="${#strings.equals(session.member.getId(),board.writer)}"
+        <button class="correction" th:if="${#strings.equals(session.member.getId(),board.writer)} or ${#strings.equals(session.member.getAuth(),'ADMIN')}"
                 th:onclick="|location.href='@{/boards/{id}/delete(id=${board.id})}'|" >삭제</button>
         <!--목록으로 돌아가는 버튼-->
         <button class="correction" type="button" onclick="location.href='/boards'">목록으로</button>
