@@ -3,12 +3,7 @@
 <head>
 
     <style>
-        .card-img-top{
-            width: auto;
-            height: auto;
-            max-width: 300px;
-            max-height: 300px;
-        }
+
     </style>
 
     <!-- Required meta tags -->
@@ -22,17 +17,15 @@
 </head>
 <body>
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
-    <div class="col" th:each="facility, status: ${facilityList}"  >
-        <div class="card">
-            <div class="embed-responsive embed-responsive-4by3">
-                <img th:src="${facility.photo}" class="card-img-top" alt="...">
-            </div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" th:each="facility, status: ${facilityList}">
+        <div class="card h-100">
+            <img th:src="${facility.photo}" class="card-img-top" alt="..." th:onclick="|location.href='@{/facility/{id}(id=${facility.id})}'|">
             <div class="card-body">
-                <h5 class="card-title" th:text="${facility.name}">Card title</h5>
-                <p class="card-text" th:text="${facility.tel}"></p>
+                <a th:href="@{/facility/{id}(id=${facility.id})}">
+                    <h5 class="card-title" th:text="${facility.name}">Card title</h5>
+                </a>
                 <p class="card-text" th:text="${facility.address}"></p>
-                <p class="card-text" th:text="${facility.starRate}"></p>
             </div>
         </div>
     </div>
