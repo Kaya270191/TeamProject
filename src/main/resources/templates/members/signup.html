@@ -84,8 +84,12 @@
                         <p class = "alert" th:text="${valid_birthday}"></p>
                         <!-- 이메일 -->
                         <input class="signup-text-box" type="text" name="email" th:if="${memberForm}" th:value="${memberForm.email}">
-                        <p><input class="signup-text-box" type=”text” name="email" th:unless="${memberForm}" placeholder="이메일">
+                        <p><input class="signup-text-box" type="text" name="email" th:unless="${memberForm}" placeholder="이메일">
                         <p class = "alert" th:text="${valid_email}"></p>
+                        <!-- 이메일 -->
+                        <input class="signup-text-box" type="text" name="phone" th:if="${memberForm}" th:value="${memberForm.phone}">
+                        <p><input class="signup-text-box" type="text" name="phone" th:unless="${memberForm}" placeholder="전화번호">
+                        <p class = "alert" th:text="${valid_phone}"></p>
                         <!-- 주소 -->
                         <input class="signup-text-box" type="text" name="address" th:if="${memberForm}" th:value="${memberForm.address}">
                         <p><input class="signup-text-box" type=”text” name="address" th:unless="${memberForm}"  placeholder="주소">
