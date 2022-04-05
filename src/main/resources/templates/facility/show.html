@@ -134,10 +134,13 @@
 
 <!--&lt;!&ndash;삭제버튼&ndash;&gt;-->
 <!--<a href="#" th:href="@{/boards/{id}/delete(id=${board.id})}" >삭제</a>-->
+    <!--삭제버튼-->
+    <button class="correction" th:onclick="|location.href='@{/facility/{id}/delete(id=${facility.id})}'|" >삭제</button>
 
 <!--목록으로 돌아가는 버튼-->
 <a href="/main" >메인으로 돌아감 </a>
 <a href="/main" >카테고리별 페이지로 </a>
+
 <!--새글쓰기-->
 <!--<a href="/boards/new" >새글쓰기</a>-->
 

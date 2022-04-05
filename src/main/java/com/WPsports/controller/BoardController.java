@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Slf4j
@@ -38,14 +39,15 @@ public class BoardController {
     private CommentService commentService;
 
     @GetMapping("/boards/new")//게시글 작성
-    public String newBoardForm(){
+    public String newBoardForm(HttpSession session){
+        log.info("세션이 오는가..ㅋㅋ"+session.getAttribute("member").toString());
         return "boards/new"; //templates/boards/new
     }
 
     @PostMapping("/boards/create")  //게시글 작성
     public String createBoard(BoardForm form){ //폼 데이터로 받은 것을 파라미터로 들어옴
         log.info("매빞ㅇ됨");
-        log.info(newBoardForm().toString());
+        log.info(form.toString());
         //1: Dto -> Entity로 변환
         Board board = form.toEntity();
         log.info(board.toString());

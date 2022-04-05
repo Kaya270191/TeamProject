@@ -119,6 +119,6 @@ public Boolean memberOut(String id){
     memberRepository.delete(oldMember);
     log.info("회원 삭제 완료");
     return true;
-}
+    }
 }
 

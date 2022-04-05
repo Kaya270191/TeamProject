@@ -38,7 +38,7 @@
 
                 <div class="mb-3">
                     <label>작성자</label>
-                    <input type="text" class="form-control" name="writer" placeholder="이름을 입력해 주세요">
+                    <input type="text" class="form-control" name="writer" th:value="${session.member.getId()}">
                 </div>
 
                 <div class="mb-3">

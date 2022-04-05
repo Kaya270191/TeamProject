@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Board {
+public class Board extends Timestamped{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
