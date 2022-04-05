@@ -89,6 +89,8 @@
                         <!-- 주소 -->
                         <input class="signup-text-box" type="text" name="address" th:if="${memberForm}" th:value="${memberForm.address}">
                         <p><input class="signup-text-box" type=”text” name="address" th:unless="${memberForm}"  placeholder="주소">
+                        <!--권한 인풋-->
+                            <input type="hidden" name="auth" value="MEMBER">
                         <!-- 가입버튼 -->
                         <p><button id="signup-button" class="signup-button" type="submit" >Will U Join Us?</button>
                     </form>

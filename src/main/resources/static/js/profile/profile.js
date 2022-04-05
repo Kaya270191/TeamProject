@@ -24,7 +24,7 @@ function pwCheck(){
 };
 
 function signOutCheck(){
-    var id = $('#id').val();
+    var id = $('#id').innerText;
 
     $.ajax({
         url:'/profile/signOut/'+id,

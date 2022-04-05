@@ -2,7 +2,6 @@ package com.WPsports.dto;
 
 import com.WPsports.entity.Member;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +13,7 @@ import javax.validation.constraints.Size;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MemberForm {
+public class MemberForm{
 
     @NotBlank(message = "아이디에 공백은 포함할수 없습니다.")
     @Size(min=2,max=16,message = "아이디는 2~16자리만 입력 가능합니다.")
@@ -40,8 +39,6 @@ public class MemberForm {
     private String address;
 
     private String auth;
-
-
 
     public Member toEntity(){
         return Member.builder()

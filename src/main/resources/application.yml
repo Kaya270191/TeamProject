@@ -14,6 +14,7 @@ spring:
 
   jpa:
     hibernate:
+      #프로그램 실행시 db초기화
       ddl-auto: create
     properties:
       hibernate:

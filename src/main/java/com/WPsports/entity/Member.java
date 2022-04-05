@@ -4,24 +4,25 @@ package com.WPsports.entity;
 import com.WPsports.boardComment.CommentDto;
 import com.WPsports.dto.MemberForm;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Builder
-public class Member {
+public class Member{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long member_key;
+
     private String id;
     private String pw;
     private String name;

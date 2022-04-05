@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 관리 페이지</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/js/admin/admin.js" defer></script>
+</head>
+<body>
+    <table class="table table-striped">
+        <thead>
+        <!-- 분류 -->
+        <tr>
+            <th>이름</th>
+            <th>아이디</th>
+            <th>휴대폰</th>
+            <th>이메일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr id="contents" th:each="member, status:${memberList}" th:object="${[member]}" th:if="${#strings.equals(member.getAuth(),'MEMBER')}">
+            <!-- 내용 -->
+            <td>
+                <p th:text="${member.getName()}">
+            </td>
+            <td>
+                <p id="id"th:text="${member.getId()}"></p>
+            </td>
+            <td>
+                <p th:text="${member.getPhone()}"></p>
+            </td>
+            <td>
+                <p th:text="${member.getEmail()}"></p>
+            </td>
+            <td>
+                <button onclick="outMember()">탈퇴</button>
+            </td>
+        </tr>
+        </tbody>
+        <button onclick="location.href='/domain'">메인으로</button>
+    </table>
+</div>
+</body>
+</html>

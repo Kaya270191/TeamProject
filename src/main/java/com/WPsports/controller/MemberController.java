@@ -145,11 +145,18 @@ public class MemberController {
         return "members/profile/edit";
     }
 
-    @GetMapping("/test")
-    public String hello(Model model){
-        List<Member> allMember= memberService.allMember();
-        model.addAttribute("memberList",allMember);
-        return "/members/allmember";
+    @GetMapping("/members/memberList")
+    public String hello(Model model,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        Member nowMember=(Member)session.getAttribute("member");
+        log.info("현재 접근하려는 member={}",nowMember);
+        log.info(nowMember.getAuth());
+        if(nowMember.getAuth().equals("ADMIN")){
+            List<Member> allMember= memberService.allMember();
+            model.addAttribute("memberList",allMember);
+            return "/members/admin/allmember";
+        }
+        return"/members/admin/noAdmin";
     }
 
     @PatchMapping("/profile/edit/{id}")
@@ -179,6 +186,13 @@ public class MemberController {
     public int signOut(@PathVariable String id,HttpServletRequest request){
         HttpSession session=request.getSession();
         session.invalidate();
+        memberService.memberOut(id);
+        return 1;
+    }
+
+    @PostMapping("/admin/memberOut/{id}")
+    @ResponseBody
+    public int memberOut(@PathVariable String id){
         memberService.memberOut(id);
         return 1;
     }

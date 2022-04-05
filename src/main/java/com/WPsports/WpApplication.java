@@ -2,8 +2,8 @@ package com.WPsports;
 
 import com.WPsports.controller.MemberController;
 import com.WPsports.dto.MemberForm;
-import com.WPsports.entity.Member;
 //공도형 작업용 주석처리(로그인 권한)
+import com.WPsports.entity.Timestamped;
 import com.WPsports.security.loginFilter;
 import com.WPsports.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +16,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Filter;
 
 @EnableJpaAuditing
@@ -43,7 +45,8 @@ public class WpApplication {
 					"1994-07-09",
 					"22@test.com",
 					"대구",
-					"MEMBER");
+					"MEMBER"
+					);
 
 			MemberForm testAdmin=new MemberForm(
 					"admin",
@@ -53,7 +56,8 @@ public class WpApplication {
 					"112233",
 					"1994-07-09",
 					"대구",
-					"ADMIN");
+					"ADMIN"
+					);
 
 			memberService.save(testMember);
 			memberService.save(testAdmin);
@@ -67,7 +71,7 @@ public class WpApplication {
 	public FilterRegistrationBean setFilterRegistration(){
 
 		FilterRegistrationBean filterRegistrationBean=new FilterRegistrationBean(new loginFilter());
-		filterRegistrationBean.addUrlPatterns("/main/*","/boards/*","/profile/*"); // string 여러개(접근제한 url)를 가변인자로 받는 메소드
+		filterRegistrationBean.addUrlPatterns("/main/*","/boards/*","/profile/*","/members/*"); // string 여러개(접근제한 url)를 가변인자로 받는 메소드
 		return filterRegistrationBean;
 	}
 }
