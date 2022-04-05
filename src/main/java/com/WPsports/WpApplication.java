@@ -27,7 +27,8 @@ public class WpApplication {
 		SpringApplication.run(WpApplication.class, args);
 	}
 
-	//	서버 실행시 test,1234 로 로그인 가능
+
+//		서버 실행시 test,1234 로 로그인 가능
 	@Bean
 	public CommandLineRunner testMember() throws Exception{
 		return (String[] args)->{
@@ -59,7 +60,7 @@ public class WpApplication {
 
 	//	서버에 필터적용
 
-	//공도형 작업용 주석처리(로그인 권한)
+//	공도형 작업용 주석처리(로그인 권한)
 	@Bean
 	public FilterRegistrationBean setFilterRegistration(){
 
