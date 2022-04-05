@@ -34,6 +34,7 @@ public class MemberController {
         return "members/signup";
     }
 
+    //session 에 member 인증이 안됐을경우 보낼 페이지
     @GetMapping(value="/nomember")
     public String noMember(){
         return "members/noMember";
@@ -91,8 +92,8 @@ public class MemberController {
     @PostMapping("/login-do")
     public String loginDO(String id, String pw, Model model, HttpServletRequest req){
         log.info("id={},pw={}",id,pw);
-        HttpSession session = req.getSession();
         if(memberService.loginDO(id,pw,model)){
+            HttpSession session = req.getSession();
             session.setAttribute("member",model.getAttribute("member"));
             return "redirect:/main";
         }else {
