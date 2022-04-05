@@ -123,7 +123,4 @@ public class MainController {
         //3: 수정 결과 리다이랙트
         return "redirect:/facility/" + facilityEntity.getId();
     }
-
-
-
 }
