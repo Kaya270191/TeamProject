@@ -4,11 +4,9 @@ import com.WPsports.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Data
 @AllArgsConstructor
@@ -23,6 +21,7 @@ public class MemberForm{
     @NotBlank(message = "비밀번호에 공백은 포함할수 없습니다.")
     private String pw;
 
+    @Nullable
     @NotBlank(message = "이름에 공백은 포함할수 없습니다.")
     @Size(min=2,max=6,message = "이름은 2~8자리 까지 입력 가능합니다.")
     @Pattern(regexp = "^[a-zA-Zㄱ-힣]*$",message = "이름에 숫자와 특수문자는 포함될 수 없습니다.")
@@ -31,6 +30,7 @@ public class MemberForm{
     @Pattern(regexp = "^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$", message = "휴대폰번호의 형식이 맞지 않습니다.")
     private String phone;
 
+    @Nullable
     private String birthday;
 
     @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,6}$", message = "이메일 형식에 맞지 않습니다.")
