@@ -30,65 +30,6 @@
 <!--    지도-->
     <div id="map" style="width:100%;height:400px;"></div>
 
-<!--    <script id="code">-->
-<!--        //function get_pointer (해당주소,대상지도 id,title) {-->
-<!--        function get_pointer (adress,getid,title) {-->
-<!--            naver.maps.Service.geocode({-->
-<!--                address: adress-->
-<!--            }, function(status, response) {-->
-<!--                if (status !== naver.maps.Service.Status.OK) {-->
-<!--                    //return alert('Something wrong!');-->
-<!--                    console.log('주소에러');-->
-<!--                }-->
-
-<!--                var result = response.result, // 검색 결과의 컨테이너-->
-<!--                    items = result.items; // 검색 결과의 배열-->
-
-<!--                // do Something-->
-<!--                var x = eval(items[0].point.x);-->
-<!--                var y = eval(items[0].point.y);-->
-
-<!--                var HOME_PATH = window.HOME_PATH || '.';-->
-
-<!--                var cityhall = new naver.maps.LatLng(y, x),-->
-<!--                    map = new naver.maps.Map('map', {-->
-<!--                        center: cityhall.destinationPoint(0, 500),-->
-<!--                        zoom: 10-->
-<!--                    }),-->
-<!--                    marker = new naver.maps.Marker({-->
-<!--                        map: map,-->
-<!--                        position: cityhall-->
-<!--                    });-->
-
-<!--                var contentString = [-->
-<!--                    '<div class="iw_inner">',-->
-<!--                    '   <h3>'+title+'</h3>',-->
-<!--                    '   <p>'+adress+'</p>',-->
-<!--                    '</div>'-->
-<!--                ].join('');-->
-
-<!--                var infowindow = new naver.maps.InfoWindow({-->
-<!--                    content: contentString-->
-<!--                });-->
-
-<!--                naver.maps.Event.addListener(marker, "click", function(e) {-->
-<!--                    if (infowindow.getMap()) {-->
-<!--                        infowindow.close();-->
-<!--                    } else {-->
-<!--                        infowindow.open(map, marker);-->
-<!--                    }-->
-<!--                });-->
-
-<!--                infowindow.open(map, marker);-->
-<!--            });-->
-<!--        }-->
-
-<!--        /* 마커중복 사용안됨 */-->
-<!--        get_pointer('대구 안심로 49길 42','map','대전본점');-->
-<!--    </script>-->
-
-
-
     <div class="card-body">
         <h5 class="card-title" th:text="${facility.name}"></h5>
         <div>
@@ -124,29 +65,17 @@
 <!--    </div>-->
 
 
-
-
 </div>
 
-
-<!--&lt;!&ndash;수정버튼&ndash;&gt;-->
-<!--<a href="#" th:href="@{/boards/{id}/edit(id=${board.id})}" >수정</a>-->
-
-<!--&lt;!&ndash;삭제버튼&ndash;&gt;-->
-<!--<a href="#" th:href="@{/boards/{id}/delete(id=${board.id})}" >삭제</a>-->
     <!--삭제버튼-->
     <button class="correction" th:onclick="|location.href='@{/facility/{id}/delete(id=${facility.id})}'|" >삭제</button>
+
+    <button class="correction" th:onclick="|location.href='@{/facility/{id}/edit(id=${facility.id})}'|" >수정</button>
 
 <!--목록으로 돌아가는 버튼-->
 <a href="/main" >메인으로 돌아감 </a>
 <a href="/main" >카테고리별 페이지로 </a>
 
-<!--새글쓰기-->
-<!--<a href="/boards/new" >새글쓰기</a>-->
-
-<!--<div>-->
-<!--    <th:block th:include="comments/comments"></th:block>-->
-<!--</div>-->
 
 <script>
     var mapOptions = {

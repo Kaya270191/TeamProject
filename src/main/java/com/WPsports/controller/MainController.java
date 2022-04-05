@@ -1,8 +1,8 @@
 package com.WPsports.controller;
 
 
+
 import com.WPsports.dto.FacilityForm;
-import com.WPsports.entity.Board;
 import com.WPsports.entity.Facility;
 import com.WPsports.repository.FacilityRepository;
 import com.WPsports.service.FacilityService;
@@ -70,7 +70,7 @@ public class MainController {
         return "/facility/show";
     }
 
-    //삭제
+    //업체 삭제
     @GetMapping("/facility/{id}/delete")
     public String delete(@PathVariable Long id, RedirectAttributes rttr){
         //1: 삭제 대상을 가져온다
@@ -85,5 +85,36 @@ public class MainController {
         //3: 결과 페이지로 리다이렉트 한다
         return "redirect:/main"; // 업체목록으로 리다이렉트-> 수정해야함
     }
+
+    // 업체 수정
+    @GetMapping("/facility/{id}/edit")
+    public String edit(@PathVariable Long id, Model model){
+        // 1: 수정할 데이터를 가져오기
+        Facility facilityEntity = facilityRepository.findById(id).orElse(null);
+        // 2: 모델에 데이터를 등록
+        model.addAttribute("facility", facilityEntity);
+        //3: 뷰페이지 설정
+        return "facility/edit"; //수정페이지를 반환
+    }
+
+    @PostMapping("/facility/update")
+    public String update(FacilityForm form){
+        log.info(form.toString());
+        //1: DTO를 앤티티로 변환
+        Facility facilityEntity = form.toEntity(); //수정할 데이터
+
+        //2: 앤티티-> DB저장
+        //2-1: DB에서 기존 데이터 가져오기
+        Facility target = facilityRepository.findById(facilityEntity.getId()).orElse(null);
+
+        //2-2: 기존 값 갱신
+        if (target != null){
+            facilityRepository.save(facilityEntity);
+        }
+        //3: 수정 결과 리다이랙트
+        return "redirect:/facility/" + facilityEntity.getId();
+    }
+
+
 
 }

@@ -20,4 +20,7 @@ public class FacilityService {
         ArrayList<Facility> serached = facilityRepository.findByCategory(value);
         return serached;
     }
+
+
+
 }
