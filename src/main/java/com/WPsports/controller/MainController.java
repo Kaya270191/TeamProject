@@ -4,6 +4,7 @@ package com.WPsports.controller;
 
 import com.WPsports.dto.FacilityForm;
 import com.WPsports.entity.Facility;
+import com.WPsports.entity.Member;
 import com.WPsports.repository.FacilityRepository;
 import com.WPsports.service.FacilityService;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -88,13 +90,20 @@ public class MainController {
 
     // 업체 수정
     @GetMapping("/facility/{id}/edit")
-    public String edit(@PathVariable Long id, Model model){
-        // 1: 수정할 데이터를 가져오기
-        Facility facilityEntity = facilityRepository.findById(id).orElse(null);
-        // 2: 모델에 데이터를 등록
-        model.addAttribute("facility", facilityEntity);
-        //3: 뷰페이지 설정
-        return "facility/edit"; //수정페이지를 반환
+    public String edit(@PathVariable Long id, Model model,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        Member nowMember=(Member)session.getAttribute("member");
+        log.info("현재 접근하려는 member={}",nowMember);
+        log.info(nowMember.getAuth());
+        if(nowMember.getAuth().equals("ADMIN")){
+            // 1: 수정할 데이터를 가져오기
+            Facility facilityEntity = facilityRepository.findById(id).orElse(null);
+            // 2: 모델에 데이터를 등록
+            model.addAttribute("facility", facilityEntity);
+            //3: 뷰페이지 설정
+            return "facility/edit"; //수정페이지를 반환
+        }
+        return"/members/admin/noAdmin";
     }
 
     @PostMapping("/facility/update")

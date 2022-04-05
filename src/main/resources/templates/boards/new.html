@@ -38,7 +38,8 @@
 
                 <div class="mb-3">
                     <label>작성자</label>
-                    <input type="text" class="form-control" name="writer" th:value="${session.member.getId()}">
+                    <input type="text" class="form-control" th:value="${session.member.getId()}" disabled>
+                    <input type="hidden" name="writer" th:value="${session.member.getId()}">
                 </div>
 
                 <div class="mb-3">

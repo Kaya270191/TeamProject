@@ -68,9 +68,9 @@
 </div>
 
     <!--삭제버튼-->
-    <button class="correction" th:onclick="|location.href='@{/facility/{id}/delete(id=${facility.id})}'|" >삭제</button>
+    <button class="correction" th:if="${#strings.equals(session.member.getAuth(),'ADMIN')}" th:onclick="|location.href='@{/facility/{id}/delete(id=${facility.id})}'|" >삭제</button>
 
-    <button class="correction" th:onclick="|location.href='@{/facility/{id}/edit(id=${facility.id})}'|" >수정</button>
+    <button class="correction" th:if="${#strings.equals(session.member.getAuth(),'ADMIN')}" th:onclick="|location.href='@{/facility/{id}/edit(id=${facility.id})}'|" >수정</button>
 
 <!--목록으로 돌아가는 버튼-->
 <a href="/main" >메인으로 돌아감 </a>

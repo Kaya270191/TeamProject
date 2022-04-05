@@ -20,6 +20,7 @@
                 class="btn btn-sm btn-outline-primary"
                 data-bs-toggle="modal"
                 data-bs-target="#comment-edit-modal"
+                th:if="${#strings.equals(session.member.getId(),commentDto.nickname)}"
                 th:data-bs-id="${commentDto.id}"
                 th:data-bs-nickname="${commentDto.nickname}"
                 th:data-bs-body="${commentDto.body}"
@@ -28,6 +29,7 @@
 <!--            &lt;!&ndash; 댓글 삭제 버튼 &ndash;&gt;-->
         <button type="button"
                 class="btn btn-sm btn-outline-danger comment-delete-btn"
+                th:if="${#strings.equals(session.member.getId(),commentDto.nickname)}"
                 th:data-comment-id="${commentDto.id}">삭제</button>
         </div>
     </div>
