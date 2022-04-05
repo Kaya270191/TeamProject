@@ -31,6 +31,9 @@
             <div class= "profile-button">
                 <button type="button" onclick="location.href='logout'">로그아웃</button>
             </div>
+            <div class= "profile-button" th:if="${#strings.equals(session.member.getAuth(),'ADMIN')}">
+                <button type="button" onclick="location.href='members/memberList'">회원목록</button>
+            </div>
         </div>
         <!-- 배너 -->
         <div class="screen-container">

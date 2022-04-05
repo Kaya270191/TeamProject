@@ -1,4 +1,5 @@
 function pwCheck(){
+    var id = $('#id').val();
     var pw = $('#pw').val();
     console.log(id);
     console.log(pw);
