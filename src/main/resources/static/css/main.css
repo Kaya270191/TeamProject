@@ -1,0 +1,62 @@
+@import '/css/reset.css';
+@import '/css/header.css';
+
+
+#wrap{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+section{
+    width: 100%;
+    padding-bottom: 65px;
+}
+
+footer{
+    width: 100%;
+    min-width: 750px;
+    bottom: 0px;
+    position: absolute;
+}
+
+.footer-container{
+    display: flex;
+    height: 65px;
+    align-items: center;
+    justify-content: center;
+    background-color: #303030;
+
+}
+
+  .footer-container a{
+    margin: 5px;
+    font-size: 0.7rem;
+}
+
+  .footer-bar{
+    display: flex;
+    flex-direction: column;
+}
+
+  .footer-bar-text{
+    font-size: 0.7em;
+    color: white;
+}
+
+
+
+
+.screen-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0066ff;
+}
+
+.screen{
+  display: flex;
+  background-color: blue;
+  width: 1020px;
+  height: 500px;
+}

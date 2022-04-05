@@ -30,7 +30,7 @@ logging.level:
 
 
 
-#geno_home_setting
+##geno_home_setting
 #server:
 #  port: 5555
 #

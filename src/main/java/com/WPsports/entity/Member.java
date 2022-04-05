@@ -4,6 +4,8 @@ package com.WPsports.entity;
 import com.WPsports.boardComment.CommentDto;
 import com.WPsports.dto.MemberForm;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

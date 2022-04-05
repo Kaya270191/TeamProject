@@ -12,18 +12,19 @@
 </head>
 <body>
 <p th:text="${session.id}"></p>
-<p th:text="${session.name}"></p>
-<p th:text="${session.phone}"></p>
-<p th:text="${session.email}"></p>
-<p th:text="${session.birthday}"></p>
-<p th:text="${session.address}"></p>
+<p id="name" th:text="${session.name}"></p>
+<p id="phone" th:text="${session.phone}"></p>
+<p id="email" th:text="${session.email}"></p>
+<p id="birthday" th:text="${session.birthday}"></p>
+<p id="address" th:text="${session.address}"></p>
 
 <button type="button"
         class="btn btn-sm btn-outline-primary"
         data-bs-target="#password_check"
         data-bs-toggle="modal"
 >수정</button>
-<!-- 모달(Modal) -->
+
+<!-- 수정 모달(Modal) -->
 
 <div class="modal fade" id="password_check" tabindex="-1" role="dialog">
     <div class="modal-dialog">
@@ -44,10 +45,44 @@
                     <button type="button"
                             onclick="pwCheck()">수정 하러가기</button>
                 </form>
-                <p th:text="${loginFailed}"></p>
             </div>
         </div>
     </div>
 </div>
+
+<button type="button"
+        class="btn btn-sm btn-outline-primary"
+        data-bs-target="#sign_out_check"
+        data-bs-toggle="modal"
+>탈퇴</button>
+
+<!-- 탈퇴 모달(Modal) -->
+
+<div class="modal fade" id="sign_out_check" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" th:text="|${session.id} 회원님 탈퇴를 진행하시겠습니까?|"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">"회원탈퇴"를 입력해 주십시오</label>
+                        <input class="form-control form-control-sm" type="text" id="sign_out_text">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">비밀번호</label>
+                        <input class="form-control form-control-sm" type="password" id="sign_out_pw">
+                    </div>
+                    <!-- 전송 버튼 -->
+                    <button type="button"
+                            onclick="signPwCheck()">탈퇴 하기</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

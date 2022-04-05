@@ -4,6 +4,7 @@ package com.WPsports.controller;
 import com.WPsports.dto.FacilityForm;
 import com.WPsports.entity.Facility;
 import com.WPsports.repository.FacilityRepository;
+import com.WPsports.service.FacilityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,13 +14,34 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @Slf4j
 public class MainController {
 
     @Autowired
+    private FacilityService facilityService;
+    @Autowired
     private FacilityRepository facilityRepository;
+
+
+    @GetMapping("/domain")
+    public String domain(){
+        return "mains/main";
+    }
+
+    @GetMapping("/domain/{value}")
+    public  String faList(@PathVariable String value, Model model){
+        //service에 위임
+        List<Facility> serached = facilityService.serach(value);
+
+        //model에 등록
+        model.addAttribute("facilityList", serached);
+
+        // 페이지 전환
+       return "/mains/facilityList";
+    }
 
     // 업체 등록 폼
     @GetMapping("/facility/new") // /facility/new

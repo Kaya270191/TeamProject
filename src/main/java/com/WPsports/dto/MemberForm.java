@@ -32,7 +32,6 @@ public class MemberForm {
     @Pattern(regexp = "^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$", message = "휴대폰번호의 형식이 맞지 않습니다.")
     private String phone;
 
-    @Size(min=6,max=6,message = "생년월일을 6자리로 입력해 주십시오.")
     private String birthday;
 
     @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,6}$", message = "이메일 형식에 맞지 않습니다.")

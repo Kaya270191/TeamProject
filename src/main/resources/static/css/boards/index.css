@@ -13,7 +13,19 @@ body{
 }
 
 
+#wrap{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+section{
+    padding-bottom: 65px;
+}
+
+
 .board-title{
+    z-index: 999;
     display: flex;
     position: fixed;
     top: 0;
@@ -45,16 +57,13 @@ body{
     justify-content: center;
     font-family: GmarketSansTTFBold;
     font-size: 2rem;
-    margin: 25px;
-    margin-top: 95px;
+    padding: 25px;
+    padding-top: 85px;
 }
 
-
-
 .meta{
-
     display:flex;
-    width:100vw;
+    width:100%;
     justify-content:center;
     align-items: center;
 }
@@ -81,7 +90,6 @@ th, td {
 
 .forward-back{
     height: 70px;
-    margin-top: 50px;
     font-size: 2rem;
     display: flex;
     justify-content: center;
@@ -159,14 +167,14 @@ th, td {
     margin-right: 3px;
 }
 
-
+footer{
+    width: 100%;
+    min-width: 750px;
+    bottom: 0px;
+    position: absolute;
+}
 .footer-container{
     display: flex;
-    width: 100%;
-    min-width: 660px;
-    height: 8vh;
-    bottom: 0;
-    position: absolute;
     justify-content: center;
     align-items: center;
     background-color: #303030;

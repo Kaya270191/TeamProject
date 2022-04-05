@@ -18,13 +18,16 @@ function pwCheck(){
 };
 
 function pwChangeOpen(){
-    $('#pwChange').css("display","inline-block")
-    $('#pwOpenButton').css("display","none")
+    $('#pwChange').css("display","inline-block");
+    $('#pwOpenButton').css("display","none");
 }
 
 function pwChangeClose(){
-    $('#pwChange').css("display","none")
-    $('#pwOpenButton').css("display","inline-block")
+    $('.pw1').val("");
+    $('.pw2').val("");
+    $('#pwChange').css("display","none");
+    $('#pwOpenButton').css("display","inline-block");
+    pwCheck();
 }
 
 
@@ -36,6 +39,45 @@ function editMember(){
     var email = $('#email').val();
     var birthday = $('#birthday').val();
     var address = $('#address').val();
+
+    if(pw.includes(" ")){
+        alert("비밀번호는 공백이포함될 수 없습니다.")
+        $("#pw").focus();
+        return;
+    }
+
+    if(name.includes(" ")){
+        alert("이름에 공백은 포함할수 없습니다.")
+        $("#name").focus();
+        return;
+    }
+
+   var regName = /^[a-zA-Zㄱ-힣]*$/;
+   if(regName.test(name)!=true){
+       alert("이름에 숫자와 특수문자는 포함될 수 없습니다.")
+       $("#name").focus();
+       return;
+   }
+
+    if(name.length<2||name.length>6){
+        alert("이름은 2~8자리 까지 입력 가능합니다.")
+        $("#phone").focus();
+        return;
+    }
+
+    var regPhone = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+    if(regPhone.test(phone)!=true){
+        alert("전화번호 형식이 옳지 않습니다.")
+        $("#phone").focus();
+        return;
+    }
+
+    var regEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,6}$/;
+    if(regEmail.test(email)!=true){
+        alert("이메일 형식에 맞지 않습니다.")
+        $("#email").focus();
+        return;
+    }
 
     var memberForm={
         'id':id,

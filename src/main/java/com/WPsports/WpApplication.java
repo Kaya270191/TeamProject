@@ -38,7 +38,7 @@ public class WpApplication {
 					"1234",
 					"현호",
 					"01012341234",
-					"112233",
+					"1994-07-09",
 					"22@test.com",
 					"대구",
 					"MEMBER");
@@ -49,7 +49,7 @@ public class WpApplication {
 					"관리자",
 					"01043214321",
 					"112233",
-					"33@test.com",
+					"1994-07-09",
 					"대구",
 					"ADMIN");
 
