@@ -14,4 +14,5 @@ public interface FacilityRepository extends JpaRepository<Facility, Long> {
 
     ArrayList<Facility> findByCategory(String value);
 
+    Facility findFacilityById(Long id);
 }
