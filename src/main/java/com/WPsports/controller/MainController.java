@@ -71,6 +71,7 @@ public class MainController {
 
         HttpSession session= req.getSession();
         Member user = (Member) session.getAttribute("member");
+        log.info(user.toString());
 
         model.addAttribute("facility", facilityEntity);
         return "/facility/show";
@@ -78,13 +79,15 @@ public class MainController {
 
     // 장바구니에 물건 넣기
     @PostMapping("facility/cart/{id}/{facilityId}")
-    public String addCartItem(@PathVariable("id") String id, @PathVariable("facilityId") Long facilityId, int count, Model model,HttpServletRequest request) {
+    public String addCartItem(@PathVariable("id") String id, @PathVariable("facilityId") Long facilityId,HttpServletRequest request) {
+        int count=0;
         HttpSession session = request.getSession();
         Member user = (Member) session.getAttribute("member");
+
         Facility facility = facilityService.itemView(facilityId);
 
-        log.info("user -> ", user.toString());
-        log.info("fa -> ", facility.toString());
+        log.info("user -> {}", user.toString());
+        log.info("fa -> {}", facility.toString());
 
         facilityService.addCart(user, facility, count);
 
