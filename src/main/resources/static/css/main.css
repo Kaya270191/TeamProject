@@ -14,6 +14,13 @@ section{
     padding-bottom: 65px;
 }
 
+.section-container{
+  z-index: 2;
+  position: relative;
+  width: 100%;
+  background-color: #eee;
+}
+
 /* 푸터 */
 footer{
     width: 100%;
@@ -50,16 +57,46 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0066ff;
+  background: linear-gradient(45deg, #85364A, #505050);
 }
 /* 상단 배너 */
 .screen{
-display: flex;
-background-color: blue;
-width: 100vw;
-height: 90vh;
-background-image: url('/image/main_banner/banner2.jpg');
-background-size: cover;
+  z-index: 0;
+  display: flex;
+  width: 100vw;
+  height: 90vh;
+}
+
+.screen-banner{
+  z-index: 1;
+  position: fixed;
+  width: 100vw;
+  height: 90vh;
+  background-image: url('/image/main_banner/banner2.jpg');
+  background-size: cover;
+}
+
+#typing{
+  font-size: 50px;
+      font-weight: bold;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+}
+
+.typing-bar {
+  /*position: absolute;*/
+    display: inline-block;
+    animation-name: cursor;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+   }
+   @keyframes cursor{
+    0%{border-right: 1px solid #fff}
+    50%{border-right: 1px solid #000}
+    100%{border-right: 1px solid #fff}
 }
 
 /* 상단 네비바 */
@@ -174,6 +211,8 @@ input {
   justify-content: center;
   align-items: center;
   align-content: center;
+  transition-duration: 0.3s;
+  opacity:0;
 }
 
 .picture-container{
@@ -188,7 +227,7 @@ input {
 
 .fit-picture{
   transform: scale(1.1);
-  z-index: 2;
+  z-index: 1;
   position: relative;
   width: 100%;
   height: 100%;
@@ -203,6 +242,6 @@ input {
 
 .fit-text {
   font-size: 3rem;
-  z-index: 1;
+  z-index: 0.5;
   position: absolute;
 }

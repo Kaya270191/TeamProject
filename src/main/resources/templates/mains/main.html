@@ -45,68 +45,74 @@
         <!-- 배너 -->
         <div class="screen-container">
             <div class="screen"></div>
+            <div class="screen-banner">
+                <p id='typing'>"The </p>
+                <p class="typing-bar"></p>
+            </div>
         </div>
     </header>
 
     <section>
-        <form>
-            <div class=sports-wrap>
-                <div class="picture-container" th:onclick="|location.href='@{/domain/볼링}'|" style=cursor:pointer>
-                    <img class="fit-picture" src="image/sports/볼링.png" alt-="logo">
-                    <div class="fit-text">
-                        <p>Bowling</p>
+        <div class= "section-container">
+            <form>
+                <div class=sports-wrap>
+                    <div class="picture-container" th:onclick="|location.href='@{/domain/볼링}'|" style=cursor:pointer>
+                        <img class="fit-picture" src="image/sports/볼링.png" alt-="logo">
+                        <div class="fit-text">
+                            <p>Bowling</p>
+                        </div>
+                    </div>
+                    <div class="picture-container" th:onclick="|location.href='@{/domain/테니스장}'|" style=cursor:pointer>
+                        <img class="fit-picture" src="image/sports/테니스.jpg" alt-="logo">
+                        <div class="fit-text">
+                            <p>Tennis</p>
+                        </div>
+                    </div>
+                    <div class="picture-container" th:onclick="|location.href='@{/domain/풋살}'|" style=cursor:pointer>
+                        <img class="fit-picture" src="image/sports/풋살.jpg" alt-="logo">
+                        <div class="fit-text">
+                            <p>Fotsal</p>
+                        </div>
+                    </div>
+                    <div class="picture-container" th:onclick="|location.href='@{/domain/탁구}'|" style=cursor:pointer>
+                        <img class="fit-picture" src="image/sports/탁구.jpg" alt-="logo">
+                        <div class="fit-text">
+                            <p>Ping-pong</p>
+                        </div>
+                    </div>
+                    <div class="picture-container" th:onclick="|location.href='@{/domain/농구}'|" style=cursor:pointer>
+                        <img class="fit-picture" src="image/sports/농구.jpg" alt-="logo">
+                        <div class="fit-text">
+                            <p>Basketball</p>
+                        </div>
+                    </div>
+                    <div class="picture-container" th:onclick="|location.href='@{/domain/클라이밍}'|" style=cursor:pointer>
+                        <img class="fit-picture" src="image/sports/클라이밍.jpg" alt-="logo">
+                        <div class="fit-text">
+                            <p>Climbing</p>
+                        </div>
+                    </div>
+                    <div class="picture-container" th:onclick="|location.href='@{/domain/수영}'|" style=cursor:pointer>
+                        <img class="fit-picture" src="image/sports/수영.jpg" alt-="logo">
+                        <div class="fit-text">
+                            <p>Swimming</p>
+                        </div>
+                    </div>
+                    <div class="picture-container" th:onclick="|location.href='@{/domain/스케이트}'|" style=cursor:pointer>
+                        <img class="fit-picture" src="image/sports/스케이트.jpg" alt-="logo">
+                        <div class="fit-text">
+                            <p>Skate</p>
+                        </div>
+                    </div>
+                    <div class="picture-container" href="#" style=cursor:pointer>
+                        <img class="fit-picture" src="/icon/more.jpg" alt-="logo">
+                        <div class="fit-text">
+                            <p>View more</p>
+                        </div>
                     </div>
                 </div>
-                <div class="picture-container" th:onclick="|location.href='@{/domain/테니스장}'|" style=cursor:pointer>
-                    <img class="fit-picture" src="image/sports/테니스.jpg" alt-="logo">
-                    <div class="fit-text">
-                        <p>Tennis</p>
-                    </div>
-                </div>
-                <div class="picture-container" th:onclick="|location.href='@{/domain/풋살}'|" style=cursor:pointer>
-                    <img class="fit-picture" src="image/sports/풋살.jpg" alt-="logo">
-                    <div class="fit-text">
-                        <p>Fotsal</p>
-                    </div>
-                </div>
-                <div class="picture-container" th:onclick="|location.href='@{/domain/탁구}'|" style=cursor:pointer>
-                    <img class="fit-picture" src="image/sports/탁구.jpg" alt-="logo">
-                    <div class="fit-text">
-                        <p>Ping-pong</p>
-                    </div>
-                </div>
-                <div class="picture-container" th:onclick="|location.href='@{/domain/농구}'|" style=cursor:pointer>
-                    <img class="fit-picture" src="image/sports/농구.jpg" alt-="logo">
-                    <div class="fit-text">
-                        <p>Basketball</p>
-                    </div>
-                </div>
-                <div class="picture-container" th:onclick="|location.href='@{/domain/클라이밍}'|" style=cursor:pointer>
-                    <img class="fit-picture" src="image/sports/클라이밍.jpg" alt-="logo">
-                    <div class="fit-text">
-                        <p>Climbing</p>
-                    </div>
-                </div>
-                <div class="picture-container" th:onclick="|location.href='@{/domain/수영}'|" style=cursor:pointer>
-                    <img class="fit-picture" src="image/sports/수영.jpg" alt-="logo">
-                    <div class="fit-text">
-                        <p>Swimming</p>
-                    </div>
-                </div>
-                <div class="picture-container" th:onclick="|location.href='@{/domain/스케이트}'|" style=cursor:pointer>
-                    <img class="fit-picture" src="image/sports/스케이트.jpg" alt-="logo">
-                    <div class="fit-text">
-                        <p>Skate</p>
-                    </div>
-                </div>
-                <div class="picture-container" href="#" style=cursor:pointer>
-                    <img class="fit-picture" src="/icon/more.jpg" alt-="logo">
-                    <div class="fit-text">
-                        <p>View more</p>
-                    </div>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </section>
 
     <footer>
