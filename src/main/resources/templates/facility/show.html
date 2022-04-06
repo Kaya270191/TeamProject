@@ -44,7 +44,17 @@
         <div id="Toggle" style="display:none">
             <img th:src="${facility.photo}" class="card-img-top" alt="...">
         </div>
-        <button type="button" class="btn btn-secondary">찜하기</button>
+
+        <form th:action="@{/facility/cart/{id}/{itemId}(id=${session.member.getId()}, itemId=${facility.id})}" method="post">
+            <div class="d-flex">
+                <input type="hidden" id="count" name="count" value="1"/>
+                <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    찜하기
+                </button>
+            </div>
+        </form>
+
     </div>
 
 <!--    <div>-->

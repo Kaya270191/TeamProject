@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.net.ssl.HandshakeCompletedEvent;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -65,11 +66,29 @@ public class MainController {
 
     //업체 뷰 페이지
     @GetMapping("/facility/{id}")
-    public String show(@PathVariable Long id, Model model){
+    public String show(@PathVariable Long id, Model model, HttpServletRequest req){
         Facility facilityEntity = (Facility) facilityRepository.findAllById(id);
+
+        HttpSession session= req.getSession();
+        Member user = (Member) session.getAttribute("member");
 
         model.addAttribute("facility", facilityEntity);
         return "/facility/show";
+    }
+
+    // 장바구니에 물건 넣기
+    @PostMapping("facility/cart/{id}/{facilityId}")
+    public String addCartItem(@PathVariable("id") String id, @PathVariable("facilityId") Long facilityId, int count, Model model,HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Member user = (Member) session.getAttribute("member");
+        Facility facility = facilityService.itemView(facilityId);
+
+        log.info("user -> ", user.toString());
+        log.info("fa -> ", facility.toString());
+
+        facilityService.addCart(user, facility, count);
+
+        return "redirect:/facility/{facilityId}";
     }
 
     //업체 삭제

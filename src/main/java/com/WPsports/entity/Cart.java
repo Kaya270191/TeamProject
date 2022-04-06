@@ -1,9 +1,11 @@
 package com.WPsports.entity;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,18 +21,27 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    private LocalDate createDate; // 날짜
+
+    @PrePersist
+    public void createDate(){
+        this.createDate = LocalDate.now();
+    }
+
+    private int count; // 상품 개수
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "member_key")
-    private Member member;
+    private Member user;
 
     @OneToMany
     private List<CartItem> cartItems = new ArrayList<>();
 
-    public static Cart createCart(Member member){
+    public static Cart createCart(Member user){
         Cart cart = new Cart();
-        cart.setMember(member);
+        cart.setCount(0);
+        cart.setUser(user);
         return cart;
     }
-
-
 }

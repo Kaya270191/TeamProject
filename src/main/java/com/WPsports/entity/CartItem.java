@@ -25,13 +25,13 @@ public class CartItem {
     @JoinColumn(name = "facility_id")
     private Facility facility;
 
-    public static CartItem createCartItem(Cart cart, Facility facility){
+    private int count; // 상품 개수
+
+    public static CartItem createCartItem(Cart cart, Facility facility, int count){
         CartItem cartItem = new CartItem();
         cartItem.setCart(cart);
         cartItem.setFacility(facility);
+        cartItem.setCount(count);
         return cartItem;
     }
-
-
-
 }
