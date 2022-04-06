@@ -202,5 +202,7 @@ public class MemberController {
     public String byebye(){
         return "/members/thankUbye";
     }
+
+
 }
 
