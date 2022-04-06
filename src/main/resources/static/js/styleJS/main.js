@@ -8,14 +8,12 @@ $(document).ready(function(){
     $(window).scroll(function(){
       var scroll = $(window).scrollTop();
       if (scroll > screen.height*0.7) {
-        $(".sports-wrap").css("opacity" , "1");
         $(".quotes").css("background-image" , grayQuotes);
         $(".top-nav-logo").css("background-image" , blackLogo);
         $(".nav-container").css("background" , "linear-gradient( 45deg, #eee, #eee )");
         $(".nav-container").css("opacity" , "1");
       }
       else{
-        $(".sports-wrap").css("opacity" , "0");
         $(".quotes").css("background-image" , whiteQuotes);
         $(".top-nav-logo").css("background-image" , whiteLogo);
         $(".nav-container").css("background" , "linear-gradient( 45deg, #85364A, #505050 )");
@@ -23,20 +21,6 @@ $(document).ready(function(){
       }
     })
   })
-
-$(document).ready(function(){
-  $(window).scroll(function(){
-    var scroll = $(window).scrollTop();
-    if (scroll > screen.height*0.2) {
-      $(".sports-wrap").css("opacity" , "1");
-
-    }
-    else{
-      $(".sports-wrap").css("opacity" , "0");
-
-    }
-  })
-})
 
 var str = "only way to prove that you’re a good sport is to lose\"";
 var index = 0;

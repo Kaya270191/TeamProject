@@ -212,7 +212,6 @@ input {
   align-items: center;
   align-content: center;
   transition-duration: 0.3s;
-  opacity:0;
 }
 
 .picture-container{
