@@ -19,7 +19,7 @@
                 <!-- 로고 -->
                 <div class="top-nav-logo" th:onclick="|location.href='@{/main}'|" style="cursor:pointer"></div>
                 <!-- 로고 Text -->
-                <div th:onclick="|location.href='@{/members/memberList}'|" style="cursor:pointer">WP회원 전체 목록 조회</div>
+                <div th:onclick="|location.href='@{/members/memberList}'|" style="cursor:pointer">WP Sports</div>
             </div>
             <!-- 배너 -->
             <div class="banner"></div>
@@ -56,11 +56,11 @@
                                 <p th:text="${member.getEmail()}"></p>
                             </td>
                             <td>
-                                <button class="correction" onclick="outMember()">탈퇴</button>
+                                <button class="btn btn-sm btn-outline-danger" onclick="outMember()">탈퇴</button>
                             </td>
                         </tr>
                         </tbody>
-                        <button class="correction" onclick="location.href='/domain'">메인으로</button>
+                        <button class="btn btn-sm btn-outline-primary" onclick="location.href='/domain'">메인으로</button>
                     </table>
                 </div>
             </div>
