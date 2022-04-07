@@ -27,7 +27,8 @@ public class MemberForm{
     @Pattern(regexp = "^[a-zA-Zㄱ-힣]*$",message = "이름에 숫자와 특수문자는 포함될 수 없습니다.")
     private String name;
 
-    @Pattern(regexp = "^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$", message = "휴대폰번호의 형식이 맞지 않습니다.")
+    @Nullable
+//    @Pattern(regexp = "(?!\\s)^01([0|1|6|7|8|9])|('')-?([0-9]{3,4})-?([0-9]{4})$", message = "휴대폰번호의 형식이 맞지 않습니다.")
     private String phone;
 
     @Nullable

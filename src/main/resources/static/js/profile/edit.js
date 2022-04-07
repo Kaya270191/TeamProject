@@ -65,11 +65,13 @@ function editMember(){
         return;
     }
 
-    var regPhone = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
-    if(regPhone.test(phone)!=true){
-        alert("전화번호 형식이 옳지 않습니다.")
-        $("#phone").focus();
-        return;
+    if(phone!=""){
+        var regPhone = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+            if(regPhone.test(phone)!=true){
+                alert("전화번호 형식이 옳지 않습니다.")
+                $("#phone").focus();
+                return;
+            }
     }
 
     var regEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,6}$/;
