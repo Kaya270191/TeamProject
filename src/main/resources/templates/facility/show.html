@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 
@@ -12,119 +11,132 @@
     <link rel="stylesheet" href="/css/facility/show.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-<!--네이버 지도-->
+    <!--네이버 지도-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ubpb5l4ylr"></script>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <script type="text/javascript"
+            src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ubpb5l4ylr"></script>
 
     <script type="text/javascript"
             src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=ubpb5l4ylr&submodules=geocoder"></script>
 </head>
+
 <body>
 <h1>업체 디테일 뷰</h1>
 
 
 <div class="card" style="width: 30rem;">
-<!--    지도-->
+    <!--    지도-->
     <div id="map" style="width:100%;height:400px;"></div>
 
     <div class="card-body">
         <h5 class="card-title" th:text="${facility.name}"></h5>
         <div>
             <i class="bi bi-tag" th:text="${facility.category}">카테고리</i><br>
-            <i class="bi bi-map" id="address" th:value="${facility.address}" th:text="${facility.address}">주소</i><br>
-            <i class="bi bi-telephone" style="font-size: 1rem;"  th:text="${facility.tel}">전화번호</i><br>
+            <i class="bi bi-map" id="address" th:value="${facility.address}"
+               th:text="${facility.address}">주소</i><br>
+            <i class="bi bi-telephone" style="font-size: 1rem;" th:text="${facility.tel}">전화번호</i><br>
             <i class="bi bi-clock" th:text="${facility.operatingTime}">운영시간</i><br>
             <i class="bi bi-star" th:text="${facility.starRate}">별점</i>
         </div>
 
 
-    <div>
-        <button id="btn_toggle">사진보기</button>
-        <div id="Toggle" style="display:none">
-            <img th:src="${facility.photo}" class="card-img-top" alt="...">
+        <div>
+            <button id="btn_toggle">사진보기</button>
+            <div id="Toggle" style="display:none">
+                <img th:src="${facility.photo}" class="card-img-top" alt="...">
+            </div>
+
+            <form th:action="@{/facility/cart/{id}/{itemId}(id=${session.member.getId()}, itemId=${facility.id})}"
+                  method="post">
+                <div class="d-flex">
+                    <input type="hidden" id="count" name="count" value="1" />
+                    <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        찜하기
+                    </button>
+                </div>
+            </form>
+
         </div>
 
-        <form th:action="@{/facility/cart/{id}/{itemId}(id=${session.member.getId()}, itemId=${facility.id})}" method="post">
-            <div class="d-flex">
-                <input type="hidden" id="count" name="count" value="1"/>
-                <button class="btn btn-outline-dark flex-shrink-0" type="submit">
-                    <i class="bi-cart-fill me-1"></i>
-                    찜하기
-                </button>
-            </div>
-        </form>
+        <!--    <div>-->
+        <!--        <form class="container" th:action="" method="post" >-->
+        <!--            <div class="container1" >-->
+
+
+
+        <!--            </div>-->
+        <!--            <button type="submit">찜하기</button>-->
+        <!--        </form>-->
+
+        <!--    </div>-->
+
+        <!--        <a href="#" class="btn btn-primary">찜하기버튼</a>-->
+
+        <!--    </div>-->
+
 
     </div>
 
-<!--    <div>-->
-<!--        <form class="container" th:action="" method="post" >-->
-<!--            <div class="container1" >-->
-
-
-
-<!--            </div>-->
-<!--            <button type="submit">찜하기</button>-->
-<!--        </form>-->
-
-<!--    </div>-->
-
-<!--        <a href="#" class="btn btn-primary">찜하기버튼</a>-->
-
-<!--    </div>-->
-
-
-</div>
-
     <!--삭제버튼-->
-    <button class="correction" th:if="${#strings.equals(session.member.getAuth(),'ADMIN')}" th:onclick="|location.href='@{/facility/{id}/delete(id=${facility.id})}'|" >삭제</button>
+    <button class="correction" th:if="${#strings.equals(session.member.getAuth(),'ADMIN')}"
+            th:onclick="|location.href='@{/facility/{id}/delete(id=${facility.id})}'|">삭제</button>
 
-    <button class="correction" th:if="${#strings.equals(session.member.getAuth(),'ADMIN')}" th:onclick="|location.href='@{/facility/{id}/edit(id=${facility.id})}'|" >수정</button>
+    <button class="correction" th:if="${#strings.equals(session.member.getAuth(),'ADMIN')}"
+            th:onclick="|location.href='@{/facility/{id}/edit(id=${facility.id})}'|">수정</button>
 
-<!--목록으로 돌아가는 버튼-->
-<a href="/main" >메인으로 돌아감 </a>
-<a href="/main" >카테고리별 페이지로 </a>
-
-
-<script>
-    var mapOptions = {
-        center: new naver.maps.LatLng(37.3595704, 127.105399),
-        zoom: 15
-    };
-
-    var map = new naver.maps.Map('map', {
-        center: new naver.maps.LatLng(37.3595704, 127.105399),
-        zoom: 15
-    });
-
-    var marker = new naver.maps.Marker({
-        position: new naver.maps.LatLng(37.3595704, 127.105399),
-        map: map
-    });
-
-    var address = document.querySelector("#address").innerText;
+    <!--목록으로 돌아가는 버튼-->
+    <a href="/main">메인으로 돌아감 </a>
+    <a href="/main">카테고리별 페이지로 </a>
 
 
+    <script>
+            var mapOptions = {
+                center: new naver.maps.LatLng(37.3595704, 127.105399),
+                zoom: 15
+            };
 
-    naver.maps.Service.geocode({ address: address}, function(status, response) {
-        if (status === naver.maps.Service.Status.ERROR) {
-            return alert('Something wrong!');
-        }
-        var new_position = new naver.maps.LatLng(response.v2.addresses[0].y, response.v2.addresses[0].x)
-        console.log(response.v2.addresses);
-        map.setCenter(new_position);
+            var map = new naver.maps.Map('map', {
+                center: new naver.maps.LatLng(37.3595704, 127.105399),
+                zoom: 15
+            });
 
-        var marker = new naver.maps.Marker({ position: new naver.maps.LatLng(response.v2.addresses[0].y, response.v2.addresses[0].x),
-            map: map }); });
+            var marker = new naver.maps.Marker({
+                position: new naver.maps.LatLng(37.3595704, 127.105399),
+                map: map
+            });
+
+            var address = document.querySelector("#address").innerText;
 
 
 
-</script>
+            naver.maps.Service.geocode({ address: address }, function (status, response) {
+                if (status === naver.maps.Service.Status.ERROR) {
+                    return alert('Something wrong!');
+                }
+                var new_position = new naver.maps.LatLng(response.v2.addresses[0].y, response.v2.addresses[0].x)
+                console.log(response.v2.addresses);
+                map.setCenter(new_position);
+
+                var marker = new naver.maps.Marker({
+                    position: new naver.maps.LatLng(response.v2.addresses[0].y, response.v2.addresses[0].x),
+                    map: map
+                });
+            });
 
 
-<script src="/js/facility/show.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        </script>
 
+
+    <script src="/js/facility/show.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+</div>
 </body>
+
 </html>

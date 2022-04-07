@@ -4,54 +4,16 @@
     position: relative;
     width: 100%;
     min-height: 100vh;
-    background: #eee;
 }
 
 section{
+    display: flex;
+    justify-content: center;
     width: 100%;
     padding-bottom: 65px;
     padding-top: 100px;
 }
 
-.section-container{
-  z-index: 2;
-  position: relative;
-  width: 100%;
-  background-color: #eee;
-}
-
-.company-wrap{
-  display: grid;
-  width: 100%;
-  grid-template-columns:30% 30% 30%;
-  grid-template-rows: 25% 25% 25% 25%;
-  justify-items: center;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  transition-duration: 0.3s;
-}
-
-.col{
-  width: 95%;
-  height: 95%;
-}
-
-.card{
-        height: 100%;
-        display: flex;
-        flex-flow: column;
-        border: 3px solid #c8c8c8;
-        border-radius: 2px;
-}
-
-.fit-picture{
-  z-index: 1;
-  position: relative;
-  width: 100%;
-  height: 70%;
-  transition-duration: 1s;
-}
 
 /* 푸터 */
 footer{
@@ -99,11 +61,6 @@ footer{
     background: #eee;
     transition-duration: 1s;
   }
-
-.h60{
-    width: 100%;
-    height:100px;
-}
 
   .nav-child{
     display: flex;
@@ -191,3 +148,60 @@ footer{
     background-color: #fff;
   }
 /* 상단 네비바 끝 */
+
+
+.company-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  height: 100%;
+  transition-duration: 0.3s;
+}
+
+.col{
+  min-width: 200px;
+  width: 33.3%;
+  height: 500px;
+}
+
+.card{
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    border: 3px solid #c8c8c8;
+    border-radius: 2px;
+    align-items: center;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.card-title{
+    font-size: 1.2em;
+}
+
+a:link, a:visited {
+    background-color: #6666CC;
+    color: #fff;
+    padding: 3px 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+
+
+
+.fit-picture{
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 70%;
+  transition-duration: 1s;
+  object-fit: cover;
+}
