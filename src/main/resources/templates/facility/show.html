@@ -88,7 +88,7 @@
                     <img th:src="${facility.photo}" class="card-img-top" alt="...">
                 </div>
 
-                <form th:action="@{/facility/cart/{id}/{itemId}(id=${session.member.getId()}, itemId=${facility.id})}"
+                <form th:action="@{/cart/{member_id}/{facility_id} (member_id=${session.member.getId()},facility_id=${facility.id})}"
                       method="post">
                     <div class="d-flex">
                         <input type="hidden" id="count" name="count" value="1" />

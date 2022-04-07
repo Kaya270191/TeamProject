@@ -77,22 +77,6 @@ public class MainController {
         return "/facility/show";
     }
 
-    // 장바구니에 물건 넣기
-    @PostMapping("facility/cart/{id}/{facilityId}")
-    public String addCartItem(@PathVariable("id") String id, @PathVariable("facilityId") Long facilityId,HttpServletRequest request) {
-        int count=0;
-        HttpSession session = request.getSession();
-        Member user = (Member) session.getAttribute("member");
-
-        Facility facility = facilityService.itemView(facilityId);
-
-        log.info("user -> {}", user.toString());
-        log.info("fa -> {}", facility.toString());
-
-        facilityService.addCart(user, facility, count);
-
-        return "redirect:/facility/{facilityId}";
-    }
 
     //업체 삭제
     @GetMapping("/facility/{id}/delete")
