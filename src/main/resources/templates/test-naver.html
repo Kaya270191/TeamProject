@@ -12,7 +12,7 @@
 <body>
 <div th:if="${session.currentUser eq null}">
     <h3>네이버 로그인</h3>
-    <a th:href="${apiURL}"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
+    <a th:href="${apiURL}">네이버로 간편 가입<img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
 </div>
 
 <div th:if="${session.currentUser ne null}">

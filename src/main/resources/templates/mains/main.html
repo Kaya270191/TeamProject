@@ -40,6 +40,12 @@
                     <button class="nav-btn btn3" type="button" onclick="location.href='logout'"><img
                             src="/image/main_icon/log-out.png" height="35" width="35"></button>
                 </div>
+                <div class="profile-button">
+                    <button class="nav-btn btn3" type="button" onclick="location.href='/members/memberList'" th:if="${#strings.equals(session.member.getAuth(),'ADMIN')}">
+                </div>
+                <div class="profile-button">
+                    <button class="nav-btn btn3" type="button" onclick="location.href='/facility/new'" th:if="${#strings.equals(session.member.getAuth(),'ADMIN')}">
+                </div>
             </div>
         </div>
         <!-- 배너 -->
