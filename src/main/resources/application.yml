@@ -44,7 +44,7 @@ spring:
 #            user_name_attribute: response
 
 
-JPA 로깅 설정
+#JPA 로깅 설정
 logging.level:
   org.hibernate.SQL: debug #디버그 레벨로 쿼리 출력
   #  org.hibernate.type.descriptor.sql.BasicBinder: TRACE
