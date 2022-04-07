@@ -9,10 +9,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
+import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import com.WPsports.dto.MemberForm;
+import com.WPsports.entity.Member;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
 import org.springframework.stereotype.Controller;
@@ -68,9 +74,10 @@ public class NaverLoginController {
         apiURL += "&state=" + state;
         System.out.println("apiURL=" + apiURL);
         String res = requestToServer(apiURL);
-        if(res != null && !res.equals("")) {
+        Map<String, Object> parsedJson = null;
+        if (res != null && !res.equals("")) {
             model.addAttribute("res", res);
-            Map<String, Object> parsedJson = new JSONParser(res).parseObject();
+            parsedJson = new JSONParser(res).parseObject();
             System.out.println(parsedJson);
             session.setAttribute("currentUser", res);
             session.setAttribute("currentAT", parsedJson.get("access_token"));
@@ -78,7 +85,7 @@ public class NaverLoginController {
         } else {
             model.addAttribute("res", "Login failed!");
         }
-        return "test-naver-callback";
+        return "redirect:/naver/getProfile?accessToken=" + parsedJson.get("access_token");
     }
     /**
      * 토큰 갱신 요청 페이지 컨트롤러
@@ -132,14 +139,30 @@ public class NaverLoginController {
      * @return
      * @throws IOException
      */
-    @ResponseBody
+
     @RequestMapping("/naver/getProfile")
-    public String getProfileFromNaver(String accessToken) throws IOException {
+    public String getProfileFromNaver(String accessToken,HttpServletRequest request) throws IOException {
+        HttpSession session =request.getSession();
         // 네이버 로그인 접근 토큰;
         String apiURL = "https://openapi.naver.com/v1/nid/me";
         String headerStr = "Bearer " + accessToken; // Bearer 다음에 공백 추가
         String res = requestToServer(apiURL, headerStr);
-        return res;
+        System.out.println("회원정보 : " + res);
+
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String, String> info = null;
+        try {
+            Map<String, Map> map = mapper.readValue(res, Map.class);
+            System.out.println(map);
+            info = map.get("response");
+            System.out.println(info);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        session.setAttribute("userInfo",info);
+        String id=info.get("email").split("@")[0];
+        session.setAttribute("userId",id);
+        return "naver-sign-up";
     }
     /**
      * 세션 무효화(로그아웃)

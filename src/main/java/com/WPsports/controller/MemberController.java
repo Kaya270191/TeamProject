@@ -17,6 +17,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.net.URLEncoder;
+import java.net.UnknownHostException;
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Map;
 
@@ -24,13 +29,23 @@ import java.util.Map;
 @Slf4j
 @Controller
 public class MemberController {
+    private String CLIENT_ID = "lcmV4g_oGg3Q5ccJbUK1"; //애플리케이션 클라이언트 아이디값";
 
     @Autowired
     MemberService memberService;
 
     //    초기화면
     @GetMapping(value = "/")
-    public String signupForm(){
+    public String signupForm(Model model,HttpSession session)throws UnsupportedEncodingException, UnknownHostException{
+        //naver login을 위한 설정
+        String redirectURI = URLEncoder.encode("http://localhost:5555/naver/callback", "UTF-8");
+        SecureRandom random = new SecureRandom();
+        String state = new BigInteger(130, random).toString();
+        String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+        apiURL += String.format("&client_id=%s&redirect_uri=%s&state=%s",
+                CLIENT_ID, redirectURI, state);
+        session.setAttribute("state", state);
+        model.addAttribute("apiURL", apiURL);
         return "members/signup";
     }
 
@@ -48,7 +63,7 @@ public class MemberController {
 
     //    회원가입
     @PostMapping("/signup")
-    public String saveMember(@Valid MemberForm memberForm, Errors errors, Model model){
+    public String saveMember(@Valid MemberForm memberForm, Errors errors, Model model) {
         if(errors.hasErrors()){
 //            회원가입 실패시 입력 데이터 값을 유지
             model.addAttribute("memberForm",memberForm);
@@ -91,9 +106,11 @@ public class MemberController {
     //        로그인
     @PostMapping("/login-do")
     public String loginDO(String id, String pw, Model model, HttpServletRequest req){
+        HttpSession session = req.getSession();
+        session.invalidate();
         log.info("id={},pw={}",id,pw);
         if(memberService.loginDO(id,pw,model)){
-            HttpSession session = req.getSession();
+            session = req.getSession();
             session.setAttribute("member",model.getAttribute("member"));
             return "redirect:/main";
         }else {

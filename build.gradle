@@ -29,8 +29,8 @@ dependencies {
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security'
 //	geno_home_setting
 //	implementation 'mysql:mysql-connector-java'
-	//oauth주입
-//	implementation group: 'org.springframework.security', name: 'spring-security-oauth2-client', version: '5.6.2'
+//	naver api => jason string => map
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.2.2'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	annotationProcessor 'org.projectlombok:lombok'
