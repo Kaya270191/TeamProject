@@ -24,6 +24,6 @@ public class CartItem {
     private Cart cart;
 
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="facility_id")
     private Facility facility;
 }

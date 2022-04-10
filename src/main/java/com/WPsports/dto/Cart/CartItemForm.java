@@ -25,12 +25,12 @@ public class CartItemForm {
     private Long cart_id;
 
     @JsonProperty("id")
-    private Long id;
+    private Long facility_id;
 
     public CartItem toEntity(){
         return CartItem.builder()
                 .cart(cartRepository.getById(cart_id))
-                .facility(facilityRepository.getById(id))
+                .facility(facilityRepository.getById(facility_id))
                 .build();
     }
 }

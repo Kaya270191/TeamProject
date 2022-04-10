@@ -3,17 +3,22 @@ package com.WPsports.controller.Cart;
 import com.WPsports.entity.Cart.Cart;
 import com.WPsports.entity.Cart.CartItem;
 import com.WPsports.entity.Facility;
+import com.WPsports.entity.Member;
 import com.WPsports.service.Cart.CartItemService;
 import com.WPsports.service.Cart.CartService;
+import com.WPsports.service.FacilityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -22,6 +27,8 @@ public class CartController {
     CartService cartService;
     @Autowired
     CartItemService cartItemService;
+    @Autowired
+    FacilityService facilityService;
 
     //postmapping으로 요청을 받아 member_id와 facility_id를 받음
     @PostMapping("/cart/{member_id}/{facility_id}")
@@ -45,5 +52,24 @@ public class CartController {
         session.setAttribute("cart",nowCart);
 
         return "redirect:/facility/"+facility_id;
+    }
+
+//    찜목록 페이지
+    @GetMapping("/cart/bookedList")
+    public String bookedList(HttpServletRequest request){
+        HttpSession session=request.getSession();
+        Member nowMember = (Member) session.getAttribute("member");
+        Cart nowCart = cartService.getCart(nowMember.getId());
+        List<CartItem> allList = cartItemService.getItems();
+        List<Facility> bookedList = new ArrayList<Facility>();
+        for(CartItem item:allList){
+            if(item.getCart().getCart_id().equals(nowCart.getCart_id())){
+                bookedList.add(item.getFacility());
+            }
+        }
+        session.setAttribute("bookedList",bookedList);
+        log.info(bookedList.toString());
+
+        return "/members/bookedList";
     }
 }
