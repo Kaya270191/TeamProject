@@ -1,10 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>List</title>
+    <link rel="stylesheet" href="/css/facility/facilityList.css">
 </head>
 <body>
-$END$
+
+<div id="wrap">
+    <!-- header -->
+    <header>
+
+        <div class="nav-container">
+            <!-- 로고디자인 -->
+            <div class="nav-child">
+                <div class="top-nav-logo" th:onclick="|location.href='@{/main}'|" style="cursor:pointer"></div>
+                <div class="quotes"></div>
+            </div>
+            <!-- 검색바 -->
+            <div class="nav-child">
+                <div class="search">
+                    <input type="text" placeholder="검색어입력">
+                    <button class='search-btn'></button>
+                </div>
+            </div>
+            <!-- 상단 네비바 기능 버튼 -->
+            <div class="nav-child">
+                <div class="profile-button">
+                    <button class="nav-btn" type="button" onclick="location.href='boards'"><img
+                            src="/image/main_icon/boards.png" height="30" width="35"></button>
+                </div>
+                <div class="profile-button">
+                    <button class="nav-btn btn2" type="button" onclick="location.href='/profile'">
+                        <img src="/image/main_icon/profile.png" height="35" width="35">
+                    </button>
+                </div>
+                <div class="profile-button">
+                    <button class="nav-btn btn3" type="button" onclick="location.href='/logout'"><img
+                            src="/image/main_icon/log-out.png" height="35" width="35"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="company-wrap">
+            <div class="col" th:each="facility, status: ${session.bookedList}">
+                <div class="card">
+                    <img th:src="${facility.photo}" class="fit-picture" alt="..." th:onclick="|location.href='@{/facility/{id}(id=${facility.id})}'|">
+                    <div class="card-body">
+                        <a th:href="@{/facility/{id}(id=${facility.id})}">
+                            <h5 class="card-title" th:text="${facility.name}">Card title</h5>
+                        </a>
+                        <p class="card-text" th:text="${facility.address}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <!-- footer-->
+            <div class="footer-container">
+                <div class="footer-bar">
+                    <span class="footer-bar-text">
+                        <a>
+                            고객지원실 운영안내
+                            연중무휴 09:00-18:00 (점심시간 12:00-13:00)
+                            주말/공휴일 포함, 한국시간 기준
+                            ※ 환불/변경은 평일 09:00-17:00 접수 가능
+                        </a>
+                    </span>
+
+                    <span class="footer-bar-text">
+                        <a>상호명 (주)따스한 프로젝트 | 대표 정가영 | 개인정보보호책임자 박현호</a>
+                    </span>
+                    <span class="footer-bar-text">
+                        <a>주소 대구광역시 동구 화랑로 525 (영진직업전문학교) | 이메일 hio201140@gamil.com | 마케팅/제휴 문의 hio201140@gamil.com</a>
+                    </span>
+                    <span class="footer-bar-text">
+                        <a>Copyright(2022).ⓒ.merlin All rights reserved.</a>
+                    </span>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
 </body>
 </html>
