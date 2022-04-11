@@ -55,7 +55,7 @@ public class MainController {
     }
 
     @PostMapping("/facility/create")
-    public String createFacility(FacilityForm form){
+    public String createFacility(FacilityForm form, String value){
         log.info(form.toString());
         Facility facility = form.toEntity(); // Entity로 변환
         log.info("입력받은 업체 정보: "+facility.toString());
