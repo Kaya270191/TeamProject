@@ -1,12 +1,10 @@
-# TeamProject
+# TeamProject / WPSports
 
 ---
 
-##WPSports
-
 ---
 
-##개발 환경
+## 개발 환경
 
 <div align="center">
 <img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white">
@@ -19,6 +17,7 @@
 <img src="https://img.shields.io/badge/html-E34F26?style=for-the-badge&logo=html5&logoColor=white">
 <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
+<img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=white">
 <br>
 <img src="https://img.shields.io/badge/mariaDB-003545?style=for-the-badge&logo=mariaDB&logoColor=white">
 <br>
@@ -59,7 +58,7 @@
 
 ---
 
-##📋 프로젝트 개요
+## 📋 프로젝트 개요
 
 - 프로젝트 이름 : WPSports
 - 개발기간 : 22. 03. 11. ~ 22. 04.11
@@ -85,19 +84,36 @@
 
 <img src="https://mblogthumb-phinf.pstatic.net/MjAxNzAzMjVfMjUw/MDAxNDkwNDM4NzI4MTIy.4ZtITJJKJW_Nj1gKST0BhKMAzqmMaYIj9PobYJMFD4Ig.xTHT-0qyRKXsA4nZ2xKPNeCxeU2-tLIc-4oyrWq5WBgg.PNG.jhc9639/mvc_role_diagram.png?type=w800">
 
+### 🔨 프로젝트 설계
+- <a href="https://www.notion.so/UI-ce7ff471bb8747f7a4c4c12c105224f2">화면 설계</a>
+- <a href="https://www.notion.so/0df5760c60fd4b21872032b17b8bbc51">프로세스 흐름도</a>
+
 ---
 
 ##📁 프로젝트 구조
 
-- DB설계
+- 버전 정보
+  - JAVA : 11
+  - SpringBoot : 2.6.3
+  - BootStrap : 5.1.3
+  - JQUERY : 3.4.1
+  - Build : Gradle
+  
+  <br>
+
+- DB구조
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/85ee3693-856d-4199-a3ae-b6b2a1440ac2/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220411%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220411T105945Z&X-Amz-Expires=86400&X-Amz-Signature=07310aead1cf78365f3c62a14e0c34720eafa670be20294e90218200edd1cf19&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject">
+  
+<br>
 
-- UI설계
-  - <a src="https://www.notion.so/UI-ce7ff471bb8747f7a4c4c12c105224f2">화면 설계</a>
-  - <a src="https://www.notion.so/UI-6af423b84ea64bb79e214a0cfd7b7e28">화면 흐름도</a>
-- <a src="https://www.notion.so/0df5760c60fd4b21872032b17b8bbc51">프로세스 흐름도</a>
+- UI구조
+  - <a href="https://www.notion.so/UI-6af423b84ea64bb79e214a0cfd7b7e28">화면 흐름도</a>
 
+<br>
+  
+- <a href="https://www.notion.so/URL-76fa305400d6475e8edc1a3f37951e4b">URL 구조</a>
 ---
 
 ##👀 주요 기능 미리보기
+
 
