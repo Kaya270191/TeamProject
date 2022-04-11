@@ -151,9 +151,6 @@ public class BoardController {
         model.addAttribute("next", pageable.next().getPageNumber());
         model.addAttribute("hasNext", searchList.hasNext());
         model.addAttribute("hasPrev", searchList.hasPrevious());
-
         return "/boards/search";
     }
-
-
 }
