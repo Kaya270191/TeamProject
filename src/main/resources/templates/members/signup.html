@@ -96,7 +96,7 @@
                         <!--권한 인풋-->
                             <input type="hidden" name="auth" value="MEMBER">
                         <!--naver_api_회원가입-->
-                        <div th:if="${session.currentUser eq null}">
+                        <div style="display:flex; justify-content:center" th:if="${session.currentUser eq null}">
                             <a th:href="${apiURL}"><img height="50" src="/image/naver_logo.png"/></a>
                         </div>
                         <!-- 가입버튼 -->
