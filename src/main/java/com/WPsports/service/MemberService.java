@@ -4,6 +4,7 @@ import com.WPsports.boardComment.Comment;
 import com.WPsports.boardComment.CommentDto;
 import com.WPsports.entity.Member;
 import com.WPsports.dto.MemberForm;
+import com.WPsports.repository.Cart.CartRepository;
 import com.WPsports.repository.MemberRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
