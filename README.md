@@ -33,7 +33,7 @@
 
 - ***PROJECT BY***
 
-| 👨🏻‍💻정가영                                                                   | 👩🏻‍💻김민수                                                                   | 👨🏻‍💻박현호                                                                   | 👨🏻‍💻공도형                                                                     |
+| 👩🏻‍💻정가영                                                                   | 👨🏻‍💻김민수                                                                   | 👨🏻‍💻박현호                                                                   | 👨🏻‍💻공도형                                                                     |
 |------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------|
 | <img src="https://avatars.githubusercontent.com/u/92011603?v=4" width="150"> | <img src="https://avatars.githubusercontent.com/u/49222979?v=4" width="150"> | <img src="https://avatars.githubusercontent.com/u/92358313?v=4" width="150"> | <img src="https://avatars.githubusercontent.com/u/92700721?v=4" width="150"> |
 | <center><a href="https://github.com/Kaya270191">kaya270191</a></center>      | <center><a href="https://github.com/alstn1200w">alstn1200w</a></center>      | <center><a href="https://github.com/GENOzzz">GENOzzz</a></center>            | <center><a href="https://github.com/merlindoraji">merlindoraji</a></center>  |
