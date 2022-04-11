@@ -201,3 +201,11 @@ a:link, a:visited {
     display: inline-block;
     margin-bottom: 5px;
 }
+
+.tag-container{
+    margin-bottom: 15px;
+}
+
+.tag-elements{
+    margin-bottom: 15px;
+}

@@ -45,19 +45,18 @@
             <div class="semi-container">
                 <!-- 로고(제목) -->
                 <div class="logo">
-                    <img class = "logo-design" src="/image/pngwing.com.png">
-                    <a>따스한 프로젝트</a>
+                    <a>WP Sports</a>
                 </div>
                 <hr>
                 <!-- 사이트 간단 소개 -->
-                <div class="introduce"><a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, labore unde accusantium distinctio modi nemo sit </a></span>
+                <div class="introduce"><p>로그인</p></span>
                 </div>
                 <!-- 게노 참조 (로그인) -->
                 <div class = "input-container-item">
                     <form action="login-do" method="post">
                         <p><input id="id" class="signup-text-box" type="text" name="id" placeholder="아이디" oninput="idCheck()"></p>
                         <p><input id="pw" class="signup-text-box" type="password" name="pw" placeholder="비밀번호" oninput="pwCheck()"></p>
-                        <p th:if="${loginFailed}" th:text="${loginFailed}"></p>
+                        <p style="color: red; font-size: 0.8rem;" th:if="${loginFailed}" th:text="${loginFailed}"></p>
                         <p><button class="signup-button" type="submit">Let's travel</button></p>
                     </form>
                 </div>
@@ -65,7 +64,7 @@
         </div>
         <div class = "signup-footer">
             <div class="footer-container">
-                <span class = "eimi">You have no ID?</span>
+                <span class = "eimi">회원이 아니십니까?</span>
                 <button class = "gologin" onclick="location.href='/'">Sign Up</button>
             </div>
         </div>

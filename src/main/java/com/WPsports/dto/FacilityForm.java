@@ -29,6 +29,7 @@ public class FacilityForm {
                 .tel(this.getTel())
                 .address(this.getAddress())
                 .operatingTime(this.getOperatingTime())
+                .photo(this.getPhoto())
                 .category(this.getCategory())
                 .starRate(this.getStarRate()).build();
     }

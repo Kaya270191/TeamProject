@@ -33,16 +33,16 @@
             <form>
                 <div class="mb-3">
                     <label>ID</label>
-                    <p id="id" th:text="${session.id}"></p>
+                    <p style="font-size:1.2rem" id="id" th:text="${session.id}"></p>
                 </div>
-                      <button class="btn btn-sm btn-outline-primary" type="button" id="pwOpenButton" onclick="pwChangeOpen()">비밀번호 변경?</button>
+                      <button class="btn btn-sm btn-outline-primary" type="button" id="pwOpenButton" onclick="pwChangeOpen()">비밀번호 변경</button>
                 <div class="mb-3" id="pwChange">
                     <p><input class="pw1 form-control" id="pw" type="password" placeholder="변경할 비밀번호" oninput="pwCheck()"></p>
                     <p><input class="pw2 form-control" type="password" placeholder="비밀번호 확인" oninput="pwCheck()"></p>
                     <p class="password_check_ok">비밀 번호가 일치합니다.</p>
                     <p class="password_check_no">비밀 번호가 일치하지 않습니다.</p>
                     <br>
-                    <button class="btn btn-sm btn-outline-primary" type="button" id="pwCloseButton" onclick="pwChangeClose()">맘 바뀜 안바꿈</button>
+                    <button class="btn btn-sm btn-outline-primary" type="button" id="pwCloseButton" onclick="pwChangeClose()">비밀번호 변경 취소</button>
                 </div>
                 <div class="mb-3">
                     <label>Name</label>
@@ -57,11 +57,11 @@
                     <input type="text" class="form-control" id="email" th:value="${session.email}">
                 </div>
                 <div class="mb-3">
-                    <label>Email</label>
+                    <label>생년월일</label>
                     <input type="text" class="form-control" id="birthday" th:value="${session.birthday}">
                 </div>
                 <div class="mb-3">
-                    <label>Email</label>
+                    <label>주소</label>
                     <input type="text" class="form-control" id="address" th:value="${session.address}">
                 </div>
                 <button class="btn btn-sm btn-outline-primary" type="button" onclick="editMember()">수정하기</button>

@@ -7,6 +7,10 @@
     font-family: 'GmarketSansTTFBold'; src: url('/ttf/GmarketSansTTFBold.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Quote'; src: url('/ttf/Smiling Quotes 400.ttf') format('truetype');
+}
+
 
 body {
     font-family: GmarketSansTTFLight;
@@ -132,9 +136,11 @@ input::placeholder{
 }
 
 .introduce{
+    font-family: GmarketSansTTFBold;
     display: flex;
     justify-content: center;
     margin-bottom:20px;
+    font-size: 1.2rem;
 }
 
 

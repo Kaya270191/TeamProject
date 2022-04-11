@@ -24,7 +24,7 @@ function pwCheck(){
 };
 
 function signOutCheck(){
-    var id = $('#id').innerText;
+    var id = $('#id').val();
 
     $.ajax({
         url:'/profile/signOut/'+id,
@@ -34,8 +34,10 @@ function signOutCheck(){
         success:function(data){
             if(data==1){
                 window.location.replace("/thankUbye");
+
             }else{
                 alert("회원탈퇴 실패");
+
             }
         },
         error:function(request,status,error){

@@ -1,5 +1,18 @@
 
---insert into board(id, content, reg_date, title, view_count, writer) values(1, '연습입니다','2009-03-06', '연습', 3, '가영');
+insert into board(id, content, reg_date, title, view_count, writer) values(1, '연습입니다','22. 3. 20. 오전 10:49', '운동 가르쳐주실분~', 1, 'ywa48');
+insert into board(id, content, reg_date, title, view_count, writer) values(2, '연습입니다','22. 3. 21. 오전 10:49', '3대500인증샷', 1, 'rpsh1123');
+insert into board(id, content, reg_date, title, view_count, writer) values(3, '연습입니다','22. 3. 22. 오전 10:49', '수영장 추천받습니다', 1, 'wjdtjd88');
+insert into board(id, content, reg_date, title, view_count, writer) values(4, '연습입니다','22. 4. 1. 오전 10:49', '같이 운동하실분 계신가요???', 3, 'ehgud98');
+insert into board(id, content, reg_date, title, view_count, writer) values(5, '연습입니다','22. 4. 2. 오전 10:49', '길게써보자이', 5, 'qwe123');
+insert into board(id, content, reg_date, title, view_count, writer) values(6, '연습입니다','22. 4. 2. 오전 10:49', '볼링장이 이상해요', 1, 'naver1123');
+insert into board(id, content, reg_date, title, view_count, writer) values(7, '연습입니다','22. 4. 2. 오전 10:49', '테니스장이 멋져요', 3, 'sportsman12');
+insert into board(id, content, reg_date, title, view_count, writer) values(8, '연습입니다','22. 4. 3. 오전 10:49', '사장님이 서비스안주네요;', 2, 'coffee223');
+insert into board(id, content, reg_date, title, view_count, writer) values(9, '연습입니다','22. 4. 5. 오전 10:49', '클라이밍 같이하실래요', 8, 'swim559');
+insert into board(id, content, reg_date, title, view_count, writer) values(10, '연습입니다','22. 4. 7. 오전 10:49', '여기 위치가 좋네요', 1, 'qweqd155');
+insert into board(id, content, reg_date, title, view_count, writer) values(11, '연습입니다','22. 4. 7. 오전 10:49', '사장님 굳굳', 9, 'hgjg333');
+insert into board(id, content, reg_date, title, view_count, writer) values(12, '연습입니다','22. 4. 9. 오전 10:49', '회원수가 진짜 많네요', 1, 'test');
+
+
 --insert into board(id, content, reg_date, title, view_count, writer) values(2, '안녕하세요 반가워요','2015-06-06', '처음', 2, '아롱');
 --insert into board(id, content, reg_date, title, view_count, writer) values(3, '빨리할래','2020-05-06', '이거좀', 2, '주니');
 --insert into board(id, content, reg_date, title, view_count, writer) values(5, '싫은데','2021-04-06', '봐줘요', 1, '용');
@@ -61,8 +74,8 @@
 --insert into board(id, content, reg_date, title, view_count, writer) values(61, '싫은데','2021-04-06', '봐줘요', 1, '용');
 
 
---insert into comment(id, body, nickname, board_id) values (1, "댓글1", "kaya", 1);
---insert into comment(id, body, nickname, board_id) values (2, "댓글2", "곰탱이", 1);
+insert into comment(id, body, nickname, board_id) values (1, "너무복잡해요 ㅠㅠ", "kaya", 12);
+insert into comment(id, body, nickname, board_id) values (2, "사람이 많아서 좋네요", "tennislover123", 12);
 
 insert into facility(id, address, category, name, operating_time, tel, star_rate, photo)
 values(1, "대구광역시 북구 동암로 100", "볼링장", "하드락볼링클럽", "", "053-324-0369",  "4.29", "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211124_235%2F1637719148556GjDGR_PNG%2F%25BA%25BC%25B8%25B5.");

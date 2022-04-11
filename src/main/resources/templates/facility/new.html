@@ -2,7 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-<<<<<<< Updated upstream
     <title>업체 등록</title>
     <title>Create Facility</title>
     <link rel="stylesheet" href="/css/boards/index.css">
@@ -11,7 +10,6 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
-=======
     <title>Create Facility</title>
     <link rel="stylesheet" href="/css/boards/index.css">
     <link rel="stylesheet" href="/css/boards/new.css">
@@ -20,7 +18,6 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 </head>
->>>>>>> Stashed changes
 <body>
 <div id = "wrap">
     <header>
@@ -42,63 +39,39 @@
 
     <section>
         <div class="container" role="main">
-<<<<<<< Updated upstream
-            <form class="container" action="/facility/create" method="post">
-                <div class="mb-3">
-                    <label>업체명</label>
-                    <input type="text" name="name" class="form-control" >
-=======
-            <form  action="/facility/create" method="post" >
+            <form  action="/facility/create" method="post">
                 <div class="mb-3">
                     <label>업체명</label>
                     <input type="text" name="name" class="form-control">
                     <!--        name 부분에 dto의 필드변수랑 같은 것을 넣어줘야함 -->
->>>>>>> Stashed changes
                 </div>
 
                 <div class="mb-3">
                     <label>전화번호</label>
-<<<<<<< Updated upstream
                     <input type="text" name="tel" class="form-control" >
-=======
-                    <input type="text" name="tel" class="form-control">
->>>>>>> Stashed changes
                 </div>
 
                 <div class="mb-3">
                     <label>주소</label>
-<<<<<<< Updated upstream
                     <input type="text" name="address" class="form-control" >
-=======
-                    <input type="text" name="address" class="form-control">
->>>>>>> Stashed changes
                 </div>
 
                 <div class="mb-3">
                     <label>운영시간</label>
-<<<<<<< Updated upstream
                     <input type="text" name="operatingTime" class="form-control" >
-=======
-                    <input type="text" name="operatingTime" class="form-control">
->>>>>>> Stashed changes
                 </div>
 
                 <div class="mb-3">
                     <label>사진</label>
-<<<<<<< Updated upstream
                     <input type="text" name="photo" class="form-control" >
-=======
-                    <input type="text" name="photo" class="form-control">
                 </div>
                 <div class="mb-3">
                     <label>별점</label>
                     <input type="text" name="starRate" class="form-control">
->>>>>>> Stashed changes
                 </div>
 
                 <div class="mb-3">
                     <label>카테고리</label>
-<<<<<<< Updated upstream
                         <div>
                             <input type="radio" name="category"  value="볼링장" />
                                 <label>볼링장</label>
@@ -119,49 +92,14 @@
                             <input type="radio" name="category"  value="풋살" />
                                 <label>풋살</label>
                         </div>
-                    </div>
-=======
-                    <div>
-                        <input type="radio" name="category" value="볼링장"  />
-                            <label>볼링장</label>
-                        <input type="radio" name="category" value="탁구장" />
-                            <label>탁구장</label>
-                        <input type="radio" name="category" value="테니스장" />
-                            <label>테니스장</label>
-                        <input type="radio" name="category" value="클라이밍" />
-                            <label>클라이밍</label>
-                        <input type="radio" name="category" value="수영장" />
-                            <label>수영장</label>
-                        <input type="radio" name="category" value="스케이트" />
-                            <label>스케이트</label>
-                        <input type="radio" name="category" value="농구" />
-                            <label>농구</label>
-                        <input type="radio" name="category" value="풋살" />
-                            <label>풋살</label>
-                    </div>
                 </div>
->>>>>>> Stashed changes
-
-                  <button type="submit" class="btn btn-primary">등록</button>
-
-
-<<<<<<< Updated upstream
-<!--                <a href="/main">메인으로 돌아가기</a>-->
-                </div>
-            </form>
-=======
-    <!--            <a href="/main">메인으로 돌아가기</a>-->
-
+                <button type="submit" class="btn btn-primary">등록</button>
             </form>
         </div>
-
-<section>
-
+</section>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
->>>>>>> Stashed changes
-
-    </section>
 </body>
 </html>

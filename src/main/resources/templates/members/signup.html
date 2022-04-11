@@ -45,12 +45,11 @@
             <div class="semi-container">
                 <!-- 로고(제목) -->
                 <div class="logo">
-                    <img class = "logo-design" src="/image/pngwing.com.png">
-                    <a>따스한 프로젝트</a>
+                    <a>WP Sports</a>
                 </div>
                 <hr>
                 <!-- 사이트 간단 소개 -->
-                <div class="introduce"><a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, labore unde accusantium distinctio modi nemo sit </a></span>
+                <div class="introduce"><p>회원가입</p></span>
                 </div>
                 <!-- 가입창 세부 -->
                 <div class="input-container-item signup_box">
@@ -96,22 +95,22 @@
                         <!--권한 인풋-->
                             <input type="hidden" name="auth" value="MEMBER">
                         <!--naver_api_회원가입-->
-<<<<<<< Updated upstream
                         <div style="display:flex; justify-content:center" th:if="${session.currentUser eq null}">
-=======
+
                         <div th:if="${session.currentUser eq null}">
->>>>>>> Stashed changes
                             <a th:href="${apiURL}"><img height="50" src="/image/naver_logo.png"/></a>
+                        </div>
                         </div>
                         <!-- 가입버튼 -->
                         <p><button id="signup-button" class="signup-button" type="submit" >Will U Join Us?</button>
+                        </p>
                     </form>
                 </div>
             </div>
         </div>
         <div class = "signup-footer">
             <div class="footer-container">
-                <span class = "eimi">Already signed up?</span>
+                <span class = "eimi">이미 회원가입을 하셨나요?</span>
                 <button class = "gologin login" onclick="location.href='login'">Login</button>
             </div>
         </div>
