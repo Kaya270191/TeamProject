@@ -85,6 +85,9 @@ public class MainController {
         Member user = (Member) session.getAttribute("member");
         log.info(user.toString());
 
+        //일단 예약정보 지우고 시작
+        session.removeAttribute("bookedItem");
+
         //현재 활동중인 멤버의 cart를 가지러감
         Cart nowCart = cartService.getCart(user.getId());
         log.info("nowCart={}",nowCart);
@@ -92,7 +95,9 @@ public class MainController {
         for(CartItem item:allItems){
             if(item.getFacility().getId().equals(id)){
                 if(item.getCart().getCart_id().equals(nowCart.getCart_id())){
-                    session.setAttribute("bookedItem","이미 찜한 업체입니다.");
+                    //예약업체에 들어가 있다면 session에 예약정보 달아줌
+                    session.setAttribute("bookedItem","이미 찜 한 업체");
+                    break;
                 }
             }
         }

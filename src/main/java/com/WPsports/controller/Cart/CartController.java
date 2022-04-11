@@ -52,8 +52,6 @@ public class CartController {
 
         session.setAttribute("cart",nowCart);
 
-        session.setAttribute("BookedItem","예약된 업체입니다.");
-
         return "redirect:/facility/"+facility_id;
     }
 
@@ -61,7 +59,8 @@ public class CartController {
     @PostMapping("/cart/{member_id}/{facility_id}/cancel")
     public String cancelItem(@PathVariable  String member_id,
                              @PathVariable Long facility_id,
-                             HttpServletRequest request){
+                             HttpServletRequest request,
+                             Model model){
         HttpSession session = request.getSession();
         log.info("member_id = {}",member_id);
         log.info("facility_id={}",facility_id);
@@ -72,9 +71,6 @@ public class CartController {
 
         //입력받은 facility_id와 cart_id 로 cart item 지우러감
         cartItemService.removeItem(nowCart.getCart_id(),facility_id);
-        
-        //세션에 저장되어있던 예약정보 삭제
-        session.removeAttribute("bookedItem");
 
         return  "redirect:/facility/"+facility_id;
     }
@@ -92,8 +88,15 @@ public class CartController {
                 bookedList.add(item.getFacility());
             }
         }
-        session.setAttribute("bookedList",bookedList);
-        log.info(bookedList.toString());
+        if(bookedList.size()!=0){
+            session.setAttribute("bookedList",bookedList);
+            session.removeAttribute("noList");
+            log.info(bookedList.toString());
+        }else{
+            session.setAttribute("noList","등록된 업체가 없습니다.");
+            session.removeAttribute("bookedList");
+        }
+
 
         return "/members/bookedList";
     }
