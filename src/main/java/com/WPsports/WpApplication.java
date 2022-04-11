@@ -71,7 +71,7 @@ public class WpApplication {
 	public FilterRegistrationBean setFilterRegistration(){
 
 		FilterRegistrationBean filterRegistrationBean=new FilterRegistrationBean(new loginFilter());
-		filterRegistrationBean.addUrlPatterns("/main/*","/boards/*","/profile/*","/members/*"); // string 여러개(접근제한 url)를 가변인자로 받는 메소드
+		filterRegistrationBean.addUrlPatterns("/main/*","/boards/*","/profile/*","/members/*","/domain/*","/facility/*"); // string 여러개(접근제한 url)를 가변인자로 받는 메소드
 		return filterRegistrationBean;
 	}
 }

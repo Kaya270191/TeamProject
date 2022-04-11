@@ -35,4 +35,16 @@ public class CartItemService {
         return cartItemRepository.findAll();
     }
 
+    public void removeItem(Long cart_id,Long facility_id){
+        List<CartItem> allItem=cartItemRepository.findAll();
+        for(CartItem item:allItem){
+            if(item.getCart().getCart_id().equals(cart_id)){
+                if(item.getFacility().getId().equals(facility_id)){
+                    cartItemRepository.delete(item);
+                    return;
+                }
+            }
+        }
+
+    }
 }

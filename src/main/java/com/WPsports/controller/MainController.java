@@ -3,9 +3,14 @@ package com.WPsports.controller;
 
 
 import com.WPsports.dto.FacilityForm;
+import com.WPsports.entity.Cart.Cart;
+import com.WPsports.entity.Cart.CartItem;
 import com.WPsports.entity.Facility;
 import com.WPsports.entity.Member;
+import com.WPsports.repository.Cart.CartRepository;
 import com.WPsports.repository.FacilityRepository;
+import com.WPsports.service.Cart.CartItemService;
+import com.WPsports.service.Cart.CartService;
 import com.WPsports.service.FacilityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +21,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.net.ssl.HandshakeCompletedEvent;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -29,6 +33,12 @@ public class MainController {
     private FacilityService facilityService;
     @Autowired
     private FacilityRepository facilityRepository;
+
+    @Autowired
+    CartService cartService;
+
+    @Autowired
+    CartItemService cartItemService;
 
 
     @GetMapping("/domain")
@@ -69,9 +79,28 @@ public class MainController {
     public String show(@PathVariable Long id, Model model, HttpServletRequest req){
         Facility facilityEntity = (Facility) facilityRepository.findAllById(id);
 
+        int count=0;
+
         HttpSession session= req.getSession();
         Member user = (Member) session.getAttribute("member");
         log.info(user.toString());
+
+        //일단 예약정보 지우고 시작
+        session.removeAttribute("bookedItem");
+
+        //현재 활동중인 멤버의 cart를 가지러감
+        Cart nowCart = cartService.getCart(user.getId());
+        log.info("nowCart={}",nowCart);
+        List<CartItem> allItems = cartItemService.getItems();
+        for(CartItem item:allItems){
+            if(item.getFacility().getId().equals(id)){
+                if(item.getCart().getCart_id().equals(nowCart.getCart_id())){
+                    //예약업체에 들어가 있다면 session에 예약정보 달아줌
+                    session.setAttribute("bookedItem","이미 찜 한 업체");
+                    break;
+                }
+            }
+        }
 
         model.addAttribute("facility", facilityEntity);
         return "/facility/show";
