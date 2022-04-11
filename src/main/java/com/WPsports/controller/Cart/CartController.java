@@ -7,6 +7,7 @@ import com.WPsports.entity.Member;
 import com.WPsports.service.Cart.CartItemService;
 import com.WPsports.service.Cart.CartService;
 import com.WPsports.service.FacilityService;
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,7 +52,31 @@ public class CartController {
 
         session.setAttribute("cart",nowCart);
 
+        session.setAttribute("BookedItem","예약된 업체입니다.");
+
         return "redirect:/facility/"+facility_id;
+    }
+
+    //postmapping으로 요청을 받아 member_id와 facility_id를 받음
+    @PostMapping("/cart/{member_id}/{facility_id}/cancel")
+    public String cancelItem(@PathVariable  String member_id,
+                             @PathVariable Long facility_id,
+                             HttpServletRequest request){
+        HttpSession session = request.getSession();
+        log.info("member_id = {}",member_id);
+        log.info("facility_id={}",facility_id);
+
+        //현재 활동중인 멤버의 cart를 가지러감
+        Cart nowCart = cartService.getCart(member_id);
+        log.info("nowCart={}",nowCart);
+
+        //입력받은 facility_id와 cart_id 로 cart item 지우러감
+        cartItemService.removeItem(nowCart.getCart_id(),facility_id);
+        
+        //세션에 저장되어있던 예약정보 삭제
+        session.removeAttribute("bookedItem");
+
+        return  "redirect:/facility/"+facility_id;
     }
 
 //    찜목록 페이지

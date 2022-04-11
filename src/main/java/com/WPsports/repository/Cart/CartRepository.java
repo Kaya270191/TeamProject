@@ -9,5 +9,4 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
 
     @Override
     List<Cart> findAll();
-
 }

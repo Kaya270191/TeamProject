@@ -90,7 +90,7 @@
 
                 <form th:action="@{/cart/{member_id}/{facility_id} (member_id=${session.member.getId()},facility_id=${facility.id})}"
                       method="post">
-                    <div class="d-flex">
+                    <div class="d-flex" th:unless="${session.bookedItem}">
                         <input type="hidden" id="count" name="count" value="1" />
                         <button class="btn btn-outline-dark flex-shrink-0" type="submit">
                             <i class="bi-cart-fill me-1"></i>
@@ -98,25 +98,16 @@
                         </button>
                     </div>
                 </form>
+                <form th:action="@{/cart/{member_id}/{facility_id}/cancel (member_id=${session.member.getId()},facility_id=${facility.id})}"
+                      method="post">
+                    <div class="d-flex" th:if="${session.bookedItem}">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            찜 취소
+                        </button>
+                    </div>
+                </form>
             </div>
-
-            <!--    <div>-->
-            <!--        <form class="container" th:action="" method="post" >-->
-            <!--            <div class="container1" >-->
-
-
-
-            <!--            </div>-->
-            <!--            <button type="submit">찜하기</button>-->
-            <!--        </form>-->
-
-            <!--    </div>-->
-
-            <!--        <a href="#" class="btn btn-primary">찜하기버튼</a>-->
-
-            <!--    </div>-->
-
-
         </div>
 
         <!--삭제버튼-->
