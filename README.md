@@ -64,7 +64,7 @@
 - 개발기간 : 22. 03. 11. ~ 22. 04.11
 - 참여인원 : <a href="https://github.com/Kaya270191">정가영</a>, <a href="https://github.com/alstn1200w">김민수</a>, <a href="https://github.com/GENOzzz">박현호</a>, <a href="https://github.com/merlindoraji">공도형</a>
 - 개발과정 :
-  - [Notion](https://www.notion.so/invite/7a8baa7ceaf6d0d529969e86d7a47cf29397f9c5)
+  - [Notion](https://www.notion.so/9709ba44fe8947cba7d425630fa2e6fe?v=ffc4534f735f4993bc199c96200bd2db)
   - [GitHub](https://github.com/Kaya270191/TeamProject.git)
 - 구현기능 :
     - 공동 작업 : 기획, DB 설계
@@ -87,8 +87,8 @@
 
 ### 🔨 프로젝트 설계
 
-- <a href="https://www.notion.so/UI-5e4f4335d32a458b8cc59bc335329d77">화면 설계(UI)</a>
-- <a href="https://www.notion.so/04c61241d7d744618fd0981762663bdc">프로세스 흐름도</a>
+- <a href="https://www.notion.so/UI-ce7ff471bb8747f7a4c4c12c105224f2">화면 설계(UI)</a>
+- <a href="https://www.notion.so/0df5760c60fd4b21872032b17b8bbc51">프로세스 흐름도</a>
 
 ---
 
@@ -109,11 +109,11 @@
 <br>
 
 - UI구조
-  - <a href="https://www.notion.so/UI-44cd6408a9624781b8519b574d507351">화면 흐름도</a>
+  - <a href="https://www.notion.so/UI-6af423b84ea64bb79e214a0cfd7b7e28">화면 흐름도</a>
 
 <br>
   
-- <a href="https://www.notion.so/URL-1cf8a6452a6d4cdd94bd887e47caa07f">URL 구조</a>
+- <a href="https://www.notion.so/URL-76fa305400d6475e8edc1a3f37951e4b">URL 구조</a>
 ---
 
 ## 👀 주요 기능 미리보기
