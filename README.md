@@ -117,15 +117,31 @@
 ---
 
 ## 👀 주요 기능 미리보기
-- 회원가입
+- 1. 회원가입
 
-- 로그인/로그아웃
+- 2. 로그인/로그아웃
 
 ![login_logout](https://user-images.githubusercontent.com/92358313/162903829-ebe7a57e-f340-4ff0-93bd-8a32377fe658.gif)
 
-- 게시글 등록/수정/삭제
+- 3. 게시글 등록/수정/삭제
 
-<img src="https://hnet.com/video-to-gif/download/20220411-20-4BpBcSFTXyzUTxBq-VKoKHc/Hnet-image.gif">
+![boards](https://user-images.githubusercontent.com/92358313/162904847-f637be91-f213-4a3e-bb83-06259ff4c26e.gif)
+
+- 4. 게시글 검색
+
+![board_search](https://user-images.githubusercontent.com/92358313/162906520-d143d1ef-6aba-43a9-8be4-568bb4b8a70d.gif)
+
+- 5. 댓글 등록/수정/삭제
+
+![comments](https://user-images.githubusercontent.com/92358313/162905948-3916b3ae-6f5b-416f-b157-f8dbc73c1e00.gif)
+
+- 6. 업체리스트/상세보기
+
+![facility](https://user-images.githubusercontent.com/92358313/162907301-e06308cd-ec4b-4356-bc45-fe4c279f16fd.gif)
+
+- 7. 업체 찜/취소
+
+![ggim](https://user-images.githubusercontent.com/92358313/162908033-209c10b6-db9c-4982-ac73-48fda61bd20b.gif)
 ---
 
 
