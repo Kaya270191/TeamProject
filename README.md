@@ -118,8 +118,9 @@
 
 ## 👀 주요 기능 미리보기
 - 회원가입
-
-
+![basicSignUp](https://hnet.com/video-to-gif/viewimage/20220411-20-4BpBcSFTXyzUTxBq-VKoKHc-HNET)
+- 로그인/로그아웃
+![login_logout](https://user-images.githubusercontent.com/92358313/162903829-ebe7a57e-f340-4ff0-93bd-8a32377fe658.gif)
 ---
 
 
