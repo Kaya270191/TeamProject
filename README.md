@@ -71,7 +71,7 @@
     - 정가영 : 게시글,업체,댓글 관련 Back-End,Front-End 구현
     - 김민수 : 메인,업체 관련 Back-End,Front-End 구현
     - 박현호 : 회원가입,권한 관련 Back-End,Front-End 구현
-    - 공도형 : UI 구현
+    - 공도형 : UI 구현,시연 영상 촬영및 편집
 
 ### 📝 기획
 
