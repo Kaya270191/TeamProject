@@ -118,6 +118,7 @@
 
 ## 👀 주요 기능 미리보기
 - 회원가입
+![signUp](https://user-images.githubusercontent.com/92358313/162890408-8dab41e5-1577-417c-acef-99529ca8589b.gif)
 
 ---
 
