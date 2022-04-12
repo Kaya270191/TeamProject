@@ -125,7 +125,7 @@
 
 - 게시글 등록/수정/삭제
 
-![basicSignUp](https://hnet.com/video-to-gif/download/20220411-20-4BpBcSFTXyzUTxBq-VKoKHc/Hnet-image.gif)
+<img src="https://hnet.com/video-to-gif/download/20220411-20-4BpBcSFTXyzUTxBq-VKoKHc/Hnet-image.gif">
 ---
 
 
