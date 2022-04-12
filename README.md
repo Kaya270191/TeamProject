@@ -120,8 +120,12 @@
 
 ### 1. 회원가입
   - 1-1.일반 회원가입
-  
+
+    [![Video Label](https://user-images.githubusercontent.com/92358313/162952039-4bd15e20-4928-4e63-b5bd-338aa3e0ffa0.png)](https://youtu.be/OzsZ78CHnFo)
+
   - 1-2.NaverAPI를 이용한 회원가입
+
+    [![Video Label](https://user-images.githubusercontent.com/92358313/162952039-4bd15e20-4928-4e63-b5bd-338aa3e0ffa0.png)](https://youtu.be/iahR2jitxnU)
 
 ### 2. 로그인/로그아웃
 
