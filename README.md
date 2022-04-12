@@ -117,44 +117,49 @@
 ---
 
 ## 👀 주요 기능 미리보기
-- 1. 회원가입
+
+1.[회원가입](#-회원가입)
+
+2.[로그인 로그아웃](#-로그인/로그아웃)
+
+### 1. 회원가입
   - 1-1.일반 회원가입
   
   - 1-2.NaverAPI를 이용한 회원가입
 
-- 2. 로그인/로그아웃
+### 2. 로그인/로그아웃
 
 ![login_logout](https://user-images.githubusercontent.com/92358313/162903829-ebe7a57e-f340-4ff0-93bd-8a32377fe658.gif)
 
-- 3. 프로필/수정
+### 3. 프로필/수정
 
 ![profile_edit](https://user-images.githubusercontent.com/92358313/162928388-3371b491-838f-4ce7-8ec1-4dc182487e8d.gif)
 
-- 4. 회원탈퇴
+### 4. 회원탈퇴
 
 ![member_out](https://user-images.githubusercontent.com/92358313/162938138-55cd3078-e5b4-46a6-9d9c-e78bc4ad0cea.gif)
 
-- 5. 게시글 등록/수정/삭제
+### 5. 게시글 등록/수정/삭제
 
 ![boards](https://user-images.githubusercontent.com/92358313/162904847-f637be91-f213-4a3e-bb83-06259ff4c26e.gif)
 
-- 6. 게시글 검색
+### 6. 게시글 검색
 
 ![board_search](https://user-images.githubusercontent.com/92358313/162906520-d143d1ef-6aba-43a9-8be4-568bb4b8a70d.gif)
 
-- 7. 댓글 등록/수정/삭제
+### 7. 댓글 등록/수정/삭제
 
 ![comments](https://user-images.githubusercontent.com/92358313/162905948-3916b3ae-6f5b-416f-b157-f8dbc73c1e00.gif)
 
-- 8. 업체리스트/상세보기
+### 8. 업체리스트/상세보기
 
 ![facility](https://user-images.githubusercontent.com/92358313/162907301-e06308cd-ec4b-4356-bc45-fe4c279f16fd.gif)
 
-- 9. 업체 찜/취소
+### 9. 업체 찜/취소
 
 ![ggim](https://user-images.githubusercontent.com/92358313/162908033-209c10b6-db9c-4982-ac73-48fda61bd20b.gif)
 
-- 10. 관리자
+### 10. 관리자
   - 10-1.게시판/댓글 관리
   
   ![admin_board](https://user-images.githubusercontent.com/92358313/162929189-f4f92ef7-ffe9-41e2-90ff-5a664fac95a4.gif)
@@ -165,11 +170,11 @@
   
   - 10-3.업체관리
   
-    -업체등록
+    - 업체등록
     
     ![admin_facility_plus](https://user-images.githubusercontent.com/92358313/162935605-1955bec7-01a9-47ef-a6e0-8c64887feb96.gif)
     
-    -업체 수정/삭제
+    - 업체 수정/삭제
     
     ![admin_facility_edit](https://user-images.githubusercontent.com/92358313/162937423-0a28606d-2631-434c-9508-da0ecdfc59a5.gif)
     
